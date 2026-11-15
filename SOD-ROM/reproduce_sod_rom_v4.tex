@@ -21,7 +21,7 @@ The driver \f{python/\allowbreak{}run\_\allowbreak{}sod\_\allowbreak{}rom\_\allo
 All results are simulations. Each script is deterministic for a given seed. Re-running it reproduces its stored output file to the printed precision; wall times are the exception.
 Run times below are wall-clock on a 2-core Linux machine.
 
-Version 4 reorganizes version 3 into a main text and a supplement and adds one test, the dynamic correction on the two-well beam (\f{mb10}). Every other script and stored output is the one of version 3. The v3 manual, \f{reproduce\_\allowbreak{}sod\_\allowbreak{}rom\_\allowbreak{}v3.tex}, and its driver are kept unchanged.
+Version 4 reorganizes version 3 into a main text and a supplement and adds two tests of bent correction vectors: on the two-well beam (\f{mb10}) and on the COST F3 beam (\f{n14}). Every other script and stored output is the one of version 3. The v3 manual, \f{reproduce\_\allowbreak{}sod\_\allowbreak{}rom\_\allowbreak{}v3.tex}, and its driver are kept unchanged.
 
 \section{Environment}
 \begin{itemize}
@@ -42,7 +42,7 @@ path & content\\ \midrule
 \f{python/\allowbreak{}nnmrom/\allowbreak{}} & nonlinear benchmark S4, the COST F3 cantilever\\
 \f{python/\allowbreak{}moonbeam/\allowbreak{}} & nonlinear benchmark S5, the two-well beam\\
 \f{figures/\allowbreak{}} & every figure of the paper, as vector PDF; \f{figures/\allowbreak{}tikz/\allowbreak{}} for Figure~1\\
-\f{SOD-ROM/\allowbreak{}tables/\allowbreak{}tab\_\allowbreak{}c\_\allowbreak{}cost.tex} & Table~S2, written by \f{mktab\_\allowbreak{}c\_\allowbreak{}cost.py}\\
+\f{SOD-ROM/\allowbreak{}tables/\allowbreak{}tab\_\allowbreak{}c\_\allowbreak{}cost.tex} & Table~S3, written by \f{mktab\_\allowbreak{}c\_\allowbreak{}cost.py}\\
 \f{python/\allowbreak{}rom/\allowbreak{}systems.py} & S1 shear frame, S2/S3 cantilever (with tip dashpot), Rayleigh damping, state matrices\\
 \f{python/\allowbreak{}rom/\allowbreak{}romlib.py} & band-limited noise (\f{band\_\allowbreak{}noise}), swept sine (\f{chirp})\\
 \f{python/\allowbreak{}rom/\allowbreak{}romlib2.py} & (wraps the toolbox) exact zero-order-hold simulation, LNM, MTA, POD, SOD and state-SOD bases, configuration and energy-Galerkin state ROMs, the mass-weighted error, complex-mode truncation\\
@@ -59,9 +59,9 @@ Folders named \f{superseded\_\allowbreak{}*} hold outputs of earlier rule versio
 cd python
 bash run_sod_rom_v4.sh                  # all stages, about 18.5 h
 bash run_sod_rom_v4.sh geometry cost    # chosen stages only
-bash run_sod_rom_v4.sh figs             # redraw figures and Table S2 from stored outputs
+bash run_sod_rom_v4.sh figs             # redraw figures and Table S3 from stored outputs
 \end{verbatim}
-Stages, in order: \f{toolbox} (1~min), \f{ensemble} (7.5~h), \f{geometry} (a few minutes), \f{ic} (0.5~h), \f{mix} (0.3~h), \f{select} (1.5~h), \f{nonlin} (1.5~h), \f{moon} (7.5~h, \f{mb10} included), \f{cost} (alone; see Section~9 below), \f{figs}.
+Stages, in order: \f{toolbox} (1~min), \f{ensemble} (7.5~h), \f{geometry} (a few minutes), \f{ic} (0.5~h), \f{mix} (0.3~h), \f{select} (1.5~h), \f{nonlin} (1.5~h), \f{moon} (7.5~h, \f{mb10} included; \f{n14} runs in \f{nonlin}), \f{cost} (alone; see Section~9 below), \f{figs}.
 \f{geometry} needs no output of \f{ensemble}: it regenerates the \f{c18} case-2 records from their seeds.
 Within \f{cost}, \f{k1} runs before \f{k2}, which reads its pickles.
 
@@ -174,6 +174,7 @@ Fig.~S4, ``Tracking the backbone'' (Section~S6), and the four-mode ROM to 0.048~
 Section~S6, ``Bending out of the plane'': 30--240~N, companion energy, $2.1^\circ$ from LNMs 1--2 & \f{n7\_\allowbreak{}ssod\_\allowbreak{}companions.py}, \f{n9\_\allowbreak{}strong\_\allowbreak{}companions.py 0.3} & -- & \f{n7\_\allowbreak{}out.txt}, \f{n9\_\allowbreak{}out\_\allowbreak{}band0.3.txt}; 15~min\\
 Plane span; embedding dimension; mode-2 plane at 30~N (0.836) & \f{n10\_\allowbreak{}plane\_\allowbreak{}span.py}, \f{n11\_\allowbreak{}diagnose.py}, \f{n11b\_\allowbreak{}banded\_\allowbreak{}circ.py} & -- & \f{n10\_\allowbreak{}out.txt}, \f{n11\_\allowbreak{}out.txt}, \f{n11b\_\allowbreak{}out.txt}; 15~min\\
 Peak against SOD frequency (10--12\%); first SOD direction $0.3$--$0.9^\circ$ from $(\bf K-\omega^2 M)^{-1}e_{tip}$ (Sec.~8.2) & \f{n13\_\allowbreak{}checks.py} & -- & \f{n13\_\allowbreak{}out.txt}; 5~min\\
+Sec.~8.2 ``The bent correction as a basis vector'', the first-direction angle $3\times10^{-4}$ degrees, Discussion and Conclusions (factor 2.7 at $r=4$), Section~S6 and Table~S1 & \f{n14\_\allowbreak{}bent\_\allowbreak{}mta.py} (after \f{n3}) & -- & \f{n14\_\allowbreak{}out.txt}, \f{n14\_\allowbreak{}results.pkl}; about 2~min\\
 Section~S6, cost paragraph: Newmark wall times, best of three & \f{n2b\_\allowbreak{}cost\_\allowbreak{}best3.py} (nl) & -- & \f{n2b\_\allowbreak{}out.txt}; 1~min, alone\\
 \bottomrule
 \end{longtable}
@@ -192,7 +193,7 @@ Cascade zoom: period 2, 4, 8 and escape; Fig.~6 & \f{mb6z\_\allowbreak{}cascade.
 One-mode ROMs: $q^*$, well frequency (Table~2); $0.7^\circ$ to $\bf K^{-1}e_{tip}$ & \f{mb9\_\allowbreak{}onemode.py} & -- & \f{mb9\_\allowbreak{}out.txt}; seconds\\
 Dynamic correction $\bf d(\omega)=(K-\omega^2 M)^{-1}e_{tip}$: angles to the first SOD direction ($0.69^\circ$ at 0, $2.2^\circ$ at $\omega_w$, $0.003^\circ$ at 2.42, $0.05^\circ$ at the first SOD frequency 2.49); one-mode DMTS ($-0.32\%$, $+1.26\%$); bases DMTS & \f{mb10\_\allowbreak{}dynamic\_\allowbreak{}correction.py} & -- & \f{mb10\_\allowbreak{}out.txt}, \f{mb10\_\allowbreak{}bases.pkl}; seconds\\
 Amplitude sweeps of DMTS at $r=1,2$ & \f{mb10\_\allowbreak{}dynamic\_\allowbreak{}correction.py sweep DMTS <r>} & -- & \f{mb6\_\allowbreak{}DMTS\_\allowbreak{}r<r>.pkl}; 9--10~min per order, two at a time\\
-Sec.~8.3 ``More modes'' (both measures at $r=2$; DMTS $3.1\times10^{-4}$) and Table~S1 & \f{mb7\_\allowbreak{}amp\_\allowbreak{}compare.py}, after the DMTS sweeps & -- & \f{mb7\_\allowbreak{}out\_\allowbreak{}v4.txt}, \f{mb10\_\allowbreak{}compare\_\allowbreak{}out.txt}\\
+Sec.~8.3 ``More modes'' (both measures at $r=2$; DMTS $3.1\times10^{-4}$) and Table~S2 & \f{mb7\_\allowbreak{}amp\_\allowbreak{}compare.py}, after the DMTS sweeps & -- & \f{mb7\_\allowbreak{}out\_\allowbreak{}v4.txt}, \f{mb10\_\allowbreak{}compare\_\allowbreak{}out.txt}\\
 \bottomrule
 \end{longtable}
 
@@ -200,7 +201,7 @@ Sec.~8.3 ``More modes'' (both measures at $r=2$; DMTS $3.1\times10^{-4}$) and Ta
 \begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
 \toprule
 paper item & script & seed & output; run time\\ \midrule
-Table~S2: $\omega_{\max}$, $\rho(\bf A_r)$, CD steps, least RK45 and Radau work at error $10^{-6}$ and its best-of-3 wall time; overdamped eigenvalue $-9.3\times10^5$; raw against Ritz coordinates; ratios in Sec.~9 and the bullet list of Section~S8 & \f{c36\_\allowbreak{}cost\_\allowbreak{}matched.py <0|1>}, \f{mktab\_\allowbreak{}c\_\allowbreak{}cost.py} (rom) & 5 & \f{c36\_\allowbreak{}out\_\allowbreak{}<k>.txt}, \f{c36\_\allowbreak{}results\_\allowbreak{}<k>.pkl}, \f{SOD-ROM/\allowbreak{}tables/\allowbreak{}tab\_\allowbreak{}c\_\allowbreak{}cost.tex}; run time not recorded, alone\\
+Table~S3: $\omega_{\max}$, $\rho(\bf A_r)$, CD steps, least RK45 and Radau work at error $10^{-6}$ and its best-of-3 wall time; overdamped eigenvalue $-9.3\times10^5$; raw against Ritz coordinates; ratios in Sec.~9 and the bullet list of Section~S8 & \f{c36\_\allowbreak{}cost\_\allowbreak{}matched.py <0|1>}, \f{mktab\_\allowbreak{}c\_\allowbreak{}cost.py} (rom) & 5 & \f{c36\_\allowbreak{}out\_\allowbreak{}<k>.txt}, \f{c36\_\allowbreak{}results\_\allowbreak{}<k>.pkl}, \f{SOD-ROM/\allowbreak{}tables/\allowbreak{}tab\_\allowbreak{}c\_\allowbreak{}cost.tex}; run time not recorded, alone\\
 Five bases of one SOD subspace; RK45 at the fixed setting (416\,k and 158\,k evaluations) & \f{k1\_\allowbreak{}basis\_\allowbreak{}cost.py <0|1>} (rom) & 5 & \f{k1\_\allowbreak{}out\_\allowbreak{}<k>.txt}, \f{k1\_\allowbreak{}results\_\allowbreak{}<k>.pkl}; run time not recorded, alone\\
 Fixed setting: Radau 11.3~s (full, physical) and 3.8~s (full, LNM) and their errors & \f{k2\_\allowbreak{}matched\_\allowbreak{}cost.py} (rom), after \f{k1} & 5 & \f{k2\_\allowbreak{}out.txt}, \f{k2\_\allowbreak{}results.pkl}; run time not recorded, alone\\
 \bottomrule
