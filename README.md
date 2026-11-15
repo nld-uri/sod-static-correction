@@ -1,7 +1,7 @@
 # Code, stored results and reproduction manual for: Smooth orthogonal decomposition bases learn static correction from response records
 
 D. Chelidze, Nonlinear Dynamics Laboratory, University of Rhode Island.
-Article prepared for the *Journal of Sound and Vibration*. Archive: Zenodo, DOI to be added on reservation.
+Article prepared for the *Journal of Sound and Vibration*. Archive: Zenodo, https://doi.org/10.5281/zenodo.24248585 (reserved; published on submission).
 Development repository: https://github.com/nld-uri/sod-static-correction. License: MIT (`LICENSE`). Citation: `CITATION.cff`.
 
 Every number, table and figure of the article is produced from the models alone by the Python scripts in `python/`; there are no measured data.

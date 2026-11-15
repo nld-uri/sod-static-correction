@@ -3,6 +3,7 @@ message: "If you use this code or these stored results, please cite the article 
 type: software
 title: "Code, stored results and reproduction manual for: Smooth orthogonal decomposition bases learn static correction from response records"
 version: 1.0.0
+doi: "10.5281/zenodo.24248585"
 date-released: "2026-11-15"
 license: MIT
 repository-code: "https://github.com/nld-uri/sod-static-correction"
