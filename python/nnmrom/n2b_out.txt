@@ -1,0 +1,9 @@
+SOD frequencies (Hz), decay data: [ 31.2  133.61 198.8  455.04]   conservative 30 N: [ 36.73 151.91 415.18 821.66]   LNM: [ 23.66 148.28 415.21 813.68]
+python 3.13.18, numpy 2.5.3, scipy 1.18.1, x86_64
+full       best of 3: 0.886 s  (runs 0.886, 0.948, 1.102)
+LNM r=2    best of 3: 0.483 s  (runs 0.483, 0.568, 0.574)
+SOD r=2    best of 3: 0.578 s  (runs 0.615, 0.631, 0.578)
+POD r=2    best of 3: 0.456 s  (runs 0.471, 0.456, 0.456)
+LNM r=4    best of 3: 0.482 s  (runs 0.482, 0.568, 0.569)
+SOD r=4    best of 3: 0.447 s  (runs 0.566, 0.491, 0.447)
+POD r=4    best of 3: 0.506 s  (runs 0.506, 0.610, 0.565)

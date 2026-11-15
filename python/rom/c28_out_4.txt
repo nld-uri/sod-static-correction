@@ -1,0 +1,36 @@
+S3 dashpot: realization 1/20 (161s)
+S3 dashpot: realization 2/20 (317s)
+S3 dashpot: realization 3/20 (470s)
+S3 dashpot: realization 4/20 (631s)
+S3 dashpot: realization 5/20 (787s)
+S3 dashpot: realization 6/20 (940s)
+S3 dashpot: realization 7/20 (1100s)
+S3 dashpot: realization 8/20 (1253s)
+S3 dashpot: realization 9/20 (1415s)
+S3 dashpot: realization 10/20 (1577s)
+S3 dashpot: realization 11/20 (1732s)
+S3 dashpot: realization 12/20 (1889s)
+S3 dashpot: realization 13/20 (2042s)
+S3 dashpot: realization 14/20 (2195s)
+S3 dashpot: realization 15/20 (2344s)
+S3 dashpot: realization 16/20 (2505s)
+S3 dashpot: realization 17/20 (2668s)
+S3 dashpot: realization 18/20 (2831s)
+S3 dashpot: realization 19/20 (2996s)
+S3 dashpot: realization 20/20 (3124s)
+== S3 dashpot, test rand: median error (number of realizations reaching the order), r = 1..10
+   LNM           1.6e-01  3.9e-02  1.2e-02  4.3e-03  7.8e-04  3.3e-04  1.8e-04  1.1e-04  7.4e-05  5.1e-05
+   MTA                --       --  6.6e-02  5.1e-02  1.3e-02  4.7e-03  2.0e-04  2.7e-05  4.4e-06  2.5e-06
+   MTA-tip            --  1.7e-01  5.2e-02  1.7e-02  4.7e-03  2.7e-04  2.7e-05  6.9e-06  2.5e-06  1.0e-06
+   POD (rand)    1.9e-01  6.5e-02  1.5e-02  4.5e-03  9.3e-04  2.1e-04  1.5e-05  2.6e-06       --       --
+   SOD (rand)    1.6e-01  4.0e-02  4.4e-02  1.4e-02  4.8e-03  2.3e-04  2.0e-05  2.6e-06       --       --
+   POD (rand2)   2.6e-01  4.4e-02  2.4e-02  4.3e-03  9.5e-04  2.3e-04  1.1e-04  1.5e-05  2.1e-06  9.6e-07
+   SOD (rand2)   1.6e-01  4.0e-02  4.4e-02  1.5e-02  1.6e-02  4.9e-03  1.7e-04  1.5e-05  2.0e-06  9.7e-07
+== S3 dashpot, test mid: median error (number of realizations reaching the order), r = 1..10
+   LNM           3.0e-01  2.4e-02  2.4e-02  1.5e-03  1.5e-03  3.2e-04  3.2e-04  1.3e-04  1.2e-04  6.0e-05
+   MTA                --       --  9.2e-02  3.2e-02  2.5e-02  6.9e-04  4.2e-04  1.0e-05  8.8e-06  1.5e-06
+   MTA-tip            --  3.1e-01  2.7e-02  2.6e-02  1.5e-03  1.2e-03  2.9e-04  2.7e-04  1.2e-04  1.1e-04
+   POD (rand)    3.3e-01  9.4e-02  2.5e-02  2.9e-03  1.5e-03  9.9e-04  2.9e-04  2.9e-04       --       --
+   SOD (rand)    3.0e-01  2.5e-02  2.4e-02  2.4e-02  1.7e-03  1.1e-03  2.9e-04  2.9e-04       --       --
+   POD (rand2)   3.8e-01  4.2e-02  2.5e-02  1.9e-03  1.5e-03  7.6e-04  2.3e-04  1.8e-05  5.9e-06  7.5e-07
+   SOD (rand2)   3.0e-01  2.5e-02  2.5e-02  2.5e-02  2.8e-02  6.4e-04  3.5e-04  1.9e-05  5.9e-06  7.5e-07

@@ -1,0 +1,15 @@
+== S2 light: record energy ratio R_k/R_1 = [1.    0.48  0.103 0.029 0.011 0.005 0.003 0.002 0.001]
+  EE: sSOD freqs [  3.4   3.6  21.9  22.2  60.8  62.2 117.3 122.4]; best plane projection [1. 1. 1. 1. 1. 1. 1. 1.]; mid: sSOD 2.13e-03 SOD 6.82e-04; freeEE: sSOD 2.31e-03 SOD 2.08e-03
+  RE: sSOD freqs [  3.4   3.6  21.9  22.2  60.8  62.2 117.3 122.4]; best plane projection [1.   1.   1.   1.   1.   1.   0.98 0.99]; mid: sSOD 1.72e-01 SOD 4.41e-03; freeEE: sSOD 2.02e-01 SOD 3.48e-03
+  CM mid: 6.63e-04
+  CM freeEE: 2.08e-03
+== S3 dashpot: record energy ratio R_k/R_1 = [1.    0.836 0.422 0.162 0.067 0.031 0.017 0.01  0.006]
+  EE: sSOD freqs [  3.1   4.   21.5  22.6  60.4  62.6 116.8 122.7]; best plane projection [1.   1.   1.   1.   1.   1.   0.99 1.  ]; mid: sSOD 1.33e-02 SOD 2.35e-02; freeEE: sSOD 1.85e-02 SOD 1.56e-02
+  RE: sSOD freqs [  3.1   4.   21.5  22.5  60.3  62.5 116.3 122.5]; best plane projection [1.   0.99 1.   1.   0.99 1.   0.98 0.99]; mid: sSOD 2.26e-01 SOD 5.33e-03; freeEE: sSOD 2.03e-01 SOD 1.36e-02
+  CM mid: 1.42e-03
+  CM freeEE: 4.96e-03
+== S3 dashpot_heavy: record energy ratio R_k/R_1 = [1.    0.653 0.477 0.284 0.147 0.077 0.043 0.025 0.016]
+  EE: sSOD freqs [  2.    5.9  20.2  24.3  58.8  64.  114.7 124. ]; best plane projection [0.99 0.84 0.99 0.99 0.99 0.99 0.99 0.99]; mid: sSOD 1.19e-01 SOD 3.95e-03; freeEE: sSOD 6.04e-02 SOD 2.99e-02
+  RE: sSOD freqs [  2.    5.8  20.1  24.2  57.8  63.8  75.2 116.9]; best plane projection [0.99 0.76 0.99 0.97 0.96 0.98 0.33 0.97]; mid: sSOD 2.26e+00 SOD 6.87e-03; freeEE: sSOD 4.81e-01 SOD 3.30e-02
+  CM mid: 3.02e-03
+  CM freeEE: 5.63e-03

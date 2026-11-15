@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code or these stored results, please cite the article and this archive."
+type: software
+title: "Code, stored results and reproduction manual for: Smooth orthogonal decomposition bases learn static correction from response records"
+version: 1.0.0
+date-released: "2026-11-15"
+license: MIT
+repository-code: "https://github.com/nld-uri/sod-static-correction"
+authors:
+  - family-names: Chelidze
+    given-names: David
+    orcid: "https://orcid.org/0000-0003-0655-1439"
+    affiliation: "University of Rhode Island"
+preferred-citation:
+  type: article
+  title: "Smooth orthogonal decomposition bases learn static correction from response records"
+  authors:
+    - family-names: Chelidze
+      given-names: David
+      orcid: "https://orcid.org/0000-0003-0655-1439"
+      affiliation: "University of Rhode Island"
+  journal: "Journal of Sound and Vibration"
+  status: submitted
+  year: 2026

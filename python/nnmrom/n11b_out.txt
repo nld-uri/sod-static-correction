@@ -1,0 +1,22 @@
+P=30 pair (0,1) peak 205: broadband 0.994, banded 0.996, angle to nearest LNM plane 7.6 deg MODAL
+P=30 pair (3,4) peak 959: broadband 0.836, banded 0.970, angle to nearest LNM plane 13.9 deg MODAL
+P=30 pair (5,6) peak 2618: broadband 0.961, banded 0.997, angle to nearest LNM plane 9.9 deg MODAL
+P=60 pair (0,1) peak 230: broadband 0.987, banded 0.992, angle to nearest LNM plane 11.2 deg MODAL
+P=60 pair (3,4) peak 976: broadband 0.985, banded 0.995, angle to nearest LNM plane 4.5 deg MODAL
+P=60 pair (5,6) peak 2626: broadband 0.975, banded 0.997, angle to nearest LNM plane 13.0 deg MODAL
+P=120 pair (0,1) peak 255: broadband 0.983, banded 0.991, angle to nearest LNM plane 14.7 deg MODAL
+P=120 pair (3,4) peak 993: broadband 0.983, banded 0.995, angle to nearest LNM plane 7.0 deg MODAL
+P=120 pair (5,6) peak 2639: broadband 0.981, banded 0.998, angle to nearest LNM plane 10.3 deg MODAL
+P=240 pair (0,1) peak 226: broadband 0.969, banded 0.983, angle to nearest LNM plane 17.3 deg
+P=240 pair (2,3) peak 976: broadband 0.692, banded 0.784, angle to nearest LNM plane 10.1 deg MODAL
+P=240 pair (3,4) peak 976: broadband 0.960, banded 0.992, angle to nearest LNM plane 9.1 deg MODAL
+P=240 pair (5,6) peak 2639: broadband 0.861, banded 0.952, angle to nearest LNM plane 15.2 deg
+P=240 pair (6,7) peak 2639: broadband 0.826, banded 0.971, angle to nearest LNM plane 11.3 deg MODAL
+modal pairs: broadband 0.692-0.994, banded 0.784-0.998 (12)
+rule c0>=0.7 & c1>=0.85: modal accepted 11/12, other accepted 2/34
+rule c0>=0.75 & c1>=0.85: modal accepted 11/12, other accepted 2/34
+rule c0>=0.8 & c1>=0.85: modal accepted 11/12, other accepted 2/34
+rescue rule (c0>=0.85, or c0>=0.75 & c1>=0.95 & energy share>=0.001): modal 11/12, other 2/34
+rescue rule (c0>=0.85, or c0>=0.75 & c1>=0.95 & energy share>=0.01): modal 11/12, other 2/34
+rule c0>=0.85: modal 9/12, other 2; rule c1>=0.85: modal 11, other 2
+other pairs: broadband 0.502-0.969, banded 0.505-0.983 (34); banded > 0.85: 2

@@ -1,0 +1,36 @@
+S3 dashpot_heavy: realization 1/20 (154s)
+S3 dashpot_heavy: realization 2/20 (318s)
+S3 dashpot_heavy: realization 3/20 (481s)
+S3 dashpot_heavy: realization 4/20 (649s)
+S3 dashpot_heavy: realization 5/20 (810s)
+S3 dashpot_heavy: realization 6/20 (972s)
+S3 dashpot_heavy: realization 7/20 (1123s)
+S3 dashpot_heavy: realization 8/20 (1285s)
+S3 dashpot_heavy: realization 9/20 (1450s)
+S3 dashpot_heavy: realization 10/20 (1614s)
+S3 dashpot_heavy: realization 11/20 (1781s)
+S3 dashpot_heavy: realization 12/20 (1939s)
+S3 dashpot_heavy: realization 13/20 (2100s)
+S3 dashpot_heavy: realization 14/20 (2253s)
+S3 dashpot_heavy: realization 15/20 (2419s)
+S3 dashpot_heavy: realization 16/20 (2581s)
+S3 dashpot_heavy: realization 17/20 (2748s)
+S3 dashpot_heavy: realization 18/20 (2912s)
+S3 dashpot_heavy: realization 19/20 (3074s)
+S3 dashpot_heavy: realization 20/20 (3170s)
+== S3 dashpot_heavy, test rand: median error (number of realizations reaching the order), r = 1..10
+   LNM           1.7e-01  5.5e-02  2.1e-02  8.1e-03  1.6e-03  7.0e-04  4.0e-04  2.5e-04  1.7e-04  1.2e-04
+   MTA                --       --  6.6e-02  5.8e-02  1.8e-02  8.4e-03  3.9e-04  5.5e-05  9.0e-06  5.2e-06
+   MTA-tip            --  9.4e-02  6.0e-02  2.6e-02  8.4e-03  5.4e-04  5.4e-05  1.4e-05  5.1e-06  2.1e-06
+   POD (rand)    1.8e-01  7.1e-02  2.5e-02  8.6e-03  1.8e-03  4.1e-04  3.0e-05  6.6e-06  2.2e-06       --
+   SOD (rand)    1.7e-01  5.7e-02  5.7e-02  2.1e-02  8.7e-03  4.7e-04  4.2e-05  6.7e-06  2.6e-06       --
+   POD (rand2)   2.0e-01  5.8e-02  4.0e-02  8.2e-03  1.9e-03  4.3e-04  2.0e-04  2.9e-05  5.0e-06  2.2e-06
+   SOD (rand2)   1.7e-01  5.5e-02  5.7e-02  5.5e-02  2.5e-02  8.7e-03  3.0e-04  3.8e-05  4.8e-06  2.8e-06
+== S3 dashpot_heavy, test mid: median error (number of realizations reaching the order), r = 1..10
+   LNM           3.4e-01  4.2e-02  4.0e-02  3.5e-03  3.1e-03  7.8e-04  7.0e-04  3.1e-04  2.8e-04  1.5e-04
+   MTA                --       --  5.6e-02  5.3e-02  3.1e-02  1.5e-03  8.0e-04  2.3e-05  1.9e-05  3.5e-06
+   MTA-tip            --  1.5e-01  4.3e-02  4.0e-02  3.1e-03  2.4e-03  5.9e-04  5.5e-04  2.4e-04  2.3e-04
+   POD (rand)    3.7e-01  9.5e-02  4.1e-02  6.1e-03  3.2e-03  2.0e-03  5.8e-04  6.0e-04  2.5e-04       --
+   SOD (rand)    3.4e-01  4.6e-02  4.0e-02  3.9e-02  3.4e-03  2.2e-03  6.0e-04  6.0e-04  2.3e-04       --
+   POD (rand2)   3.9e-01  5.7e-02  4.4e-02  4.2e-03  3.2e-03  1.5e-03  4.3e-04  3.6e-05  1.2e-05  2.2e-06
+   SOD (rand2)   3.4e-01  4.2e-02  3.9e-02  4.0e-02  4.5e-02  1.4e-03  6.1e-04  7.8e-05  1.3e-05  2.7e-06

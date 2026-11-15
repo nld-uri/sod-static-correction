@@ -1,0 +1,25 @@
+/home/claude/sodpaper/python/nnmrom/nlsim.py:16: RuntimeWarning: The iteration is not making good progress, as measured by the 
+ improvement from the last ten iterations.
+  x=fsolve(lambda x: S['K']@x+S['k3']*x[S['tip']]**3*e-P*e,x,fprime=lambda x: S['K']+3*S['k3']*x[S['tip']]**2*np.outer(e,e),xtol=1e-14)
+equal-energy IC: tip -1.94 mm, linear energy per mode 1.48e-02 J, total H 8.03e-02 J
+SOD (decay EE) r=1: backbone error median 5.8e-03, max 2.6e-02
+SOD (decay EE) r=2: backbone error median 1.7e-04, max 6.1e-04
+SOD (decay EE) r=3: backbone error median 4.9e-06, max 1.8e-05
+SOD (decay EE) r=4: backbone error median 4.1e-07, max 2.5e-06
+POD (decay EE) r=1: backbone error median 5.6e-03, max 2.7e-02
+POD (decay EE) r=2: backbone error median 1.1e-04, max 1.0e-03
+POD (decay EE) r=3: backbone error median 6.5e-05, max 2.6e-04
+POD (decay EE) r=4: backbone error median 2.8e-05, max 1.1e-04
+/home/claude/sodpaper/python/nnmrom/n5_equal_energy.py:56: RuntimeWarning: The iteration is not making good progress, as measured by the 
+ improvement from the last ten iterations.
+  x0 = fsolve(lambda x: S['K'] @ x + k3 * x[tip]**3 * pt - e, x0, xtol=1e-14)
+test tip 3 N: H=6.00e-04 J, f=25.229 Hz
+test tip 10 N: H=3.53e-03 J, f=29.526 Hz
+test tip 20 N: H=8.77e-03 J, f=33.708 Hz
+test mid 20 N: H=2.79e-03 J, f=28.485 Hz
+test mid 60 N: H=1.66e-02 J, f=37.300 Hz
+test tip 30 N (training): H=1.48e-02 J, f=36.343 Hz
+SOD (decay EE) r=2: tip 3 N: df/f=-4.4e-04 e=3.0e-02  tip 10 N: df/f=+3.0e-05 e=5.2e-02  tip 20 N: df/f=+7.8e-04 e=8.1e-02  mid 20 N: df/f=+3.3e-03 e=7.5e-02  mid 60 N: df/f=+4.1e-04 e=1.1e-01  tip 30 N (training): df/f=+1.6e-03 e=1.1e-01
+SOD (decay EE) r=4: tip 3 N: df/f=+6.8e-05 e=1.6e-03  tip 10 N: df/f=-5.0e-05 e=2.5e-03  tip 20 N: df/f=-5.9e-05 e=3.7e-03  mid 20 N: df/f=+1.1e-04 e=3.6e-03  mid 60 N: df/f=+2.9e-05 e=5.5e-03  tip 30 N (training): df/f=+3.1e-05 e=4.6e-03
+POD (decay EE) r=2: tip 3 N: df/f=-6.3e-04 e=4.5e-02  tip 10 N: df/f=+1.5e-03 e=7.6e-02  tip 20 N: df/f=+1.4e-03 e=1.1e-01  mid 20 N: df/f=+2.1e-03 e=1.1e-01  mid 60 N: df/f=+1.3e-03 e=1.5e-01  tip 30 N (training): df/f=+2.9e-03 e=1.4e-01
+POD (decay EE) r=4: tip 3 N: df/f=+4.0e-04 e=3.1e-03  tip 10 N: df/f=+4.4e-04 e=5.1e-03  tip 20 N: df/f=-7.7e-04 e=8.2e-03  mid 20 N: df/f=-3.4e-04 e=7.4e-03  mid 60 N: df/f=-1.1e-03 e=1.2e-02  tip 30 N (training): df/f=+5.9e-04 e=1.1e-02

@@ -1,0 +1,5 @@
+# Python environment for SOD_Theory/python (created with Homebrew Python 3.14.6)
+# Recreate: python3 -m venv ~/venvs/sod && ~/venvs/sod/bin/pip install -r requirements.txt
+numpy==2.5.3
+scipy==1.18.1
+matplotlib==3.11.2

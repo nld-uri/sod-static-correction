@@ -1,0 +1,7 @@
+(1) phi=0.0: Iv/(w a^2/4z) - 1 = +2.8e-11;  ratio formula error = -2.6e-11
+(1) phi=0.7: Iv/(w a^2/4z) - 1 = -5.6e-11;  ratio formula error = +5.9e-11
+(1) phi=2.1: Iv/(w a^2/4z) - 1 = +5.3e-11;  ratio formula error = -7.1e-11
+(2) mode 0: max |chi_j - c_ij| / eps = 2.3e-05 (O(eps) expected); |mu - mu0| / eps^2 = 8.0e-01 (O(1): second order)
+(2) mode 1: max |chi_j - c_ij| / eps = 4.1e-05 (O(eps) expected); |mu - mu0| / eps^2 = 7.8e-02 (O(1): second order)
+(3) G = [[2.0, 0.3], [0.3, 0.7]]: mu = [ 1.2702 13.1693], product/|s|^4 - 1 = +2.2e-16
+(3) G = [[1.7, 0.0], [0.0, 1.7]]: mu = [4.09 4.09], product/|s|^4 - 1 = +0.0e+00

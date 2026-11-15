@@ -1,0 +1,7 @@
+V0 = 1.0: tip range [-0.249, +0.257], 18 zero crossings, last at t = 14.1
+data rank 11
+POD energy fractions [9.8691e-01 1.2790e-02 2.8000e-04 1.0000e-05 0.0000e+00]
+SOD frequencies [  2.494  10.387  23.789  60.79  116.625]  (well LNM [  4.9    22.311  61.811 121.067] )
+direction 1: MAC(SOD, LNMw) = 0.9985, MAC(POD, LNMw) = 0.9984, MAC(SOD1, static) = 0.9999
+direction 2: MAC(SOD, LNMw) = 0.0504, MAC(POD, LNMw) = 0.2718
+direction 3: MAC(SOD, LNMw) = 0.0005, MAC(POD, LNMw) = 0.4290

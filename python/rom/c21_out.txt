@@ -1,0 +1,48 @@
+S2 random tol=1e-10: ID modes at [  3.5  22.   62.2 120.6 200.6 293.7]
+S2 random tol=1e-12: ID modes at [  3.5  22.   61.5 120.6 201.5 297.5]
+S2: realization 1/10
+S2: realization 2/10
+S2: realization 3/10
+S2: realization 4/10
+S2: realization 5/10
+S2: realization 6/10
+S2: realization 7/10
+S2: realization 8/10
+S2: realization 9/10
+S2: realization 10/10
+S2 random    tol=1e-10 R0  : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 7.6e-03(10) r=4 mid 1.1e-02(10) r=6 rand 9.7e-05(10) r=6 mid 4.5e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.2e-04(10)
+S2 random    tol=1e-10 RID : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 6.1e-03(10) r=4 mid 7.6e-04(10) r=6 rand 7.7e-04(10) r=6 mid 2.4e-04(10)
+S2 random    tol=1e-10 RH  : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 6.1e-03(10) r=4 mid 7.6e-04(10) r=6 rand 7.7e-04(10) r=6 mid 2.4e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.2e-04(10)
+S2 random    tol=1e-10 RHB : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 6.1e-03(10) r=4 mid 7.6e-04(10) r=6 rand 9.7e-05(10) r=6 mid 4.5e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.2e-04(10)
+S2 random    tol=1e-10 RF  : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 7.6e-03(10) r=4 mid 1.1e-02(10) r=6 rand 9.7e-05(10) r=6 mid 4.5e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.2e-04(10)
+S2 random    tol=1e-10 RQ  : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 7.6e-03(10) r=4 mid 1.1e-02(10) r=6 rand 3.9e-04(10) r=6 mid 5.0e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.3e-04(10)
+S2 random    tol=1e-12 R0  : r=2 rand 1.1e-01(10) r=2 mid 2.2e-01(10) r=4 rand 6.1e-03(10) r=4 mid 1.0e-02(10) r=6 rand 1.7e-04(10) r=6 mid 5.1e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.2e-04(10)
+S2 random    tol=1e-12 RID : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 1.8e-03(10) r=4 mid 6.5e-04(10) r=6 rand 1.4e-04(10) r=6 mid 1.4e-04(10)
+S2 random    tol=1e-12 RH  : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 1.8e-03(10) r=4 mid 6.5e-04(10) r=6 rand 1.4e-04(10) r=6 mid 1.4e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.2e-04(10)
+S2 random    tol=1e-12 RHB : r=2 rand 2.0e-02(10) r=2 mid 1.0e-02(10) r=4 rand 1.8e-03(10) r=4 mid 6.5e-04(10) r=6 rand 1.0e-04(10) r=6 mid 4.0e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.2e-04(10)
+S2 random    tol=1e-12 RF  : r=2 rand 1.1e-01(10) r=2 mid 2.2e-01(10) r=4 rand 6.1e-03(10) r=4 mid 1.0e-02(10) r=6 rand 1.7e-04(10) r=6 mid 5.1e-04(10) r=8 rand 1.4e-06(10) r=8 mid 1.2e-04(10)
+S2 random    tol=1e-12 RQ  : r=2 rand 5.6e-02(10) r=2 mid 1.0e-01(10) r=4 rand 5.9e-03(10) r=4 mid 1.0e-02(10) r=6 rand 1.7e-03(10) r=6 mid 5.2e-04(10) r=8 rand 6.8e-05(10) r=8 mid 2.1e-04(10)
+S3 random tol=1e-10: ID planes at [  3.7  22.1  62.5 121.2 201.4]
+S3 BL decay tol=1e-10: ID planes at [  3.5  22.   61.7 120.9 199.6]
+S3: realization 1/10
+S3: realization 2/10
+S3: realization 3/10
+S3: realization 4/10
+S3: realization 5/10
+S3: realization 6/10
+S3: realization 7/10
+S3: realization 8/10
+S3: realization 9/10
+S3: realization 10/10
+S3 random    tol=1e-10 R0  : r=2 rand 2.9e-01(10) r=2 mid 3.7e-01(10) r=4 rand 1.7e-02(10) r=4 mid 2.9e-02(10) r=6 rand 1.9e-04(10) r=6 mid 1.1e-03(10) r=8 rand 6.1e-06(10) r=8 mid 2.8e-04(10)
+S3 random    tol=1e-10 RID : r=2 rand 1.0e-01(10) r=2 mid 9.2e-02(10) r=4 rand 1.9e-02(10) r=4 mid 3.6e-02(10) r=6 rand 2.3e-03(6) r=6 mid 1.1e-02(6)
+S3 random    tol=1e-10 RH  : r=2 rand 1.0e-01(10) r=2 mid 9.2e-02(10) r=4 rand 1.9e-02(10) r=4 mid 3.6e-02(10) r=6 rand 1.6e-03(10) r=6 mid 7.2e-03(10) r=8 rand 6.1e-06(10) r=8 mid 2.8e-04(10)
+S3 random    tol=1e-10 RHB : r=2 rand 1.0e-01(10) r=2 mid 9.2e-02(10) r=4 rand 1.9e-02(10) r=4 mid 3.6e-02(10) r=6 rand 1.9e-04(10) r=6 mid 1.1e-03(10) r=8 rand 6.1e-06(10) r=8 mid 2.8e-04(10)
+S3 random    tol=1e-10 RF  : r=2 rand 2.9e-01(10) r=2 mid 3.7e-01(10) r=4 rand 1.7e-02(10) r=4 mid 2.9e-02(10) r=6 rand 1.9e-04(10) r=6 mid 1.1e-03(10) r=8 rand 6.1e-06(10) r=8 mid 2.8e-04(10)
+S3 random    tol=1e-10 RQ  : r=2 rand 2.9e-01(10) r=2 mid 3.7e-01(10) r=4 rand 1.7e-02(10) r=4 mid 2.9e-02(10) r=6 rand 1.0e-03(10) r=6 mid 1.4e-03(10) r=8 rand 1.4e-03(10) r=8 mid 1.4e-03(10)
+S3 BL decay  tol=1e-10 R0  : r=2 rand 6.0e-02(1) r=2 mid 3.7e-02(1) r=4 rand 1.0e-02(1) r=4 mid 8.9e-03(1) r=6 rand 6.5e-04(1) r=6 mid 1.0e-03(1) r=8 rand 1.4e-04(1) r=8 mid 8.0e-04(1)
+S3 BL decay  tol=1e-10 RID : r=2 rand 6.0e-02(1) r=2 mid 3.7e-02(1) r=4 rand 1.0e-02(1) r=4 mid 8.9e-03(1)
+S3 BL decay  tol=1e-10 RH  : r=2 rand 6.0e-02(1) r=2 mid 3.7e-02(1) r=4 rand 1.0e-02(1) r=4 mid 8.9e-03(1) r=6 rand 6.5e-04(1) r=6 mid 1.0e-03(1) r=8 rand 1.4e-04(1) r=8 mid 8.0e-04(1)
+S3 BL decay  tol=1e-10 RHB : r=2 rand 6.0e-02(1) r=2 mid 3.7e-02(1) r=4 rand 1.0e-02(1) r=4 mid 8.9e-03(1) r=6 rand 6.5e-04(1) r=6 mid 1.0e-03(1) r=8 rand 1.4e-04(1) r=8 mid 8.0e-04(1)
+S3 BL decay  tol=1e-10 RF  : r=2 rand 6.0e-02(1) r=2 mid 3.7e-02(1) r=4 rand 1.0e-02(1) r=4 mid 8.9e-03(1) r=6 rand 6.5e-04(1) r=6 mid 1.0e-03(1) r=8 rand 1.4e-04(1) r=8 mid 8.0e-04(1)
+S3 BL decay  tol=1e-10 RQ  : r=2 rand 6.0e-02(1) r=2 mid 3.7e-02(1) r=4 rand 1.0e-02(1) r=4 mid 8.9e-03(1) r=6 rand 1.5e-03(1) r=6 mid 2.3e-03(1) r=8 rand 7.6e-04(1) r=8 mid 4.4e-03(1)

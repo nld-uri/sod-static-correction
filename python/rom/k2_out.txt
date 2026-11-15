@@ -1,0 +1,38 @@
+(a) RK45 evaluations at matched displacement error (from k1 work-precision sweeps)
+   frame
+      SOD r=4        raw       nfev@1e-6     11151   nfev@1e-8       nan   | c2 settings:   20792 (err 1.1e-07)
+      SOD r=4        Mnorm     nfev@1e-6     11151   nfev@1e-8       nan   | c2 settings:   20792 (err 1.1e-07)
+      SOD r=4        Eorth     nfev@1e-6     11957   nfev@1e-8       nan   | c2 settings:   15182 (err 5.6e-07)
+      SOD r=4        Morth     nfev@1e-6     10905   nfev@1e-8       nan   | c2 settings:   18926 (err 1.5e-07)
+      SOD r=4        Ritz      nfev@1e-6     10886   nfev@1e-8       nan   | c2 settings:   18572 (err 1.5e-07)
+      SOD r=8        raw       nfev@1e-6     12533   nfev@1e-8     28884   | c2 settings:   34250 (err 7.6e-09)
+      SOD r=8        Mnorm     nfev@1e-6     12533   nfev@1e-8     28883   | c2 settings:   34250 (err 7.6e-09)
+      SOD r=8        Eorth     nfev@1e-6     12989   nfev@1e-8     29890   | c2 settings:   19808 (err 1.2e-07)
+      SOD r=8        Morth     nfev@1e-6     12573   nfev@1e-8     28922   | c2 settings:   24416 (err 3.1e-08)
+      SOD r=8        Ritz      nfev@1e-6     11865   nfev@1e-8     27766   | c2 settings:   23048 (err 4.5e-08)
+      SOD full-rank  raw       nfev@1e-6     12715   nfev@1e-8     29369   | c2 settings:   36368 (err 5.6e-09)
+      SOD full-rank  Mnorm     nfev@1e-6     12715   nfev@1e-8     29479   | c2 settings:   36368 (err 5.6e-09)
+      SOD full-rank  Eorth     nfev@1e-6     13076   nfev@1e-8     29900   | c2 settings:   19724 (err 9.8e-08)
+      SOD full-rank  Morth     nfev@1e-6     12774   nfev@1e-8     29353   | c2 settings:   24248 (err 3.1e-08)
+      SOD full-rank  Ritz      nfev@1e-6     12065   nfev@1e-8     27867   | c2 settings:   23600 (err 3.9e-08)
+      SOD full-rank  identity  nfev@1e-6     11944   nfev@1e-8       nan   | c2 settings:   15176 (err 5.9e-07)
+      SOD full-rank  LNM       nfev@1e-6     12065   nfev@1e-8     27867   | c2 settings:   23600 (err 3.9e-08)
+   cantilever
+      SOD r=4        raw       nfev@1e-6     43169   nfev@1e-8       nan   | c2 settings:   85826 (err 1.7e-07)
+      SOD r=4        Mnorm     nfev@1e-6     43169   nfev@1e-8       nan   | c2 settings:   77468 (err 2.0e-07)
+      SOD r=4        Eorth     nfev@1e-6     42806   nfev@1e-8       nan   | c2 settings:   75902 (err 2.5e-07)
+      SOD r=4        Morth     nfev@1e-6     42584   nfev@1e-8       nan   | c2 settings:   69608 (err 5.4e-07)
+      SOD r=4        Ritz      nfev@1e-6     42237   nfev@1e-8       nan   | c2 settings:   69410 (err 5.3e-07)
+      SOD r=8        raw       nfev@1e-6       nan   nfev@1e-8    132594   | c2 settings:  415772 (err 2.1e-10)
+      SOD r=8        Mnorm     nfev@1e-6       nan   nfev@1e-8    133002   | c2 settings:  348170 (err 2.9e-10)
+      SOD r=8        Eorth     nfev@1e-6       nan   nfev@1e-8    133236   | c2 settings:  268106 (err 4.9e-10)
+      SOD r=8        Morth     nfev@1e-6       nan   nfev@1e-8    132451   | c2 settings:  168440 (err 2.4e-09)
+      SOD r=8        Ritz      nfev@1e-6       nan   nfev@1e-8    133035   | c2 settings:  158312 (err 3.8e-09)
+      SOD r=8        POD       nfev@1e-6       nan   nfev@1e-8    133520   | c2 settings:  338078 (err 3.4e-10)
+
+(b) Radau, cantilever: work-precision (per-coordinate atol_i = rtol*max|q_i|) and the c2 settings
+   SOD r=8 raw    c2 settings: nfev  291424 LU  14692   9.32s err 1.0e-09 | WP   70659/ 6804LU  2.49s 1.2e-05   169113/ 5908LU  4.99s 2.4e-08   433829/ 4142LU 13.75s 2.1e-10 | nfev@1e-6   100158 @1e-8   201573
+   SOD r=8 Morth  c2 settings: nfev  137613 LU    776   4.74s err 1.5e-08 | WP   68785/ 6800LU  1.86s 1.3e-05   166437/ 6862LU  6.04s 2.6e-08   419775/ 5602LU 13.54s 1.9e-10 | nfev@1e-6    99276 @1e-8   199697
+   SOD r=8 Ritz   c2 settings: nfev  134602 LU    808   4.18s err 1.7e-08 | WP   44356/ 2546LU  1.55s 3.4e-05   117840/ 1062LU  3.73s 6.0e-08   348359/  702LU 11.00s 3.6e-10 | nfev@1e-6    76359 @1e-8   172297
+   full physical  c2 settings: nfev  179979 LU   6460  11.29s err 1.5e-08 | WP   29514/ 3350LU  2.63s 8.3e-05    79045/ 2908LU  4.90s 2.5e-07   229075/ 2784LU  9.84s 4.6e-09 | nfev@1e-6    62398 @1e-8   186085
+   full LNM       c2 settings: nfev  108681 LU    640   3.77s err 4.8e-08 | WP   60151/ 5278LU  3.88s 5.3e-05   214249/ 9562LU 13.16s 7.2e-08   688147/12018LU 33.84s 2.1e-10 | nfev@1e-6   129146 @1e-8   317674
