@@ -20,7 +20,7 @@ The stored outputs next to each script are the files the article quotes. They le
 | `SOD-toolbox/python/sodtoolbox/` | the SOD Toolbox version used here (configuration and state SOD, recognition rules, bases and ROMs); the scripts add it to the Python path themselves |
 | `SOD-toolbox/python/tests/` | equivalence test of the toolbox against the code it replaced, and its recorded output |
 | `figures/` | the figures of the article as vector PDF; `figures/tikz/` holds the TikZ source of Figure 1 |
-| `SOD-ROM/` | manuscript source (`sod_rom_v3.tex`), its PDF, the highlights, Table 3 (`tables/tab_c_cost.tex`), and the reproduction manual (`reproduce_sod_rom_v3.tex`, `.pdf`) |
+| `SOD-ROM/` | manuscript sources: `sod_rom_v4.tex` with its supplement `sod_rom_v4_supp.tex` (built together by `build_v4.sh`, which resolves the cross-references), the earlier single-document `sod_rom_v3.tex`, their PDFs, the highlights, the cost table (`tables/tab_c_cost.tex`), and the reproduction manual (`reproduce_sod_rom_v3.tex`, `.pdf`; it follows the v3 section numbering) |
 | `refs.bib`, `sodmacros.tex` | bibliography and notation macros of the manuscript |
 | `requirements.txt` | pinned Python packages |
 
