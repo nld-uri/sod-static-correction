@@ -1,0 +1,43 @@
+r=2: rank 6; SOD freqs of the first r [ 2.3 12.9]; recognised in-band modes at [ 21.8  60.5 123.6]; unrecognised among the first r: ['2.3', '12.9']; RHB takes [np.int64(2), np.int64(3)]
+r=3: rank 7; SOD freqs of the first r [ 2.5 20.4 28.8]; recognised in-band modes at [ 21.2  61.3 120.2 199.2]; unrecognised among the first r: ['2.5', '28.8']; RHB takes [np.int64(1), np.int64(3), np.int64(4)]
+r=4: rank 9; SOD freqs of the first r [ 2.5 21.  46.9 62. ]; recognised in-band modes at [ 21.5  61.6 120.4 198.7]; unrecognised among the first r: ['2.5', '46.9']; RHB takes [np.int64(1), np.int64(3), np.int64(4), np.int64(5)]
+r=5: rank 10; SOD freqs of the first r [  2.5  21.1  58.9  68.4 120.4]; recognised in-band modes at [ 21.5  60.9 120.5 198.7]; unrecognised among the first r: ['2.5', '68.4']; RHB takes [np.int64(1), np.int64(2), np.int64(4), np.int64(5), 0]
+r=6: rank 10; SOD freqs of the first r [  2.5  21.2  60.3  84.4 120.8 197.9]; recognised in-band modes at [ 21.5  61.2 120.6 199. ]; unrecognised among the first r: ['2.5', '84.4']; RHB takes [np.int64(1), np.int64(2), np.int64(4), np.int64(5), 0, 3]
+r=7: rank 10; SOD freqs of the first r [  2.5  21.2  60.6  99.4 121.5 198.1 293.3]; recognised in-band modes at [ 21.5  61.3 120.8 199. ]; unrecognised among the first r: ['2.5', '99.4', '293.3']; RHB takes [np.int64(1), np.int64(2), np.int64(4), np.int64(5), 0, 3, 6]
+r=8: rank 10; SOD freqs of the first r [  2.5  21.2  60.7 111.4 124.  198.2 293.5 405.7]; recognised in-band modes at [ 21.5  61.3 121.2 199. ]; unrecognised among the first r: ['2.5', '111.4', '293.5', '405.7']; RHB takes [np.int64(1), np.int64(2), np.int64(4), np.int64(5), 0, 3, 6, 7]
+S3 dashpot_heavy: realization 1/20 (13s)
+S3 dashpot_heavy: realization 2/20 (28s)
+S3 dashpot_heavy: realization 3/20 (42s)
+S3 dashpot_heavy: realization 4/20 (55s)
+S3 dashpot_heavy: realization 5/20 (69s)
+S3 dashpot_heavy: realization 6/20 (83s)
+S3 dashpot_heavy: realization 7/20 (96s)
+S3 dashpot_heavy: realization 8/20 (110s)
+S3 dashpot_heavy: realization 9/20 (123s)
+S3 dashpot_heavy: realization 10/20 (136s)
+S3 dashpot_heavy: realization 11/20 (149s)
+S3 dashpot_heavy: realization 12/20 (162s)
+S3 dashpot_heavy: realization 13/20 (176s)
+S3 dashpot_heavy: realization 14/20 (188s)
+S3 dashpot_heavy: realization 15/20 (203s)
+S3 dashpot_heavy: realization 16/20 (216s)
+S3 dashpot_heavy: realization 17/20 (230s)
+S3 dashpot_heavy: realization 18/20 (243s)
+S3 dashpot_heavy: realization 19/20 (256s)
+S3 dashpot_heavy: realization 20/20 (269s)
+== S3 dashpot_heavy, random tip load: median error over 20 realizations, r = 2..8
+   LNM       5.3e-02  2.1e-02  7.8e-03  1.6e-03  6.9e-04  3.9e-04  2.5e-04
+   CM        5.4e-02  2.1e-02  7.9e-03  1.6e-03  6.8e-04  3.8e-04  2.3e-04
+   MTA-tip   9.0e-02  5.9e-02  2.6e-02  8.2e-03  5.4e-04  5.3e-05  1.4e-05
+   R0        6.5e-02  5.3e-02  2.5e-02  8.5e-03  4.8e-04  9.0e-05  4.3e-05
+   RHB       9.9e-01  9.9e-01  9.9e-01  1.7e-03  4.8e-04  9.0e-05  4.3e-05
+   median over realizations of R0/LNM:   1.23   2.50   3.14   5.35   0.69   0.23   0.17
+   median over realizations of RHB/LNM:  18.54  47.23 125.97   1.04   0.69   0.23   0.17
+== S3 dashpot_heavy, random mid load: median error over 20 realizations, r = 2..8
+   LNM       4.1e-02  3.9e-02  3.5e-03  3.1e-03  7.7e-04  6.9e-04  3.0e-04
+   CM        3.9e-02  3.8e-02  3.0e-03  2.9e-03  6.3e-04  6.3e-04  2.5e-04
+   MTA-tip   1.5e-01  4.3e-02  3.9e-02  3.1e-03  2.4e-03  5.9e-04  5.4e-04
+   R0        8.6e-02  4.2e-02  3.8e-02  3.4e-03  2.2e-03  6.9e-04  5.2e-04
+   RHB       9.5e-01  9.5e-01  9.5e-01  3.1e-03  2.2e-03  6.9e-04  5.2e-04
+   median over realizations of R0/LNM:   2.08   1.08  11.22   1.08   2.87   1.00   1.71
+   median over realizations of RHB/LNM:  23.10  24.66 274.99   1.00   2.87   1.00   1.71
