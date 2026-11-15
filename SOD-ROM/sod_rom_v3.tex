@@ -18,7 +18,7 @@
             city={Kingston}, state={RI}, postcode={02881}, country={USA}}
 
 \begin{abstract}
-Smooth orthogonal decomposition (SOD) builds reduced-order model (ROM) bases from response records alone. Earlier studies reported SOD ROMs more accurate than proper orthogonal decomposition and faster than the full model, without saying what a data basis knows that a model does not.
+Smooth orthogonal decomposition (SOD) builds reduced-order model (ROM) bases from response records, without an eigensolution of the model. Earlier studies reported SOD ROMs more accurate than proper orthogonal decomposition and faster than the full model, without identifying which directions a data basis contains that a model-based basis lacks.
 On a cantilever, one SOD basis trained on a random tip load is 27 times more accurate than the linear normal modes (LNMs) at eight modes, yet less accurate at three modes and under a mid-span load.
 We test the hypothesis that the basis holds the directions its record visits: the quasi-static response of truncated modes at the loaded points, which static correction (modal truncation augmentation, MTA) adds from the model. These directions depend on where the loads act, not on their amplitude or time history.
 At eight modes the SOD subspace contains the static tip-load vector about 190 times better than the LNMs, and the mid-span one no better.
@@ -26,8 +26,8 @@ The obstacle is ranking: ordered by smoothness, the same quasi-static direction 
 Recognising modes by their own spectral peak, or by the one-way rotation of a modal plane, and placing them first removes the loss.
 With the same load locations, SOD and MTA ROMs agreed within a factor of 3.4.
 A local nonlinear force needs no such input: it acts in a free decay, and one decay of a two-well cantilever supplied its static correction without its location being given.
-At matched accuracy, truncation lowers integration cost; a change of coordinates does not.
-A data basis needs records at every external load location, but nothing about the loads' amplitudes or spectra. All results are numerical.
+At matched accuracy, truncation lowered integration cost; a change of coordinates within the subspace changed the explicit cost by at most 1.2 times.
+A data basis needs a training record at every external load location, but not the amplitudes or time histories of the loads the ROM will be run with. All results are numerical.
 \end{abstract}
 
 \begin{keyword}
@@ -42,11 +42,11 @@ Truncated modes still respond quasi-statically to the load. Static correction, o
 Load-dependent Ritz vectors build the whole basis from the load: the first is its static deflection, and each next one is the static response to the inertia load of the last \citep{Wilson1982}.
 Input-aware reduction is also standard in systems and control, through balanced truncation \citep{Moore1981} and Krylov moment matching \citep{Bai2002}. \citet{Besselink2013} compared these methods with modal reduction on a structural model.
 All of them need the model and the load locations.
-Data-driven bases need only response records. Proper orthogonal decomposition (POD) is the common choice \citep{Kerschen2005}. Its modes equal the normal modes only in special cases, such as free vibration with a mass matrix proportional to the identity \citep{Feeny1998}.
+Data-driven bases are built from response records, without an eigensolution of the model. Proper orthogonal decomposition (POD) is the common choice \citep{Kerschen2005}. Its modes equal the normal modes only in special cases, such as free vibration with a mass matrix proportional to the identity \citep{Feeny1998}.
 Smooth orthogonal decomposition (SOD) solves the generalized eigenproblem of the displacement and velocity covariances \citep{Chelidze2006,Farooq2008}. For undamped free vibration it returns the LNMs and the natural frequencies, with no mass matrix.
 SOD subspaces have served as ROM bases for nonlinear systems \citep{Segala2015,Ilbeigi2017,Ilbeigi2018}.
 \citet{Ilbeigi2017} reported that SOD outperformed POD in stability, accuracy and robustness. \citet{Ilbeigi2018} reported SOD ROMs faster than both the full model and POD ROMs of the same order.
-What a data basis knows that a model-based basis does not, and why it should run faster, has not been stated.
+None of these studies identified which directions a data basis contains that a model-based basis lacks, or why its ROMs should run faster.
 
 The cantilever studied below makes the question sharp.
 One SOD basis, trained on a random load at the tip, gave a ROM 27 times more accurate than the LNM ROM at $r=8$ on a new tip load ($1.6\times10^{-6}$ against $4.2\times10^{-5}$).
@@ -186,7 +186,7 @@ Tests used a new random load at the training input and a random load at mid-span
 Each of 20 realizations drew new random training and test loads.
 Responses were computed exactly for piecewise-constant input.
 The error is $\|\bX_r-\bX\|_{\bM}/\|\bX\|_{\bM}$ over the record. Here $\bX$ and $\bX_r$ hold the full-model and ROM displacements $\bx_k$ at the samples $k$, with $\|\bX\|_{\bM}^2=\sum_k\bx_k^{\mathsf T}\bM\bx_k$, so translations and rotations are weighted consistently.
-Training velocities, and the accelerations of state-space SOD, come from the model. Model reduction never needs estimated kinematics.
+Training velocities, and the accelerations of state-space SOD, come from the model. For model reduction the training records come from the model, so their velocities and accelerations are exact.
 
 \paragraph{Initial states.} All decays start from rest at $\bx_0$, scaled so that its largest entry is 1. The scale does not affect relative errors of a linear model.
 \begin{itemize}
@@ -235,7 +235,7 @@ Free-decay SOD was not. On S2 with light damping, BL and SR bases matched the LN
 \item S2: $1.6\times10^{-6}$ (light) and $1.9\times10^{-7}$ (heavy), against LNM $4.2\times10^{-5}$ and $1.2\times10^{-4}$, and MTA $1.1\times10^{-5}$ and $1.8\times10^{-5}$.
 \end{itemize}
 POD gave nearly the same values. On S1 and S2 with heavy damping, $r=8$ is the data rank. There SOD and POD span one subspace and give identical ROMs.
-The gain over the LNMs comes from the quasi-static response of truncated modes, which a forced record contains. MTA adds the same physics from the model, with one static vector per load location.
+The gain over the LNMs comes from the quasi-static response of truncated modes, which a forced record contains. MTA adds that response from the model as the static deflection under each load, one vector per load location.
 
 \begin{figure}[tbp]
 \centering
@@ -269,17 +269,17 @@ The random record thus supplies the LNMs it excites and, in place of LNM~8, the 
 \label{fig:static}
 \end{figure}
 
-\paragraph{Transfer: every basis serves the loads it saw.} For a random load at mid-span, the bases trained at the tip lost their advantage. MTA as defined above contains the static vector of the mid-span load. We therefore also built MTA with the tip vector only. We also trained data bases on independent random loads at both locations. At $r=8$ on the mid-span test:
+\paragraph{Transfer: the gain stays at the load locations each basis was given.} For a random load at mid-span, the bases trained at the tip lost their advantage. MTA as defined above contains the static vector of the mid-span load. We therefore also built MTA with the tip vector only. We also trained data bases on independent random loads at both locations. At $r=8$ on the mid-span test:
 \begin{itemize}
 \item tip only: SOD erred by $1.2\times10^{-4}$ (S2, light) and $3.1\times10^{-4}$ (S2, heavy). MTA with the tip vector erred by $1.1\times10^{-4}$ and $2.9\times10^{-4}$, and the LNMs by $4.8\times10^{-5}$ and $1.4\times10^{-4}$;
 \item both locations: SOD erred by $6.0\times10^{-6}$ and $9.0\times10^{-6}$; MTA by $4.2\times10^{-6}$ and $7.9\times10^{-6}$.
 \end{itemize}
 On S3 the pattern held. SOD and MTA from one location erred by $2.7$--$6.0\times10^{-4}$. From both locations, MTA erred by $1.0$--$2.3\times10^{-5}$ and SOD by $1.9$--$7.8\times10^{-5}$.
-So data and static correction carry the same information. Each serves the load locations it was given, and SOD needs response records at those locations.
+So on S2 and S3, SOD and MTA gained at the same load locations: those each basis was given. SOD needs response records at those locations.
 On S2 at $r=7$, SOD and LNM were within 10\,\% of each other. The LNM curve for the mid-span load is a staircase, flat at $r=3$, 5 and 7. Mid-span lies within 2\,\% of a node of modes 3, 5 and 7.
 On S1 the transfer test, a free decay from a point load at floor 4, was nearly basis-independent. All bases stayed within a factor of 2.1 of one another for $r=3$--9. None was consistently best.
 MTA is not uniformly better. On the S2 free-decay test it was 44 times worse than the LNMs at $r=3$. At $r=8$ it was about twice as poor. On S1 it did not beat the LNMs on the floor-4 decay.
-The data-driven gain is the persistence problem of \citet{Ilbeigi2017}, seen in a linear system. Data carry the loads they saw.
+The data-driven gain is the persistence problem of \citet{Ilbeigi2017}, seen in a linear system: on S2 and S3 the data bases gained only at the load locations of their records.
 
 \paragraph{Noisy training records.} The gain above used model kinematics. We repeated S2 with measured training records. All 60 displacements carried white noise at 60 or 40\,dB and were smoothed by Whittaker smoothing (WH; penalty on the third difference, 100\,Hz corner, one setting for all channels) \citep{Eilers2003}. Velocities came from the smoothed record (5 realizations).
 \begin{itemize}
@@ -288,7 +288,7 @@ The data-driven gain is the persistence problem of \citet{Ilbeigi2017}, seen in 
 \item At 60\,dB SOD was 3 times worse than the LNMs (light) or 5 times better (heavy). At 40\,dB it was 11--300 times worse. POD behaved the same.
 \end{itemize}
 The floor rose 100-fold for a 10-fold rise in noise amplitude. The high-order gain therefore needs clean training records. For model reduction they should come from the model.
-The record therefore carries exactly the static correction of the loads it saw, and only from clean training data. This is the information MTA adds from the model.
+With noise-free training kinematics, the SOD subspace therefore contains the static vector of the training load ($\rho=1.8\times10^{-7}$ at $r=8$, 190 times closer than the LNMs) and not that of the unseen load. MTA adds the same vector from the model.
 
 
 
@@ -333,7 +333,7 @@ For S2 under a random tip load, POD eigenvalues fall from 1 to $1.7\times10^{-9}
 \end{itemize}
 The spurious directions carried energy fractions of $6\times10^{-5}$--$3\times10^{-4}$, comparable to the fourth and fifth LNM components. An energy threshold therefore cannot separate them.
 Weakly excited directions can look smooth. Their mean-square frequency is set by how little they move, not by a mode.
-This is a property of clean, band-limited data. Section~\ref{sec:noise} shows how to recognise the genuine modes.
+We observed them in clean, band-limited records. Section~\ref{sec:noise} shows how to recognise the genuine modes.
 A free decay under proportional damping avoids the displacement, because it contains no quasi-static response. A forced record contains it, and ranking by smoothness misplaces it.
 
 
@@ -366,7 +366,7 @@ Modes above the load band respond quasi-statically to it. The smooth direction t
 \item At $r=6$ RHB equalled R0 at tolerance $10^{-10}$ and improved it at $10^{-12}$ ($1.7\times10^{-4}$ to $1.0\times10^{-4}$ on the training load). At $r=8$ all bases erred by $1.4\times10^{-6}$ on the training load.
 \end{itemize}
 RH also puts the recognised mode 6 (about 295\,rad/s) first. It was 1.3--10 times worse than R0 on the training load at $r=6$ and tolerance $10^{-10}$, though better at mid-span. RID alone stops at the six modes below $1.2\,\omega_{\mathrm c}$.
-\paragraph{S3, $c_{\mathrm d}=0.2$, state SOD.} From random-load records RHB improved state dimension 4 in every record (median training-load error $2.9\times10^{-1}\to1.0\times10^{-1}$, mid-span $3.7\times10^{-1}\to9.2\times10^{-2}$). At state dimension 8 it was slightly worse (median ratio 1.1--1.2, at most 2.5 in one record). From 12 on it equalled R0. Planes from forced records are tilted, whatever their order. From the band-limited decay the recognised order matched the SOD order, and all bases were identical.
+\paragraph{S3, $c_{\mathrm d}=0.2$, state SOD.} From random-load records RHB improved state dimension 4 in every record (median training-load error $2.9\times10^{-1}\to1.0\times10^{-1}$, mid-span $3.7\times10^{-1}\to9.2\times10^{-2}$). At state dimension 8 it was slightly worse (median ratio 1.1--1.2, at most 2.5 in one record). From 12 on it equalled R0. Planes from forced records are tilted by their quasi-static response (Section~\ref{sec:ic}). From the band-limited decay the recognised order matched the SOD order, and all bases were identical.
 \paragraph{Can a frequency place the other coordinates?} Two further orders placed every coordinate by a frequency.
 \begin{itemize}
 \item RF: recognised modes at their peak frequency, all other coordinates at their SOD frequency $\sqrt{\mu}$.
@@ -377,7 +377,7 @@ RQ was no better than R0 at $r=6$ and 8 on S2. The median ratio was 1.0--4.0 at 
 At tolerance $10^{-12}$ it improved $r=2$ (median ratio 0.5--0.6), but RHB did as well or better. A quasi-static direction is stiff, so RQ moves it to the end of the basis. A ROM of low order then cannot use it.
 The value of such a direction lies in its share of the forced response. The SOD order already measures that share.
 For model reduction we therefore recommend RHB. Recognised in-band modes come first, by frequency; the rest follow in SOD order.
-Recognition thus keeps the information the record adds and removes the damage its ranking did.
+Recognition thus keeps the static-correction direction in the basis but places it behind the in-band modes it displaced.
 
 
 \section{Complex modes}\label{sec:complex}
@@ -439,7 +439,7 @@ Equal excitation helps where rank is scarce: heavy damping, or noise that buries
 \caption{Choice of training decay, one realization. (a) Initial modal energy on the cantilever: static release, equal energy over modes 1--9, and band-limited equal energy with $\omega_{\mathrm b}=\omega_4$. (b) Leakage of the eight-state state-SOD subspace out of modal planes 1--4. It is plotted against the largest relative eigenvalue error of its energy-Galerkin ROM. All training decays are shown (colours as in a; red: equal record energy; plum: modes 1--4 only). Dashed: $0.5\times$ leakage squared. (c,d) Configuration SOD, heavy Rayleigh damping, new random load at the training input. (e,f) State-space SOD on S3, random mid-span load; the solid black line is complex-mode truncation. Band-limited decays use $\omega_{\mathrm b}=\omega_r$.}
 \label{fig:ic}
 \end{figure}
-With complex modes the basis again holds what its record contains. A decay gives planes tilted toward whatever it excites above the retained band, and a forced record gives planes tilted by its quasi-static response.
+With complex modes, too, the state-SOD planes follow the record. A decay gives planes tilted toward the modes it excites above the retained band, and a forced record gives planes tilted by its quasi-static response.
 
 \section{Nonlinear benchmarks}\label{sec:nl}
 Does the energy dependence of decay data help a nonlinear ROM? We test two nonlinear cantilevers: S4 for backbone accuracy and S5 for forced bifurcations.
@@ -466,13 +466,13 @@ Each ROM backbone was computed by the same harmonic balance on the reduced equat
 \item $r=4$: LNM $2.0\times10^{-4}$, MTA $1.4\times10^{-6}$, SOD $5\times10^{-7}$, POD $4\times10^{-7}$.
 \end{itemize}
 At $r=3$ and 4, decay-trained bases improved the backbone by two to three decades over the LNMs. At $r=2$ the gain was about one decade. The model-based static tip-load vector did as well or better at $r=2$ and 3, and SOD was better at $r=4$.
-Both carry the same physics: the deformation that the localized cubic force imposes on the beam. No low LNM represents it.
+Both contain the deformation that the localized cubic force imposes on the beam: MTA as $\bK^{-1}\bm{e}_{\mathrm{tip}}$, SOD in its first direction, $0.3$--$0.9^\circ$ from the shape $(\bK-\omega^2\bM)^{-1}\bm{e}_{\mathrm{tip}}$ forced at the NNM frequency (see below).
 SOD led POD at $r=2$ and 3; at $r=4$ POD was 1.4 times better.
 
 \paragraph{Held-out time-domain tests.} Conservative responses started from static deflections not used in training. The loads were 3, 10 and 20\,N at the tip and 20 and 60\,N at mid-span.
 At $r=4$, MTA, SOD and POD gave displacement errors of $1.5$--$5.5\times10^{-3}$ over 0.1\,s. The LNMs gave $4.5\times10^{-4}$ to $1.1\times10^{-2}$, better at low energy and worse at high energy. Zero-crossing frequency errors were at most $1.1\times10^{-4}$ for SOD and MTA, and up to $9.1\times10^{-4}$ for the LNMs.
 At $r=2$, SOD gave displacement errors of $0.8$--$4.8\times10^{-2}$, MTA $4$--$13\times10^{-2}$.
-The plucked states excite modes that a backbone-dominated record does not contain. Displacement accuracy is therefore limited by truncation, not by the basis.
+The plucked states excite modes that a backbone-dominated record does not contain. At $r=4$ displacement accuracy in these tests was therefore limited by the truncated modes: MTA, SOD and POD gave errors within the same range.
 Figure~\ref{fig:nltraj} shows two of these tests over 0.3\,s. At $r=4$ the LNM error grows with time, from phase drift. Over the record it was $1.8\times10^{-2}$ (20\,N tip) and $3.3\times10^{-2}$ (60\,N mid-span). The MTA and SOD errors stay flat, $3.6$--$5.6\times10^{-3}$ over the record, set by the truncated modes.
 
 \paragraph{Band-limited training decay.} The band-limited decay starts from an equal-energy sum of LNMs 1--4. Each holds the potential energy of the 30\,N state, $1.48\times10^{-2}$\,J. The total, including the cubic-spring energy, was $8.0\times10^{-2}$\,J.
@@ -591,7 +591,7 @@ LNM, in well & $-6.5\,\%$ & $-9.3\,\%$ & $1.2\times10^{-1}$ & $1.5\times10^{-2}$
 Are SOD ROMs faster, as reported \citep{Ilbeigi2018}, and if so, is the gain a property of SOD?
 Two facts frame the answer.
 A full-rank change of coordinates is a congruence of $(\bM,\bK)$ and a similarity of the first-order state matrix $\bm{A}$, so it leaves every eigenvalue unchanged.
-An explicit integrator is limited by the spectral radius $\rho(\bm{A})$, not only by the highest natural frequency $\omega_{\max}$. With $\bC=\alpha\bM+\beta\bK$ the high finite-element modes are overdamped, and their real eigenvalues, about $\beta\omega^2$, can exceed $\omega_{\max}$. Only truncation can lower $\rho(\bm{A})$.
+An explicit integrator is limited by the spectral radius $\rho(\bm{A})$, not only by the highest natural frequency $\omega_{\max}$. With $\bC=\alpha\bM+\beta\bK$ the high finite-element modes are overdamped, and their real eigenvalues, about $\beta\omega^2$, can exceed $\omega_{\max}$. A change of coordinates leaves $\rho(\bm{A})$ unchanged; truncation can lower it.
 What a change of coordinates can alter is how an adaptive integrator weighs its error estimate and, for an implicit integrator, how well its Newton iterations are conditioned.
 
 \paragraph{Protocol.} Each model was integrated over 20 (S1) or 10 (S2) periods of mode 1 under a chirp load from $0.5\omega_1$ to $\omega_{\mathrm c}$, with light damping. The SOD and POD bases come from one random record (seed 5).
@@ -615,32 +615,32 @@ All wall times in this paper were measured on one machine: a two-core Intel Xeon
 \item \emph{Load bandwidth.} On S1 the chirp reaches $\omega_{\mathrm c}=23$, close to $\omega_{\max}=36.2$. Accuracy, not stability, then limits the step, and every model, the full one included, cost the same within 25\,\% (Table~\ref{tab:cost}).
 \end{itemize}
 \citet{Ilbeigi2018} studied a ten-dimensional, full-order SOD model of a nonlinear control system and reported that it ran about twice as fast as the original. A full-rank linear change of coordinates cannot change the eigenvalues. At a fixed tolerance, the coordinate scaling alone produced differences of that size here, and at matched accuracy they vanished. We have not tested their system.
-For SOD ROMs we recommend Ritz coordinates of the retained subspace: they decouple the reduced model and were never costlier than any other basis of the same subspace.
+For SOD ROMs we recommend Ritz coordinates of the retained subspace: they decouple the reduced model and, in every case tested, were no costlier than any other basis of the same subspace.
 
 
 \section{Discussion}\label{sec:disc}
-The paper set out to test whether an SOD basis holds exactly the directions its training record visits, and whether that explains its being better and worse than the LNMs at once.
+The paper set out to test whether an SOD basis holds the directions its training record visits, and whether that explains its being better and worse than the LNMs at once.
 The evidence supports the hypothesis on the linear benchmarks. Three findings point the same way.
 First, the geometry: at high order the random-trained SOD subspace contains the static vector of the training load about 190 times better than the LNMs, and that of the unseen load no better. Seven of its eight directions coincide with MTA built on the training load alone.
 Second, the transfer test: given the same load locations, SOD and MTA ROMs agreed within a factor of 3.4; with one location missing, both lost their gain.
-Third, the ladder: the same quasi-static direction enters at $r=3$, displaces an in-band mode until all in-band modes are present, and the error ratio to the LNMs turns from a loss into a gain exactly there. Recognising modes by frequency removed the loss.
+Third, the ladder: the same quasi-static direction enters at $r=3$, displaces an in-band mode until all in-band modes are present, and the error ratio to the LNMs turns from a loss into a gain at that order: 6.5 times worse at $r=5$, 1.4 times better at $r=6$, where all five in-band modes are present. Recognising modes by frequency removed the loss.
 A band-limited free decay, which contains no quasi-static response, gave a basis with no static correction and LNM-level errors, as the hypothesis requires.
 
-SOD is therefore an output-only route to roughly what static correction delivers. It needs no eigensolution of the model, but the Galerkin ROM still needs $\bM$, $\bC$ and $\bK$, and SOD needs response records at every load location of interest. These cost more to simulate than the static solves of MTA.
+SOD therefore delivers static correction from response records: at the same load locations its ROMs came within a factor of 3.4 of MTA. It needs no eigensolution of the model, but the Galerkin ROM still needs $\bM$, $\bC$ and $\bK$, and SOD needs response records at every load location of interest. These cost more to simulate than the static solves of MTA.
 What SOD needs from the loads is their spatial pattern, not their amplitude or time history. A load $\bm{b}\,g(t)$ has the static vector $\bK^{-1}\bm{b}$ for any $g$, and the gain carried over to new random loads at the training input. By the same argument, loads at several points must vary independently in the training records: a record of one fixed combination carries only that combination's static vector. The gain also needs clean records: at 40\,dB the training noise set an error floor 11--300 times above the LNMs.
-A local nonlinear force is different. It acts in every response of the structure, a free decay included, so the record carries its static correction without its location being supplied. On the two-well beam one cross-well decay put the static correction at the nonlinear force into the first SOD direction, $0.7^\circ$ from $\bK^{-1}\bm{e}_{\mathrm{tip}}$, without that location being supplied. The one-mode ROM then balanced the buckled equilibrium against the well frequency better than any single model-based vector. On the COST F3 beam, decay-trained bases improved the backbone by two to three decades over the LNMs, as static correction did. The force keeps its location as the amplitude grows, so its static vector does not change either: the four-mode SOD ROM matched the backbone to about $10^{-6}$ up to 0.048\,J, about three times the energy of its training decay.
+A local nonlinear force is different. It acts whenever the nonlinear spring deforms, a free decay included, so the record carries its static correction without its location being supplied. On the two-well beam one cross-well decay put the static correction at the nonlinear force into the first SOD direction, $0.7^\circ$ from $\bK^{-1}\bm{e}_{\mathrm{tip}}$, without that location being supplied. The one-mode ROM then balanced the buckled equilibrium against the well frequency better than the three model-based vectors tested: the static vector and the clamped and in-well LNMs. On the COST F3 beam, decay-trained bases improved the backbone by two to three decades over the LNMs, as static correction did. The force keeps its location as the amplitude grows, so its static vector does not change either: the four-mode SOD ROM matched the backbone to about $10^{-6}$ up to 0.048\,J, about three times the energy of its training decay.
 
-With complex modes the same rule holds plane by plane. State-space SOD on a band-limited decay came within a factor of 2.7 of complex-mode truncation on forced tests at state dimension 8. Its price is accelerations. The best training decay has little energy above the retained band, the rule an experimentalist applies in choosing a hammer tip.
+With complex modes the state-SOD planes likewise follow the record: a decay tilts them toward the modes it excites above the retained band, and a forced record by its quasi-static response (Section~\ref{sec:ic}). State-space SOD of a band-limited decay gave ROMs within a factor of 2.7 of complex-mode truncation on forced tests at state dimension 8. Its price is accelerations. Of the decays tested, those with little energy above the retained band, relative to the energy inside it, gave the most accurate ROMs. This is the rule an experimentalist applies in choosing a hammer tip.
 
-The speed reported for SOD ROMs is a property of truncation, not of SOD. A change of coordinates is a similarity of the state matrix, so it cannot move a stability limit. At matched accuracy it did not change the explicit cost either. Apparent speed-ups at a fixed tolerance come from how an absolute tolerance weighs coordinates of different scale. For implicit integration the coordinates matter through conditioning: on the stiff cantilever the raw smooth modes, whose reduced mass matrix is ill-conditioned, needed about twice the work of Ritz coordinates.
+In our tests the speed of SOD ROMs came from truncation, not from the SOD coordinates. A change of coordinates is a similarity of the state matrix, so it cannot move a stability limit. At matched accuracy it did not change the explicit cost either. Apparent speed-ups at a fixed tolerance come from how an absolute tolerance weighs coordinates of different scale. For implicit integration the coordinates matter through conditioning: on the stiff cantilever the raw smooth modes, whose reduced mass matrix is ill-conditioned, needed about twice the work of Ritz coordinates.
 
 This is a simulation study, and what the evidence does not show is the same mechanism on measured records. The geometric test is direct here because every static vector is known. On a structure it would need the load locations and a model-free check of containment, such as the static deflection under a known load measured at the same sensors.
 
 \paragraph{Limitations.} All data are simulated; noise enters only in the training-record test. Two nonlinear benchmarks have one local nonlinearity each, fixed in location; a distributed nonlinearity, whose force pattern changes with amplitude, was not tested. The geometric tests use one benchmark (S2, light damping, 20 realizations). We tested linear Galerkin bases only, with no manifold-based ROM \citep{Haller2016,Jain2017} for comparison. Cost was measured with two integrators of one library on one machine, against displacement error over one chirp load.
 
 \section{Conclusions}\label{sec:concl}
-An SOD basis knows what its training record contains. Under forcing that is the static correction at the load locations the record saw, which MTA supplies from the model; with the same load locations the two bases performed within a factor of 3.4, and with one location missing both lost their gain. The basis is worse than the LNMs at low order because SOD ranks that same quasi-static direction by smoothness, and it displaces an in-band mode. Recognising modes by their own frequency, or by circularity in state-space SOD, and placing them first removes the loss. Speed comes from truncation alone. At matched accuracy the coordinates of a subspace changed the explicit cost by at most 1.2 times, and Ritz coordinates halved the implicit cost of the raw smooth modes.
-What the basis needs from the loads is therefore where they act, not their amplitude or time history. For external loads that means a training record at every load location. A local nonlinear force acts in a free decay, so one decay supplies its static correction without its location being known. This is the distinct use of SOD in model reduction: a force whose location the modeller does not know.
+An SOD basis contains the directions its training record visits. Under forcing that is the static correction at the load locations the record saw, which MTA supplies from the model; with the same load locations the two bases performed within a factor of 3.4, and with one location missing both lost their gain. The basis is worse than the LNMs at low order because SOD ranks that same quasi-static direction by smoothness, and it displaces an in-band mode. Recognising modes by their own frequency, or by circularity in state-space SOD, and placing them first removes the loss. In the cost tests, speed came from truncation: at matched accuracy the coordinates of a subspace changed the explicit cost by at most 1.2 times, and Ritz coordinates halved the implicit cost of the raw smooth modes.
+What the basis needs from the loads is therefore where they act, not their amplitude or time history. For external loads that means a training record at every load location. A local nonlinear force acts in a free decay, so one decay supplies its static correction without its location being known. This is where a data basis supplies what MTA cannot without the location: on the two-well beam, the first SOD direction of one decay lay $0.7^\circ$ from the static vector at the nonlinear spring.
 
 
 \appendix
