@@ -6,6 +6,7 @@
    Three further model-built families test whether SOD's higher-order directions are bent vectors too: HARM (LNM 1 and
    d at 1, 3 and 5 times w_sod, the harmonics of a cubic force), BAND (LNM 1 and d at 160 rad/s, w_sod and the 30 N
    NNM frequency 2 pi 36.343, spanning the frequencies the decay sweeps) and LDR (Wilson's load-dependent Ritz vectors).
+   D: d at the first r SOD frequencies of the decay, the basis i1_forced_identity.py predicts SOD to be (added for v5).
    The principal angles between the SOD r=4 subspace and MTA r=4 are printed as well.
    Training decay, SOD, backbone reference and error metric are those of n4_rom_backbones.py; MTA and SOD are recomputed
    here as a control: their medians must equal n4_out.txt (MTA r=4 1.4e-06, SOD r=4 5.2e-07).
@@ -54,6 +55,7 @@ bases = {'MTA': lambda r: mnorm(np.c_[PL[:, :r - 1], d(0.0)]),
          'HARM: LNM1, d(w), d(3w), d(5w)': lambda r: mnorm(np.c_[PL[:, :1], d(w_sod), d(3 * w_sod), d(5 * w_sod)][:, :r]),
          'BAND: LNM1, d(160), d(w), d(228)': lambda r: mnorm(np.c_[PL[:, :1], d(160.0), d(w_sod), d(2 * np.pi * 36.343)][:, :r]),
          'LDR (Wilson)': lambda r: mnorm(ldr(r)),
+         'D: d at the SOD freqs 1..r': lambda r: mnorm(np.c_[tuple(d(np.sqrt(mu[k])) for k in range(r))]),
          'SOD (decay)': lambda r: _st.sod_modes(Xd, Vd, r, 1e-10)[0]}
 F = pickle.load(open('n3_backbone_full_Kh8.pkl', 'rb'))
 Hf = np.r_[F['low']['H'], F['H']]; ff = np.r_[F['low']['f'], F['f']]; h5 = np.r_[F['low']['h5'], F['h5']]

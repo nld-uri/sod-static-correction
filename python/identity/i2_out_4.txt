@@ -1,0 +1,32 @@
+S3 dashpot: realization 1/20 (42s)
+S3 dashpot: realization 2/20 (78s)
+S3 dashpot: realization 3/20 (113s)
+S3 dashpot: realization 4/20 (146s)
+S3 dashpot: realization 5/20 (182s)
+S3 dashpot: realization 6/20 (215s)
+S3 dashpot: realization 7/20 (249s)
+S3 dashpot: realization 8/20 (284s)
+S3 dashpot: realization 9/20 (317s)
+S3 dashpot: realization 10/20 (351s)
+S3 dashpot: realization 11/20 (384s)
+S3 dashpot: realization 12/20 (422s)
+S3 dashpot: realization 13/20 (457s)
+S3 dashpot: realization 14/20 (492s)
+S3 dashpot: realization 15/20 (526s)
+S3 dashpot: realization 16/20 (559s)
+S3 dashpot: realization 17/20 (591s)
+S3 dashpot: realization 18/20 (623s)
+S3 dashpot: realization 19/20 (658s)
+S3 dashpot: realization 20/20 (691s)
+== S3 dashpot, test rand: median error over 20 realizations, r = 1..8 (n = realizations used)
+   LNM                           1.5e-01  3.9e-02  1.2e-02  4.3e-03  7.7e-04  3.2e-04  1.8e-04  1.1e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   MTA-tip                       1.7e-01  1.7e-01  5.1e-02  1.7e-02  4.7e-03  2.7e-04  2.6e-05  6.8e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   SOD                           1.5e-01  4.0e-02  4.5e-02  1.4e-02  4.8e-03  2.3e-04  1.9e-05  2.2e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   D (load defl. at SOD freqs)   1.5e-01  4.0e-02  5.1e-02  1.7e-02  4.7e-03  2.7e-04  2.7e-05  3.3e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   median over realizations of D/SOD error ratio: 1.00 1.00 1.16 1.28 0.98 1.16 1.52 1.19
+== S3 dashpot, test mid: median error over 20 realizations, r = 1..8 (n = realizations used)
+   LNM                           3.0e-01  2.4e-02  2.4e-02  1.5e-03  1.5e-03  3.2e-04  3.2e-04  1.3e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   MTA-tip                       3.2e-01  3.1e-01  2.7e-02  2.6e-02  1.6e-03  1.2e-03  2.9e-04  2.7e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   SOD                           3.0e-01  2.5e-02  2.5e-02  2.4e-02  1.7e-03  1.1e-03  2.9e-04  3.0e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   D (load defl. at SOD freqs)   3.0e-01  2.5e-02  2.7e-02  2.6e-02  1.6e-03  1.2e-03  3.0e-04  2.9e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   median over realizations of D/SOD error ratio: 1.00 1.00 1.09 1.09 0.93 1.10 1.07 1.01

@@ -1,0 +1,32 @@
+S2 light: realization 1/20 (42s)
+S2 light: realization 2/20 (78s)
+S2 light: realization 3/20 (113s)
+S2 light: realization 4/20 (146s)
+S2 light: realization 5/20 (181s)
+S2 light: realization 6/20 (215s)
+S2 light: realization 7/20 (250s)
+S2 light: realization 8/20 (284s)
+S2 light: realization 9/20 (318s)
+S2 light: realization 10/20 (351s)
+S2 light: realization 11/20 (385s)
+S2 light: realization 12/20 (422s)
+S2 light: realization 13/20 (457s)
+S2 light: realization 14/20 (491s)
+S2 light: realization 15/20 (525s)
+S2 light: realization 16/20 (559s)
+S2 light: realization 17/20 (592s)
+S2 light: realization 18/20 (623s)
+S2 light: realization 19/20 (658s)
+S2 light: realization 20/20 (691s)
+== S2 light, test rand: median error over 20 realizations, r = 1..8 (n = realizations used)
+   LNM                           1.1e-01  1.9e-02  5.1e-03  1.7e-03  2.9e-04  1.2e-04  6.8e-05  4.2e-05   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   MTA-tip                       4.7e-01  1.5e-01  2.6e-02  7.1e-03  1.8e-03  1.0e-04  1.1e-05  2.7e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   SOD                           1.1e-01  1.9e-02  2.5e-02  6.4e-03  1.9e-03  8.9e-05  6.4e-06  1.3e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   D (load defl. at SOD freqs)   1.1e-01  1.9e-02  1.8e-02  7.1e-03  1.9e-03  1.0e-04  7.9e-06  2.0e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   median over realizations of D/SOD error ratio: 1.00 1.00 0.82 1.11 0.98 1.14 1.21 1.13
+== S2 light, test mid: median error over 20 realizations, r = 1..8 (n = realizations used)
+   LNM                           2.4e-01  1.1e-02  1.0e-02  6.0e-04  6.0e-04  1.3e-04  1.3e-04  5.0e-05   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   MTA-tip                       5.0e-01  3.1e-01  1.3e-02  1.2e-02  6.4e-04  4.9e-04  1.2e-04  1.1e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   SOD                           2.4e-01  1.1e-02  1.1e-02  1.1e-02  7.0e-04  4.5e-04  1.2e-04  1.2e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   D (load defl. at SOD freqs)   2.4e-01  1.1e-02  1.1e-02  1.2e-02  6.6e-04  4.9e-04  1.2e-04  1.2e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   median over realizations of D/SOD error ratio: 1.00 1.00 1.00 1.10 0.94 1.08 1.01 0.95

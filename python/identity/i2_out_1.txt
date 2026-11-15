@@ -1,0 +1,26 @@
+S1 heavy: realization 1/20 (1s)
+S1 heavy: realization 2/20 (2s)
+S1 heavy: realization 3/20 (3s)
+S1 heavy: realization 4/20 (4s)
+S1 heavy: realization 5/20 (5s)
+S1 heavy: realization 6/20 (7s)
+S1 heavy: realization 7/20 (8s)
+S1 heavy: realization 8/20 (9s)
+S1 heavy: realization 9/20 (10s)
+S1 heavy: realization 10/20 (11s)
+S1 heavy: realization 11/20 (12s)
+S1 heavy: realization 12/20 (13s)
+S1 heavy: realization 13/20 (14s)
+S1 heavy: realization 14/20 (15s)
+S1 heavy: realization 15/20 (16s)
+S1 heavy: realization 16/20 (18s)
+S1 heavy: realization 17/20 (19s)
+S1 heavy: realization 18/20 (20s)
+S1 heavy: realization 19/20 (21s)
+S1 heavy: realization 20/20 (22s)
+== S1 heavy, test rand: median error over 20 realizations, r = 1..8 (n = realizations used)
+   LNM                           9.6e-02  2.5e-02  9.7e-03  4.3e-03  2.3e-03  1.4e-03  9.2e-04  6.3e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   MTA-tip                       1.1e-01  3.9e-02  1.2e-02  3.4e-03  9.0e-04  2.6e-04  9.0e-05  3.7e-05   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   SOD                           9.6e-02  2.6e-02  9.6e-03  3.1e-03  7.2e-04  1.2e-04  1.6e-05  1.7e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   D (load defl. at SOD freqs)   9.6e-02  2.5e-02  8.7e-03  2.9e-03  8.1e-04  1.8e-04  3.9e-05  8.2e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   median over realizations of D/SOD error ratio: 1.00 0.96 0.91 0.96 1.12 1.45 2.37 4.46
