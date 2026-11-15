@@ -122,7 +122,7 @@ In real modal coordinates, $\bm{y}=\bm{P}\bm{\xi}$ with $\bm{P}_i=(\operatorname
 \begin{proposition}[State-space SOD]\label{prop:ssod}
 Let the response be free and the modal planes uncorrelated, $\avg{\bm{\xi}\bm{\xi}^{\mathsf T}}=\operatorname{blockdiag}(\bm{G}_i)$. Then each plane contributes two values with $\mu_{i,a}\mu_{i,b}=|s_i|^4$. Its two smooth modes span the modal plane $(\operatorname{Re}\,\bm{v}_i,\operatorname{Im}\,\bm{v}_i)$. The two values are equal if and only if $\bm{G}_i\propto\bm{I}$.
 \end{proposition}
-\noindent Appendix~\ref{app:proofs} gives the proof. In brief, the pencil decouples by plane, and $\det(\bm{L}_i\bm{G}_i\bm{L}_i^{\mathsf T})/\det\bm{G}_i=|s_i|^4$.
+\noindent \ref{app:proofs} gives the proof. In brief, the pencil decouples by plane, and $\det(\bm{L}_i\bm{G}_i\bm{L}_i^{\mathsf T})/\det\bm{G}_i=|s_i|^4$.
 For an undamped mode, isotropy of $\bm{G}_i$ is the modal virial balance. The pair product needs only decorrelation.
 
 Two ROM constructions are natural.
@@ -137,7 +137,7 @@ State ROMs are compared with configuration ROMs at equal state dimension, $2r$.
 
 \subsection{What to expect}\label{sec:expect}
 Write $\bx=\bPhi\bm{\eta}$ with mass-normalized LNMs, and $\bm{G}_x=\avg{\bm{\eta}\bm{\eta}^{\mathsf T}}$, $\bm{G}_v=\avg{\dot{\bm{\eta}}\dot{\bm{\eta}}^{\mathsf T}}$.
-Configuration SOD returns the LNMs if and only if $\bm{G}_x$ and $\bm{G}_v$ are diagonal. It returns the frequencies $\omega_i$ if also $(\bm{G}_v)_{ii}=\omega_i^2(\bm{G}_x)_{ii}$ (Appendix~\ref{app:proofs}).
+Configuration SOD returns the LNMs if and only if $\bm{G}_x$ and $\bm{G}_v$ are diagonal. It returns the frequencies $\omega_i$ if also $(\bm{G}_v)_{ii}=\omega_i^2(\bm{G}_x)_{ii}$ (\ref{app:proofs}).
 Modal correlation rotates the modes at first order. A virial defect $\delta_i$, defined by $(\bm{G}_v)_{ii}=\omega_i^2(1+\delta_i)(\bm{G}_x)_{ii}$, shifts the frequency by $\delta_i/2$ but leaves the modes alone.
 For a single-degree-of-freedom decay from rest with damping ratio $\zeta$, the defect is $-4\zeta^2/(1+4\zeta^2)$, so the frequency bias is second order in damping. A nonzero initial velocity adds a first-order term that averages out over phase.
 Free decay under proportional damping nearly satisfies both conditions. Forced response does not:
@@ -202,11 +202,11 @@ Training velocities, and the accelerations of state-space SOD, come from the mod
 \end{itemize}
 Static release puts 98--99\,\% of the initial energy in mode 1. EE is the numerical ideal of an impact test that excites every mode equally. BL mimics a softer hammer tip, which limits the excited band.
 
-\paragraph{Reproducibility.} Table~\ref{tab:repro} lists the remaining settings. Random loads are drawn with NumPy's \texttt{default\_rng}. Each record is a sequence of standard normal samples. It is filtered forward and backward by a sixth-order Butterworth low-pass filter with cutoff $\omega_{\mathrm c}$ (\texttt{scipy.signal.sosfiltfilt}). It is then scaled to unit standard deviation. The swept sine is $u=\sin[\omega_0t+(\omega_{\mathrm c}-\omega_0)t^2/(2T)]$, with record length $T$. Appendix~\ref{app:repro} describes the code and data.
+\paragraph{Reproducibility.} Table~\ref{tab:repro} lists the remaining settings. Random loads are drawn with NumPy's \texttt{default\_rng}. Each record is a sequence of standard normal samples. It is filtered forward and backward by a sixth-order Butterworth low-pass filter with cutoff $\omega_{\mathrm c}$ (\texttt{scipy.signal.sosfiltfilt}). It is then scaled to unit standard deviation. The swept sine is $u=\sin[\omega_0t+(\omega_{\mathrm c}-\omega_0)t^2/(2T)]$, with record length $T$. \ref{app:repro} describes the code and data.
 
 \begin{table}[t]
 \centering\small
-\caption{Simulation settings. Random seeds, scripts and run times are listed in the reproduction manual (Appendix~\ref{app:repro}).}
+\caption{Simulation settings. Random seeds, scripts and run times are listed in the reproduction manual (\ref{app:repro}).}
 \label{tab:repro}
 \resizebox{\textwidth}{!}{\begin{tabular}{lll}
 \toprule
@@ -701,10 +701,10 @@ The author declares that he has no known competing financial interests or person
 The author kindly acknowledges the indirect financial support provided by the National Institute for Undersea Vehicle Technology (NIUVT) and the Office of Naval Research (ONR) under grant number N00014-24-1-2093.
 
 \section*{Data availability}
-Every number, table and figure in this paper is produced from the models alone by the Python scripts named in Appendix~\ref{app:repro}; there are no measured data. The scripts, their stored outputs and the reproduction manual will be made public on submission, archived at Zenodo \url{https://doi.org/10.5281/zenodo.24248585}. The SOD computations use the SOD Toolbox (\url{https://github.com/nld-uri/sod-toolbox}).
+Every number, table and figure in this paper is produced from the models alone by the Python scripts named in \ref{app:repro}; there are no measured data. The scripts, their stored outputs and the reproduction manual will be made public on submission, archived at Zenodo \url{https://doi.org/10.5281/zenodo.24248585}. The SOD computations use the SOD Toolbox (\url{https://github.com/nld-uri/sod-toolbox}).
 
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
-During the preparation of this work the author used Claude (Anthropic; Claude Opus 5 and Claude Opus 5.5) accessed through the Claude Science research environment and Claude Code, in order to write and debug the simulation, analysis and figure code, to design and run the numerical experiments reported here, to carry out the literature searches from which parts of the reference list were selected and to check the cited sources against the text, and to draft, edit and restructure the manuscript text. After using these tools the author reviewed and edited the content as needed. The reported results can be regenerated with the scripts and reproduction manual described in Appendix~\ref{app:repro}, and the bibliographic details of the cited references were checked against Crossref and OpenAlex and by the author. The author takes full responsibility for the content of the published article.
+During the preparation of this work the author used Claude (Anthropic; Claude Opus 5 and Claude Opus 5.5) accessed through the Claude Science research environment and Claude Code, in order to write and debug the simulation, analysis and figure code, to design and run the numerical experiments reported here, to carry out the literature searches from which parts of the reference list were selected and to check the cited sources against the text, and to draft, edit and restructure the manuscript text. After using these tools the author reviewed and edited the content as needed. The reported results can be regenerated with the scripts and reproduction manual described in \ref{app:repro}, and the bibliographic details of the cited references were checked against Crossref and OpenAlex and by the author. The author takes full responsibility for the content of the published article.
 
 \bibliographystyle{elsarticle-num-names}
 \bibliography{../refs}
