@@ -7,11 +7,9 @@ smallest angle 0.004 deg at w* = 2.420 (= 0.494 omega_w)
    w = 3: 0.378 deg
    w = 4: 1.233 deg
    w = 5: 2.370 deg
+refined: w* = 2.41717, angle 3.19e-03 deg; first SOD frequency 2.49399, angle there 4.50e-02 deg
 one-mode ROMs (phi scaled to unit tip displacement):
   SOD   q*/x* - 1 = -3.22e-03   omega_w(ROM)/omega_w - 1 = +1.25e-02
   MTA   q*/x* - 1 = +4.60e-13   omega_w(ROM)/omega_w - 1 = +2.97e-02
   DMTA  q*/x* - 1 = -6.52e-02   omega_w(ROM)/omega_w - 1 = -9.34e-02
   DMTS  q*/x* - 1 = -3.21e-03   omega_w(ROM)/omega_w - 1 = +1.26e-02
-w*=2.41717 angle=3.19e-03 deg
-SOD freqs [ 2.49399 10.38677 23.78943]  angle at sqrt(mu1):4.50e-02
-tip spectrum peak w=0.105

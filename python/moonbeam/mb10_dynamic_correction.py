@@ -1,7 +1,8 @@
 """Does an inertia-corrected static vector explain SOD's low-order edge over MTA on the two-well beam?
    MTA uses K^-1 e_tip (clamped-beam stiffness K, nonlinear force at the tip). Here the static vector is replaced by
    the dynamic correction d(w) = (K - w^2 M)^-1 e_tip, the deflection under a harmonic tip force at frequency w.
-   (1) angle (mass metric) between the first SOD direction and d(w) over w in [0, 6]; the w of the smallest angle;
+   (1) angle (mass metric) between the first SOD direction and d(w) over w in [0, 6]; the w of the smallest angle,
+       refined by a bounded scalar search, and the angle at the first SOD frequency;
    (2) one-mode ROM equilibrium and well frequency (as mb9_onemode.py) for d(omega_w) and d(w*);
    (3) bases DMTA (d(omega_w)) and DMTS (d(w*)) at r = 1, 2: r-1 clamped LNMs + d, mass-normalized; written to
        mb10_bases.pkl for the amplitude sweep (mb6_amp_sweep.py reads mb2_bases.pkl, so run_sweep() below calls it).
@@ -24,6 +25,10 @@ if len(sys.argv) == 1:
     print(f"angle(SOD1, d(omega_w))    = {ang(s1, d(ww)):.3f} deg")
     print(f"smallest angle {A.min():.3f} deg at w* = {ws:.3f} (= {ws / ww:.3f} omega_w)")
     for w in (1, 2, 3, 4, 5): print(f"   w = {w}: {ang(s1, d(w)):.3f} deg")
+    from scipy.optimize import minimize_scalar
+    ws_f = minimize_scalar(lambda w: ang(s1, d(w)), bounds=(2, 3), method='bounded', options={'xatol': 1e-6}).x
+    mu1 = pickle.load(open('mb2_bases.pkl', 'rb'))['ws'][0]
+    print(f"refined: w* = {ws_f:.5f}, angle {ang(s1, d(ws_f)):.2e} deg; first SOD frequency {mu1:.5f}, angle there {ang(s1, d(mu1)):.2e} deg")
     B = {}
     for name, w in (('DMTA', ww), ('DMTS', ws)):
         for r in (1, 2): B[(name, r)] = mnorm(np.c_[P0[:, :r - 1], d(w)]) if r > 1 else mnorm(d(w)[:, None])
