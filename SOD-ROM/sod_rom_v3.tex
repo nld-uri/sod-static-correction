@@ -5,6 +5,12 @@
 \usepackage[subpreambles=true]{standalone}  % Fig. 1 is the TikZ file ../figures/tikz/fig_c_systems_tikz.tex
 \input{../sodmacros.tex}
 % scalars: A, E, H, I, L, P, R, T, W, \varOmega, \varGamma
+% elsarticle appends a period to every \paragraph title; the titles here carry
+% their own punctuation (some end in '?'), so the automatic period is removed.
+\makeatletter
+\def\els@aparagraph[#1]#2{\elsparagraph[#1]{#2}}
+\def\els@bparagraph#1{\elsparagraph*{#1}}
+\makeatother
 \graphicspath{{../figures/}}
 \newtheorem{proposition}{Proposition}
 \setlength{\emergencystretch}{3em}
