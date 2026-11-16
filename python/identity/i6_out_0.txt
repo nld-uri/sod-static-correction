@@ -1,0 +1,46 @@
+complex modes |s|, zeta: [(np.float64(3.52), np.float64(0.134)), (np.float64(22.02), np.float64(0.025)), (np.float64(61.69), np.float64(0.018)), (np.float64(120.9), np.float64(0.023)), (np.float64(199.86), np.float64(0.034)), (np.float64(298.57), np.float64(0.05))] ; real eigenvalues: 70
+r=2: state rank 12; SOD freqs of the first 2r [ 3.1  4.  21.5 22.6]; in-band planes (freq, one-sidedness) [(3.5, 0.96), (22.0, 0.99), (61.7, 0.99), (120.9, 0.99)]; sRHB takes [0, 1, 2, 3]
+r=3: state rank 15; SOD freqs of the first 2r [ 3.1  4.  21.5 22.6 60.5 62.6]; in-band planes (freq, one-sidedness) [(3.5, 0.96), (22.0, 0.99), (61.7, 0.99), (120.9, 0.99), (199.7, 0.97)]; sRHB takes [0, 1, 2, 3, 4, 5]
+r=4: state rank 17; SOD freqs of the first 2r [  3.1   4.   21.5  22.6  60.4  62.6 116.8 122.8]; in-band planes (freq, one-sidedness) [(3.5, 0.96), (22.0, 0.99), (61.7, 0.99), (120.9, 0.98), (199.6, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7]
+r=5: state rank 18; SOD freqs of the first 2r [  3.1   4.   21.5  22.6  60.4  62.6 116.8 122.8 188.6 203.5]; in-band planes (freq, one-sidedness) [(3.5, 0.96), (22.0, 0.99), (61.7, 0.99), (120.9, 0.98), (199.6, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+r=6: state rank 18; SOD freqs of the first 2r [  3.1   4.   21.5  22.6  60.4  62.6 116.8 122.8 188.6 203.5 274.8 305.3]; in-band planes (freq, one-sidedness) [(3.5, 0.96), (22.0, 0.99), (61.7, 0.99), (120.9, 0.98), (199.6, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+r=7: state rank 18; SOD freqs of the first 2r [  3.1   4.   21.5  22.6  60.4  62.6 116.8 122.8 188.6 203.5 274.8 305.3
+ 380.5 430.4]; in-band planes (freq, one-sidedness) [(3.5, 0.96), (22.0, 0.99), (61.7, 0.99), (120.9, 0.98), (199.6, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+r=8: state rank 20; SOD freqs of the first 2r [  3.1   4.   21.5  22.6  60.4  62.6 116.8 122.7 188.3 203.5 274.1 305.1
+ 379.2 429.6 511.9 585.6]; in-band planes (freq, one-sidedness) [(3.5, 0.96), (22.0, 0.99), (61.7, 0.99), (120.9, 0.98), (199.6, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+S3 dashpot: realization 1/20 (14s)
+S3 dashpot: realization 2/20 (29s)
+S3 dashpot: realization 3/20 (45s)
+S3 dashpot: realization 4/20 (60s)
+S3 dashpot: realization 5/20 (75s)
+S3 dashpot: realization 6/20 (90s)
+S3 dashpot: realization 7/20 (105s)
+S3 dashpot: realization 8/20 (119s)
+S3 dashpot: realization 9/20 (132s)
+S3 dashpot: realization 10/20 (146s)
+S3 dashpot: realization 11/20 (160s)
+S3 dashpot: realization 12/20 (174s)
+S3 dashpot: realization 13/20 (188s)
+S3 dashpot: realization 14/20 (202s)
+S3 dashpot: realization 15/20 (216s)
+S3 dashpot: realization 16/20 (231s)
+S3 dashpot: realization 17/20 (246s)
+S3 dashpot: realization 18/20 (260s)
+S3 dashpot: realization 19/20 (275s)
+S3 dashpot: realization 20/20 (290s)
+== S3 dashpot, random tip load: median error over 20 realizations, r = 2..8
+   LNM       3.9e-02  1.3e-02  4.3e-03  7.8e-04  3.2e-04  1.8e-04  1.1e-04
+   CM        3.9e-02  1.3e-02  4.3e-03  7.8e-04  3.3e-04  1.8e-04  1.1e-04
+   MTA-tip   1.7e-01  5.2e-02  1.7e-02  4.7e-03  2.7e-04  2.7e-05  7.0e-06
+   R0        3.9e-02  1.3e-02  4.6e-03  1.8e-03  1.1e-03  8.0e-04  9.3e-04
+   RHB       3.9e-02  1.3e-02  4.6e-03  1.8e-03  1.1e-03  8.0e-04  9.3e-04
+   median over realizations of R0/LNM:   1.00   1.02   1.08   2.31   3.36   4.44   8.36
+   median over realizations of RHB/LNM:   1.00   1.02   1.08   2.31   3.36   4.44   8.36
+== S3 dashpot, random mid load: median error over 20 realizations, r = 2..8
+   LNM       2.4e-02  2.4e-02  1.5e-03  1.5e-03  3.2e-04  3.1e-04  1.2e-04
+   CM        2.4e-02  2.4e-02  1.5e-03  1.5e-03  3.1e-04  3.1e-04  1.2e-04
+   MTA-tip   3.1e-01  2.7e-02  2.6e-02  1.5e-03  1.2e-03  2.9e-04  2.7e-04
+   R0        2.4e-02  2.4e-02  2.0e-03  2.7e-03  1.3e-03  1.8e-03  1.0e-03
+   RHB       2.4e-02  2.4e-02  2.0e-03  2.7e-03  1.3e-03  1.8e-03  1.0e-03
+   median over realizations of R0/LNM:   1.00   1.01   1.38   1.87   4.19   5.64   8.46
+   median over realizations of RHB/LNM:   1.00   1.01   1.38   1.87   4.19   5.64   8.46

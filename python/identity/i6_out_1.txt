@@ -1,0 +1,46 @@
+complex modes |s|, zeta: [(np.float64(3.59), np.float64(0.601)), (np.float64(21.73), np.float64(0.097)), (np.float64(61.49), np.float64(0.043)), (np.float64(120.75), np.float64(0.037)), (np.float64(199.74), np.float64(0.042)), (np.float64(298.47), np.float64(0.055))] ; real eigenvalues: 70
+r=2: state rank 16; SOD freqs of the first 2r [ 2.   5.9 20.2 24.4]; in-band planes (freq, one-sidedness) [(2.9, 0.86), (21.6, 0.96), (61.4, 0.98), (120.6, 0.98), (199.6, 0.96)]; sRHB takes [0, 1, 2, 3]
+r=3: state rank 16; SOD freqs of the first 2r [ 2.   5.9 20.2 24.4 59.  64.2]; in-band planes (freq, one-sidedness) [(2.9, 0.86), (21.6, 0.96), (61.4, 0.98), (120.7, 0.98), (199.5, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5]
+r=4: state rank 17; SOD freqs of the first 2r [  2.    5.9  20.2  24.3  58.9  64.  115.4 124. ]; in-band planes (freq, one-sidedness) [(2.9, 0.86), (21.6, 0.96), (61.4, 0.98), (120.6, 0.97), (199.4, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7]
+r=5: state rank 18; SOD freqs of the first 2r [  2.    5.9  20.2  24.3  58.9  64.  115.4 124.  187.8 204.8]; in-band planes (freq, one-sidedness) [(2.9, 0.86), (21.6, 0.96), (61.4, 0.98), (120.6, 0.97), (199.4, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+r=6: state rank 19; SOD freqs of the first 2r [  2.    5.9  20.2  24.3  58.9  64.  115.3 124.  187.6 204.7 274.8 306.5]; in-band planes (freq, one-sidedness) [(2.9, 0.86), (21.6, 0.96), (61.4, 0.98), (120.6, 0.97), (199.4, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+r=7: state rank 21; SOD freqs of the first 2r [  2.    5.9  20.2  24.3  58.9  64.  115.3 124.  187.5 204.7 274.5 306.4
+ 380.4 431.2]; in-band planes (freq, one-sidedness) [(2.9, 0.86), (21.6, 0.96), (61.4, 0.98), (120.6, 0.97), (199.4, 0.96)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+r=8: state rank 22; SOD freqs of the first 2r [  2.    5.9  20.2  24.3  58.8  64.  115.3 124.  187.4 204.7 274.1 306.4
+ 379.3 431.2 510.4 587.4]; in-band planes (freq, one-sidedness) [(2.9, 0.86), (21.6, 0.96), (61.4, 0.98), (120.6, 0.97), (199.4, 0.95)]; sRHB takes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+S3 dashpot_heavy: realization 1/20 (15s)
+S3 dashpot_heavy: realization 2/20 (31s)
+S3 dashpot_heavy: realization 3/20 (46s)
+S3 dashpot_heavy: realization 4/20 (61s)
+S3 dashpot_heavy: realization 5/20 (78s)
+S3 dashpot_heavy: realization 6/20 (93s)
+S3 dashpot_heavy: realization 7/20 (107s)
+S3 dashpot_heavy: realization 8/20 (121s)
+S3 dashpot_heavy: realization 9/20 (135s)
+S3 dashpot_heavy: realization 10/20 (149s)
+S3 dashpot_heavy: realization 11/20 (165s)
+S3 dashpot_heavy: realization 12/20 (179s)
+S3 dashpot_heavy: realization 13/20 (193s)
+S3 dashpot_heavy: realization 14/20 (207s)
+S3 dashpot_heavy: realization 15/20 (223s)
+S3 dashpot_heavy: realization 16/20 (237s)
+S3 dashpot_heavy: realization 17/20 (253s)
+S3 dashpot_heavy: realization 18/20 (268s)
+S3 dashpot_heavy: realization 19/20 (283s)
+S3 dashpot_heavy: realization 20/20 (296s)
+== S3 dashpot_heavy, random tip load: median error over 20 realizations, r = 2..8
+   LNM       5.3e-02  2.1e-02  7.8e-03  1.6e-03  6.9e-04  3.9e-04  2.5e-04
+   CM        5.4e-02  2.1e-02  7.9e-03  1.6e-03  6.8e-04  3.8e-04  2.3e-04
+   MTA-tip   9.0e-02  5.9e-02  2.6e-02  8.2e-03  5.4e-04  5.3e-05  1.4e-05
+   R0        5.6e-02  2.6e-02  1.2e-02  9.4e-03  6.0e-03  4.8e-03  5.8e-03
+   RHB       5.6e-02  2.6e-02  1.2e-02  9.4e-03  6.0e-03  4.8e-03  5.8e-03
+   median over realizations of R0/LNM:   1.04   1.23   1.58   5.89   8.75  12.26  23.66
+   median over realizations of RHB/LNM:   1.04   1.23   1.58   5.89   8.75  12.26  23.66
+== S3 dashpot_heavy, random mid load: median error over 20 realizations, r = 2..8
+   LNM       4.1e-02  3.9e-02  3.5e-03  3.1e-03  7.7e-04  6.9e-04  3.0e-04
+   CM        3.9e-02  3.8e-02  3.0e-03  2.9e-03  6.3e-04  6.3e-04  2.5e-04
+   MTA-tip   1.5e-01  4.3e-02  3.9e-02  3.1e-03  2.4e-03  5.9e-04  5.4e-04
+   R0        5.0e-02  5.2e-02  8.0e-03  3.5e-02  1.6e-02  1.3e-02  3.8e-03
+   RHB       5.0e-02  5.2e-02  8.0e-03  3.5e-02  1.6e-02  1.3e-02  3.8e-03
+   median over realizations of R0/LNM:   1.21   1.33   2.32  11.31  20.77  19.22  12.46
+   median over realizations of RHB/LNM:   1.21   1.33   2.32  11.31  20.77  19.22  12.46
