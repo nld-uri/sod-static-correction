@@ -3,7 +3,7 @@ message: "If you use this code or these stored results, please cite the article 
 type: software
 title: "Code, stored results and reproduction manual for: What a free decay teaches a smooth orthogonal decomposition basis"
 version: 1.0.0
-doi: "10.5281/zenodo.24248585"
+doi: "10.5281/zenodo.24293687"
 date-released: "2026-11-15"
 license: MIT
 repository-code: "https://github.com/nld-uri/sod-static-correction"

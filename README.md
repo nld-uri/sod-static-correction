@@ -1,7 +1,7 @@
 # Code, stored results and reproduction manual for: What a free decay teaches a smooth orthogonal decomposition basis
 
 D. Chelidze, Nonlinear Dynamics Laboratory, University of Rhode Island.
-Article prepared for the *Journal of Sound and Vibration*. Archive: Zenodo, https://doi.org/10.5281/zenodo.24248585 (published on submission).
+Article prepared for the *Journal of Sound and Vibration*. Archive: Zenodo, https://doi.org/10.5281/zenodo.24293687 (published 16 November 2026). The submitted manuscript prints an earlier reserved DOI, 10.5281/zenodo.24248585, which was never published and does not resolve; it will be corrected at revision.
 Development repository: https://github.com/nld-uri/sod-static-correction. License: MIT (`LICENSE`). Citation: `CITATION.cff`.
 
 Every number, table and figure of the article is produced from the models alone by the Python scripts in `python/`; there are no measured data.
