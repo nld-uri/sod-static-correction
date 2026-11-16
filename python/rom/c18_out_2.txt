@@ -1,0 +1,64 @@
+S2 light: realization 1/20 done (201s)
+S2 light: realization 2/20 done (408s)
+S2 light: realization 3/20 done (618s)
+S2 light: realization 4/20 done (813s)
+S2 light: realization 5/20 done (1017s)
+S2 light: realization 6/20 done (1206s)
+S2 light: realization 7/20 done (1402s)
+S2 light: realization 8/20 done (1610s)
+S2 light: realization 9/20 done (1807s)
+S2 light: realization 10/20 done (2016s)
+S2 light: realization 11/20 done (2213s)
+S2 light: realization 12/20 done (2415s)
+S2 light: realization 13/20 done (2614s)
+S2 light: realization 14/20 done (2812s)
+S2 light: realization 15/20 done (3009s)
+S2 light: realization 16/20 done (3217s)
+S2 light: realization 17/20 done (3427s)
+S2 light: realization 18/20 done (3622s)
+S2 light: realization 19/20 done (3832s)
+S2 light: realization 20/20 done (4044s)
+== S2 light, test rand: median error, r = 1..10
+   POD (free)        1.1e-01  2.0e-02  5.2e-03  1.7e-03  3.0e-04  1.1e-04  3.2e-05  2.8e-05      nan      nan
+   SOD (free)        1.1e-01  1.9e-02  5.1e-03  1.7e-03  2.9e-04  9.4e-05  4.2e-05  2.8e-05      nan      nan
+   POD (swept)       2.5e-01  2.7e-02  5.9e-03  1.8e-03  3.2e-04  8.3e-05  1.1e-05  2.1e-06      nan      nan
+   SOD (swept)       1.1e-01  1.5e-01  2.0e-02  5.5e-03  1.7e-03  1.8e-03  1.0e-05  2.1e-06      nan      nan
+   POD (freeBL)      1.1e-01  1.9e-02  5.1e-03  1.7e-03  2.9e-04  1.3e-04  7.3e-05  4.8e-05  2.7e-05      nan
+   SOD (freeBL)      1.1e-01  1.9e-02  5.1e-03  1.7e-03  3.0e-04  1.3e-04  7.3e-05  4.7e-05  2.7e-05      nan
+   LNM               1.1e-01  1.9e-02  5.1e-03  1.7e-03  2.9e-04  1.2e-04  6.8e-05  4.2e-05  2.7e-05  1.9e-05
+   MTA                   nan      nan  9.5e-02  2.6e-02  5.8e-03  1.8e-03  7.8e-05  1.1e-05  1.9e-06  1.3e-06
+   POD (rand)        2.2e-01  3.2e-02  5.9e-03  1.8e-03  3.5e-04  8.3e-05  6.2e-06  1.5e-06  1.0e-06      nan
+   SOD (rand)        1.1e-01  1.9e-02  2.5e-02  6.4e-03  1.9e-03  8.9e-05  6.5e-06  1.6e-06  1.0e-06      nan
+== S2 light, test mid: median error, r = 1..10
+   POD (free)        2.4e-01  1.6e-02  1.0e-02  6.2e-04  6.1e-04  5.1e-04  1.1e-04  5.5e-05      nan      nan
+   SOD (free)        2.4e-01  1.1e-02  1.0e-02  6.1e-04  6.0e-04  1.9e-04  1.5e-04  5.5e-05      nan      nan
+   POD (swept)       3.2e-01  4.5e-02  1.1e-02  1.5e-03  6.1e-04  4.2e-04  1.3e-04  1.2e-04      nan      nan
+   SOD (swept)       2.4e-01  3.0e-01  1.1e-02  1.0e-02  5.8e-04  6.3e-04  1.3e-04  1.2e-04      nan      nan
+   POD (freeBL)      2.4e-01  1.1e-02  1.0e-02  6.0e-04  6.0e-04  1.3e-04  1.3e-04  5.4e-05  5.0e-05      nan
+   SOD (freeBL)      2.4e-01  1.1e-02  1.0e-02  6.0e-04  6.1e-04  1.3e-04  1.3e-04  5.3e-05  5.0e-05      nan
+   LNM               2.4e-01  1.1e-02  1.0e-02  6.0e-04  6.0e-04  1.3e-04  1.3e-04  5.0e-05  5.0e-05  2.4e-05
+   MTA                   nan      nan  2.0e-01  1.4e-02  1.2e-02  2.9e-04  1.7e-04  4.4e-06  3.8e-06  1.0e-06
+   POD (rand)        3.0e-01  5.0e-02  1.1e-02  1.2e-03  6.2e-04  4.1e-04  1.2e-04  1.2e-04  5.0e-05      nan
+   SOD (rand)        2.4e-01  1.1e-02  1.1e-02  1.1e-02  7.0e-04  4.5e-04  1.2e-04  1.2e-04  5.0e-05      nan
+== S2 light, test free: median error, r = 1..10
+   POD (free)        1.1e-02  8.1e-04  2.3e-04  1.8e-05  7.7e-06  7.7e-06  3.3e-06  1.2e-06      nan      nan
+   SOD (free)        1.1e-02  5.7e-04  2.3e-04  1.7e-05  7.7e-06  4.4e-06  3.3e-06  1.2e-06      nan      nan
+   POD (swept)       2.3e-01  2.2e-03  2.4e-04  3.8e-05  9.6e-06  7.6e-06  3.6e-06  3.1e-06      nan      nan
+   SOD (swept)       1.1e-02  1.5e-02  6.4e-04  2.4e-04  1.9e-05  1.9e-05  3.6e-06  3.1e-06      nan      nan
+   POD (freeBL)      1.1e-02  5.7e-04  2.3e-04  1.7e-05  7.7e-06  3.9e-06  3.5e-06  1.5e-06  1.1e-06      nan
+   SOD (freeBL)      1.1e-02  5.7e-04  2.3e-04  1.7e-05  7.7e-06  3.9e-06  3.5e-06  1.5e-06  1.1e-06      nan
+   LNM               1.1e-02  5.7e-04  2.3e-04  1.7e-05  7.7e-06  3.9e-06  3.4e-06  1.2e-06  1.1e-06  1.0e-06
+   MTA                   nan      nan  1.0e-02  7.6e-04  2.5e-04  2.0e-05  6.5e-06  2.3e-06  2.0e-06  1.0e-06
+   POD (rand)        2.0e-01  2.5e-03  2.5e-04  2.9e-05  8.0e-06  7.5e-06  3.3e-06  2.9e-06  1.1e-06      nan
+   SOD (rand)        1.1e-02  5.7e-04  7.5e-04  2.6e-04  1.9e-05  7.8e-06  3.3e-06  2.9e-06  1.1e-06      nan
+== S2 light, test freeBL: median error, r = 1..10
+   POD (free)        1.1e-01  2.0e-02  5.0e-03  1.4e-03  2.9e-04  3.1e-04  3.9e-05  8.5e-06      nan      nan
+   SOD (free)        1.1e-01  1.9e-02  4.9e-03  1.4e-03  2.9e-04  8.6e-05  2.6e-05  8.5e-06      nan      nan
+   POD (swept)       2.5e-01  2.8e-02  5.7e-03  1.5e-03  3.0e-04  3.1e-04  6.0e-05  2.5e-05      nan      nan
+   SOD (swept)       1.1e-01  1.5e-01  2.1e-02  5.3e-03  1.6e-03  1.4e-03  5.9e-05  2.5e-05      nan      nan
+   POD (freeBL)      1.1e-01  1.9e-02  4.9e-03  1.4e-03  3.0e-04  5.8e-05  1.5e-05  5.5e-06  8.9e-07      nan
+   SOD (freeBL)      1.1e-01  1.9e-02  4.9e-03  1.4e-03  3.0e-04  6.0e-05  1.5e-05  5.4e-06  8.9e-07      nan
+   LNM               1.1e-01  1.9e-02  4.9e-03  1.4e-03  2.9e-04  5.6e-05  1.3e-05  3.5e-06  8.9e-07  8.9e-07
+   MTA                   nan      nan  1.0e-01  2.5e-02  5.4e-03  1.6e-03  2.7e-04  5.3e-05  7.0e-06  2.9e-06
+   POD (rand)        2.3e-01  3.0e-02  5.8e-03  1.4e-03  3.1e-04  3.0e-04  5.2e-05  1.5e-05  1.9e-06      nan
+   SOD (rand)        1.1e-01  1.9e-02  2.5e-02  5.9e-03  1.6e-03  3.1e-04  5.2e-05  1.5e-05  1.9e-06      nan

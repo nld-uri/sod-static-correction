@@ -1,0 +1,14 @@
+ROM LNM r=2: deviation at H = 0.005, 0.02, 0.05 J: +1.9e-03 +5.2e-03 +6.5e-03; H max 0.060
+ROM LNM r=2: median |f/f_full - 1| = 4.0e-03 over 348 backbone points
+ROM LNM r=4: deviation at H = 0.005, 0.02, 0.05 J: +2.6e-04 +6.9e-04 +8.7e-04; H max 0.061
+ROM LNM r=4: median |f/f_full - 1| = 5.1e-04 over 345 backbone points
+ROM MTA r=2: deviation at H = 0.005, 0.02, 0.05 J: +9.2e-05 +1.5e-03 +8.9e-03; H max 0.060
+ROM MTA r=2: median |f/f_full - 1| = 6.1e-04 over 348 backbone points
+ROM MTA r=4: deviation at H = 0.005, 0.02, 0.05 J: +1.8e-06 +1.5e-07 +6.4e-07; H max 0.061
+ROM MTA r=4: median |f/f_full - 1| = 4.8e-07 over 345 backbone points
+ROM SOD r=2: deviation at H = 0.005, 0.02, 0.05 J: +9.4e-05 +1.5e-03 +3.0e-03; H max 0.060
+ROM SOD r=2: median |f/f_full - 1| = 9.7e-04 over 982 backbone points
+ROM SOD r=4: deviation at H = 0.005, 0.02, 0.05 J: +4.6e-07 +2.1e-07 -5.7e-03; H max 0.048
+ROM SOD r=4: median |f/f_full - 1| = 6.0e-07 over 936 backbone points
+track P=30 N: 47 windows, H 1.3e-04-1.1e-02 J; vs backbone (44 windows): configuration SOD median 1.6e-02 (max 4.8e-02); state-SOD plane median 2.6e-03 (max 4.8e-02), plane found in 47/47; plane rotation rate median 6.7e-03 (max 5.3e-02)
+track P=120 N: 47 windows, H 3.2e-04-5.0e-02 J; vs backbone (45 windows): configuration SOD median 1.3e-02 (max 4.9e-02); state-SOD plane median 1.2e-03 (max 1.9e-02), plane found in 47/47; plane rotation rate median 4.5e-03 (max 3.5e-02)

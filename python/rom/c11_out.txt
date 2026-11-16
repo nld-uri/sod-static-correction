@@ -1,0 +1,18 @@
+S2 mid LNM: mass-weighted error 5.69e-04, tip RMS error/RMS 4.80e-04
+S2 mid MTA: mass-weighted error 1.28e-02, tip RMS error/RMS 1.12e-02
+S2 mid SOD (free EE): mass-weighted error 5.85e-04, tip RMS error/RMS 4.93e-04
+S2 mid SOD (random): mass-weighted error 9.99e-03, tip RMS error/RMS 1.11e-02
+S2 freeEE LNM: mass-weighted error 2.08e-03, tip RMS error/RMS 2.25e-03
+S2 freeEE MTA: mass-weighted error 2.57e-02, tip RMS error/RMS 2.96e-02
+S2 freeEE SOD (free EE): mass-weighted error 2.08e-03, tip RMS error/RMS 2.25e-03
+S2 freeEE SOD (random): mass-weighted error 6.85e-03, tip RMS error/RMS 9.48e-03
+S3 mid CM: mass-weighted error 2.94e-03, tip RMS error/RMS 2.33e-03
+S3 mid MTA: mass-weighted error 5.21e-02, tip RMS error/RMS 4.57e-02
+S3 mid sSOD (SR): mass-weighted error 6.61e-03, tip RMS error/RMS 5.92e-03
+S3 mid sSOD (free EE): mass-weighted error 1.19e-01, tip RMS error/RMS 1.17e-01
+S3 mid sSOD (BL): mass-weighted error 8.06e-03, tip RMS error/RMS 7.65e-03
+S3 freeEE CM: mass-weighted error 5.63e-03, tip RMS error/RMS 6.09e-03
+S3 freeEE MTA: mass-weighted error 4.07e-02, tip RMS error/RMS 4.25e-02
+S3 freeEE sSOD (SR): mass-weighted error 5.64e-02, tip RMS error/RMS 5.54e-02
+S3 freeEE sSOD (free EE): mass-weighted error 6.04e-02, tip RMS error/RMS 5.77e-02
+S3 freeEE sSOD (BL): mass-weighted error 5.77e-02, tip RMS error/RMS 5.65e-02

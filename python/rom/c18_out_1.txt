@@ -1,0 +1,53 @@
+S1 heavy: realization 1/20 done (13s)
+S1 heavy: realization 2/20 done (26s)
+S1 heavy: realization 3/20 done (39s)
+S1 heavy: realization 4/20 done (52s)
+S1 heavy: realization 5/20 done (66s)
+S1 heavy: realization 6/20 done (79s)
+S1 heavy: realization 7/20 done (91s)
+S1 heavy: realization 8/20 done (105s)
+S1 heavy: realization 9/20 done (117s)
+S1 heavy: realization 10/20 done (130s)
+S1 heavy: realization 11/20 done (143s)
+S1 heavy: realization 12/20 done (157s)
+S1 heavy: realization 13/20 done (170s)
+S1 heavy: realization 14/20 done (183s)
+S1 heavy: realization 15/20 done (195s)
+S1 heavy: realization 16/20 done (208s)
+S1 heavy: realization 17/20 done (221s)
+S1 heavy: realization 18/20 done (234s)
+S1 heavy: realization 19/20 done (248s)
+S1 heavy: realization 20/20 done (261s)
+== S1 heavy, test rand: median error, r = 1..10
+   POD (free)        9.6e-02  2.5e-02  8.5e-03  2.7e-03  6.4e-04  1.5e-04  3.5e-05      nan      nan      nan
+   SOD (free)        9.6e-02  2.5e-02  8.5e-03  2.9e-03  8.3e-04  1.9e-04  3.5e-05      nan      nan      nan
+   POD (swept)       9.6e-02  2.5e-02  8.7e-03  2.7e-03  6.3e-04  1.1e-04  1.5e-05      nan      nan      nan
+   SOD (swept)       9.6e-02  2.6e-02  9.4e-03  3.0e-03  7.0e-04  1.3e-04  1.5e-05      nan      nan      nan
+   POD (freeBL)      9.6e-02  2.5e-02  1.3e-02  7.3e-03  5.5e-03  3.2e-03  7.1e-04  5.4e-04  5.1e-04  3.3e-13
+   SOD (freeBL)      9.6e-02  2.5e-02  1.2e-02  6.0e-03  3.9e-03  1.4e-03  9.3e-04  6.0e-04  4.6e-04  6.9e-13
+   LNM               9.6e-02  2.5e-02  9.7e-03  4.3e-03  2.3e-03  1.4e-03  9.2e-04  6.3e-04  3.8e-04  4.3e-14
+   MTA                   nan  3.9e-02  1.2e-02  3.4e-03  9.0e-04  2.6e-04  9.0e-05  3.7e-05  1.4e-05  1.4e-13
+   POD (rand)        9.6e-02  2.5e-02  8.7e-03  2.7e-03  6.3e-04  1.1e-04  1.5e-05  1.7e-06      nan      nan
+   SOD (rand)        9.6e-02  2.6e-02  9.6e-03  3.1e-03  7.2e-04  1.2e-04  1.6e-05  1.7e-06      nan      nan
+== S1 heavy, test free: median error, r = 1..10
+   POD (free)        1.7e-01  2.8e-02  2.1e-02  1.1e-02  9.8e-03  6.4e-03  6.0e-03      nan      nan      nan
+   SOD (free)        1.7e-01  2.7e-02  2.1e-02  1.2e-02  8.7e-03  7.0e-03  6.0e-03      nan      nan      nan
+   POD (swept)       1.7e-01  2.8e-02  2.2e-02  1.1e-02  9.8e-03  6.9e-03  6.0e-03      nan      nan      nan
+   SOD (swept)       1.7e-01  3.1e-02  2.3e-02  1.1e-02  1.0e-02  6.8e-03  6.0e-03      nan      nan      nan
+   POD (freeBL)      1.7e-01  2.7e-02  1.8e-02  1.7e-02  1.3e-02  1.1e-02  8.2e-03  6.6e-03  5.5e-03  3.7e-13
+   SOD (freeBL)      1.7e-01  2.7e-02  1.8e-02  1.7e-02  1.1e-02  8.6e-03  6.4e-03  6.0e-03  5.9e-03  1.5e-12
+   LNM               1.7e-01  2.8e-02  1.8e-02  1.4e-02  8.1e-03  6.8e-03  6.6e-03  5.0e-03  3.0e-03  4.1e-14
+   MTA                   nan  6.0e-02  2.5e-02  1.1e-02  1.0e-02  8.1e-03  5.5e-03  5.2e-03  4.8e-03  1.3e-13
+   POD (rand)        1.7e-01  2.8e-02  2.2e-02  1.1e-02  9.9e-03  6.9e-03  5.9e-03  4.9e-03      nan      nan
+   SOD (rand)        1.7e-01  3.2e-02  2.3e-02  1.1e-02  1.0e-02  6.9e-03  6.0e-03  4.9e-03      nan      nan
+== S1 heavy, test freeBL: median error, r = 1..10
+   POD (free)        2.7e-01  1.3e-01  5.2e-02  2.4e-02  1.9e-02  1.7e-02  1.7e-02      nan      nan      nan
+   SOD (free)        2.7e-01  1.3e-01  5.5e-02  2.6e-02  1.8e-02  1.7e-02  1.7e-02      nan      nan      nan
+   POD (swept)       2.7e-01  1.3e-01  5.1e-02  2.4e-02  1.9e-02  1.7e-02  1.6e-02      nan      nan      nan
+   SOD (swept)       2.7e-01  1.4e-01  5.1e-02  2.5e-02  2.0e-02  1.7e-02  1.6e-02      nan      nan      nan
+   POD (freeBL)      2.7e-01  1.3e-01  7.5e-02  5.2e-02  3.8e-02  2.9e-02  2.2e-02  1.5e-02  1.2e-02  3.6e-13
+   SOD (freeBL)      2.7e-01  1.2e-01  7.1e-02  4.4e-02  2.9e-02  2.1e-02  1.6e-02  1.2e-02  1.1e-02  6.6e-12
+   LNM               2.7e-01  1.2e-01  6.3e-02  3.5e-02  2.1e-02  1.4e-02  9.0e-03  5.8e-03  3.2e-03  4.2e-14
+   MTA                   nan  1.7e-01  5.5e-02  2.6e-02  2.1e-02  1.8e-02  1.3e-02  6.5e-03  5.5e-03  1.3e-13
+   POD (rand)        2.7e-01  1.3e-01  5.1e-02  2.4e-02  1.9e-02  1.7e-02  1.6e-02  1.3e-02      nan      nan
+   SOD (rand)        2.7e-01  1.4e-01  5.1e-02  2.5e-02  2.0e-02  1.7e-02  1.7e-02  1.3e-02      nan      nan

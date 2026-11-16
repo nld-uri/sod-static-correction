@@ -1,0 +1,5 @@
+(1) static release, mode-1 energy share: S1 0.9808, S2/S3 0.9921
+(2) mode 3: |phi(mid)| / max|phi| = 0.0197
+(2) mode 5: |phi(mid)| / max|phi| = 0.0009
+(2) mode 7: |phi(mid)| / max|phi| = 0.0000
+(3) S4 linear frequencies (Hz): 23.66, 148.3

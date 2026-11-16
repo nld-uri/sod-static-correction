@@ -1,0 +1,6 @@
+dashpot energy-orthogonal 2.06e-02
+dashpot data covectors 2.44e-01
+dashpot CM 4.96e-03
+dashpot_heavy energy-orthogonal 5.64e-02
+dashpot_heavy data covectors 2.53e-01
+dashpot_heavy CM 5.63e-03

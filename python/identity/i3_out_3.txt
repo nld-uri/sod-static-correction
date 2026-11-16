@@ -1,0 +1,36 @@
+S2 heavy: realization 1/20 (16s)
+S2 heavy: realization 2/20 (31s)
+S2 heavy: realization 3/20 (46s)
+S2 heavy: realization 4/20 (61s)
+S2 heavy: realization 5/20 (76s)
+S2 heavy: realization 6/20 (92s)
+S2 heavy: realization 7/20 (108s)
+S2 heavy: realization 8/20 (124s)
+S2 heavy: realization 9/20 (140s)
+S2 heavy: realization 10/20 (155s)
+S2 heavy: realization 11/20 (170s)
+S2 heavy: realization 12/20 (186s)
+S2 heavy: realization 13/20 (202s)
+S2 heavy: realization 14/20 (218s)
+S2 heavy: realization 15/20 (234s)
+S2 heavy: realization 16/20 (250s)
+S2 heavy: realization 17/20 (265s)
+S2 heavy: realization 18/20 (281s)
+S2 heavy: realization 19/20 (298s)
+S2 heavy: realization 20/20 (315s)
+== S2 heavy, test rand: median error over 20 realizations, r = 1..8 (n = realizations used)
+   LNM                           1.1e-01  1.9e-02  5.2e-03  1.8e-03  7.0e-04  3.5e-04  2.0e-04  1.2e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   MTA-tip                       1.3e-01  8.0e-02  1.5e-02  3.1e-03  5.6e-04  8.1e-05  1.8e-05  5.2e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   SOD                           1.1e-01  1.9e-02  1.9e-02  4.0e-03  6.2e-04  5.1e-05  3.0e-06  1.7e-07   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   D (load defl. at SOD freqs)   1.1e-01  1.9e-02  1.2e-02  3.1e-03  5.6e-04  6.9e-05  6.8e-06  6.6e-06   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   Re H (damped load defl.)      5.8e-01  5.2e-02  1.3e-02  2.6e-03  5.1e-04  7.7e-05  6.4e-06  3.4e-07   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   median over realizations of D (load defl. at SOD freqs) / SOD error ratio: 1.00 0.99 0.62 0.76 0.90 1.36 2.24 40.05
+   median over realizations of Re H (damped load defl.) / SOD error ratio: 5.53 2.70 0.65 0.63 0.82 1.50 2.05 2.00
+== S2 heavy, test mid: median error over 20 realizations, r = 1..8 (n = realizations used)
+   LNM                           2.2e-01  9.8e-03  9.8e-03  1.3e-03  1.3e-03  3.4e-04  3.4e-04  1.4e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   MTA-tip                       2.4e-01  1.5e-01  1.1e-02  6.9e-03  1.2e-03  9.7e-04  3.2e-04  2.9e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   SOD                           2.2e-01  1.1e-02  1.0e-02  9.0e-03  1.1e-03  1.0e-03  3.7e-04  3.1e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   D (load defl. at SOD freqs)   2.2e-01  1.0e-02  1.1e-02  6.6e-03  1.2e-03  1.0e-03  3.3e-04  1.5e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   Re H (damped load defl.)      6.2e-01  5.4e-02  1.1e-02  4.9e-03  1.2e-03  9.5e-04  3.4e-04  3.1e-04   n = [20, 20, 20, 20, 20, 20, 20, 20]
+   median over realizations of D (load defl. at SOD freqs) / SOD error ratio: 1.00 0.93 1.10 0.73 1.03 1.00 0.90 0.50
+   median over realizations of Re H (damped load defl.) / SOD error ratio: 2.87 5.04 1.11 0.54 1.06 0.91 0.93 1.02

@@ -1,0 +1,93 @@
+random exact           fSOD     3.5 peak    3.5 dev 0.003 width 0.054 LNM1 MAC 1.00
+random exact           fSOD    22.0 peak   22.0 dev 0.000 width 0.044 LNM2 MAC 1.00
+random exact           fSOD    64.9 peak   61.7 dev 0.050 width 0.048 LNM3 MAC 0.98  SPURIOUS
+random exact           fSOD   121.2 peak  121.0 dev 0.002 width 0.053 LNM4 MAC 1.00
+random exact           fSOD   200.1 peak  198.9 dev 0.006 width 0.087 LNM5 MAC 1.00
+random exact           fSOD   274.2 peak  293.2 dev 0.069 width 0.152 LNM6 MAC 0.74  SPURIOUS
+random 60 CD           fSOD   785.6 peak    0.0 dev 1.000 width 1.500 LNM9 MAC 0.13  SPURIOUS
+random 60 CD           fSOD     3.5 peak    3.5 dev 0.002 width 0.054 LNM1 MAC 1.00
+random 60 CD           fSOD    22.0 peak   22.0 dev 0.001 width 0.044 LNM2 MAC 1.00
+random 60 CD           fSOD    61.3 peak   61.4 dev 0.001 width 0.048 LNM3 MAC 1.00
+random 60 CD           fSOD   117.0 peak  120.3 dev 0.028 width 0.054 LNM4 MAC 0.98
+random 60 CD           fSOD   210.2 peak  203.0 dev 0.034 width 0.084 LNM5 MAC 0.93  SPURIOUS
+random 60 CD           fSOD   333.3 peak  293.8 dev 0.118 width 0.143 LNM6 MAC 0.60  SPURIOUS
+random 60 WH           fSOD   334.9 peak    0.1 dev 1.000 width 1.250 LNM6 MAC 0.05  SPURIOUS
+random 60 WH           fSOD     3.5 peak    3.5 dev 0.002 width 0.054 LNM1 MAC 1.00
+random 60 WH           fSOD    22.0 peak   22.0 dev 0.001 width 0.044 LNM2 MAC 1.00
+random 60 WH           fSOD    61.1 peak   61.4 dev 0.005 width 0.048 LNM3 MAC 1.00
+random 60 WH           fSOD   200.8 peak  198.9 dev 0.010 width 0.086 LNM5 MAC 0.99
+random 60 WH           fSOD   261.2 peak  285.7 dev 0.094 width 0.235 LNM6 MAC 0.66  SPURIOUS
+random 60 FUS          fSOD     4.9 peak    0.1 dev 0.981 width 24.833 LNM1 MAC 1.00  SPURIOUS
+random 60 FUS          fSOD    19.9 peak    0.1 dev 0.994 width 1.000 LNM2 MAC 0.75  SPURIOUS
+random 60 FUS          fSOD     3.5 peak    3.5 dev 0.005 width 0.054 LNM1 MAC 1.00
+random 60 FUS          fSOD     9.5 peak    6.1 dev 0.358 width 0.537 LNM1 MAC 0.98  SPURIOUS
+random 60 FUS          fSOD    13.5 peak   10.7 dev 0.204 width 0.237 LNM2 MAC 0.58  SPURIOUS
+random 60 FUS          fSOD    22.0 peak   22.0 dev 0.000 width 0.044 LNM2 MAC 1.00
+random 60 FUS          fSOD    61.2 peak   61.4 dev 0.003 width 0.048 LNM3 MAC 1.00
+random 60 FUS          fSOD   122.4 peak  121.0 dev 0.012 width 0.053 LNM4 MAC 0.99
+random 60 FUS          fSOD   208.3 peak  203.0 dev 0.025 width 0.081 LNM5 MAC 0.93
+random 60 FUS          fSOD   278.3 peak  293.8 dev 0.056 width 0.109 LNM6 MAC 0.95  SPURIOUS
+random 40 CD           fSOD   790.2 peak    0.0 dev 1.000 width 1.333 LNM9 MAC 0.00  SPURIOUS
+random 40 CD           fSOD     3.7 peak    3.5 dev 0.043 width 0.054 LNM1 MAC 1.00
+random 40 CD           fSOD    22.3 peak   22.0 dev 0.013 width 0.044 LNM2 MAC 1.00
+random 40 CD           fSOD    63.2 peak   61.4 dev 0.029 width 0.047 LNM3 MAC 1.00
+random 40 CD           fSOD   125.7 peak  120.3 dev 0.043 width 0.055 LNM4 MAC 0.97
+random 40 CD           fSOD   210.3 peak  198.9 dev 0.054 width 0.087 LNM5 MAC 0.90  SPURIOUS
+random 40 WH           fSOD   335.0 peak    0.0 dev 1.000 width 2.000 LNM6 MAC 0.09  SPURIOUS
+random 40 WH           fSOD     3.5 peak    3.5 dev 0.000 width 0.054 LNM1 MAC 1.00
+random 40 WH           fSOD    22.0 peak   22.0 dev 0.001 width 0.044 LNM2 MAC 1.00
+random 40 WH           fSOD    61.4 peak   61.4 dev 0.000 width 0.048 LNM3 MAC 1.00
+random 40 WH           fSOD   117.9 peak  120.3 dev 0.021 width 0.055 LNM4 MAC 0.99
+random 40 WH           fSOD   214.9 peak  203.3 dev 0.054 width 0.083 LNM5 MAC 0.82  SPURIOUS
+random 40 WH           fSOD   310.6 peak  288.0 dev 0.073 width 0.168 LNM6 MAC 0.25
+random 40 FUS          fSOD     4.7 peak    0.2 dev 0.964 width 8.636 LNM1 MAC 1.00  SPURIOUS
+random 40 FUS          fSOD     3.5 peak    3.5 dev 0.006 width 0.054 LNM1 MAC 1.00
+random 40 FUS          fSOD    22.0 peak   22.0 dev 0.001 width 0.044 LNM2 MAC 1.00
+random 40 FUS          fSOD    61.3 peak   61.4 dev 0.001 width 0.048 LNM3 MAC 1.00
+random 40 FUS          fSOD   113.6 peak  120.1 dev 0.057 width 0.057 LNM4 MAC 0.95  SPURIOUS
+random 40 FUS          fSOD   198.5 peak  198.9 dev 0.002 width 0.086 LNM5 MAC 0.94
+decay exact            fSOD     3.5 peak    3.5 dev 0.002 width 0.058 LNM1 MAC 1.00
+decay exact            fSOD    22.0 peak   22.0 dev 0.002 width 0.042 LNM2 MAC 1.00
+decay exact            fSOD    61.6 peak   61.6 dev 0.000 width 0.041 LNM3 MAC 1.00
+decay exact            fSOD   120.5 peak  120.7 dev 0.001 width 0.045 LNM4 MAC 1.00
+decay exact            fSOD   198.2 peak  199.2 dev 0.005 width 0.055 LNM5 MAC 1.00
+decay exact            fSOD   293.4 peak  296.6 dev 0.011 width 0.072 LNM6 MAC 1.00
+decay 60 CD            fSOD   782.3 peak    0.0 dev 1.000 width 1.500 LNM9 MAC 0.01  SPURIOUS
+decay 60 CD            fSOD     3.5 peak    3.5 dev 0.001 width 0.058 LNM1 MAC 1.00
+decay 60 CD            fSOD    22.0 peak   22.0 dev 0.002 width 0.042 LNM2 MAC 1.00
+decay 60 CD            fSOD    61.7 peak   61.7 dev 0.000 width 0.041 LNM3 MAC 1.00
+decay 60 CD            fSOD   121.2 peak  121.0 dev 0.002 width 0.045 LNM4 MAC 1.00
+decay 60 CD            fSOD   201.2 peak  200.1 dev 0.005 width 0.055 LNM5 MAC 1.00
+decay 60 CD            fSOD   306.1 peak  299.1 dev 0.023 width 0.071 LNM6 MAC 0.99
+decay 60 WH            fSOD   332.8 peak    0.0 dev 1.000 width 2.000 LNM6 MAC 0.01  SPURIOUS
+decay 60 WH            fSOD     3.5 peak    3.5 dev 0.002 width 0.058 LNM1 MAC 1.00
+decay 60 WH            fSOD    22.0 peak   22.0 dev 0.002 width 0.042 LNM2 MAC 1.00
+decay 60 WH            fSOD    61.6 peak   61.6 dev 0.001 width 0.041 LNM3 MAC 1.00
+decay 60 WH            fSOD   120.2 peak  120.7 dev 0.004 width 0.045 LNM4 MAC 1.00
+decay 60 WH            fSOD   196.9 peak  199.2 dev 0.012 width 0.055 LNM5 MAC 1.00
+decay 60 WH            fSOD   289.4 peak  296.6 dev 0.025 width 0.072 LNM6 MAC 1.00
+decay 60 FUS           fSOD    11.6 peak    0.0 dev 0.996 width 1.333 LNM1 MAC 0.99  SPURIOUS
+decay 60 FUS           fSOD     3.5 peak    3.5 dev 0.002 width 0.058 LNM1 MAC 1.00
+decay 60 FUS           fSOD    22.0 peak   22.0 dev 0.002 width 0.042 LNM2 MAC 1.00
+decay 60 FUS           fSOD    61.6 peak   61.6 dev 0.000 width 0.041 LNM3 MAC 1.00
+decay 60 FUS           fSOD   120.5 peak  120.7 dev 0.001 width 0.045 LNM4 MAC 1.00
+decay 60 FUS           fSOD   198.2 peak  199.2 dev 0.005 width 0.055 LNM5 MAC 1.00
+decay 60 FUS           fSOD   293.4 peak  296.6 dev 0.011 width 0.072 LNM6 MAC 1.00
+decay 40 CD            fSOD   779.5 peak    0.0 dev 1.000 width 1.333 LNM9 MAC 0.08  SPURIOUS
+decay 40 CD            fSOD     3.7 peak    3.5 dev 0.042 width 0.058 LNM1 MAC 1.00
+decay 40 CD            fSOD    22.4 peak   22.0 dev 0.018 width 0.042 LNM2 MAC 1.00
+decay 40 CD            fSOD    63.6 peak   61.7 dev 0.030 width 0.041 LNM3 MAC 1.00
+decay 40 WH            fSOD   339.7 peak    0.0 dev 1.000 width 1.667 LNM6 MAC 0.01  SPURIOUS
+decay 40 WH            fSOD     3.5 peak    3.5 dev 0.000 width 0.058 LNM1 MAC 1.00
+decay 40 WH            fSOD    22.0 peak   22.0 dev 0.002 width 0.042 LNM2 MAC 1.00
+decay 40 WH            fSOD    61.7 peak   61.6 dev 0.001 width 0.041 LNM3 MAC 1.00
+decay 40 WH            fSOD   120.5 peak  120.7 dev 0.001 width 0.045 LNM4 MAC 1.00
+decay 40 WH            fSOD   198.0 peak  199.1 dev 0.005 width 0.055 LNM5 MAC 1.00
+decay 40 WH            fSOD   293.7 peak  296.4 dev 0.009 width 0.073 LNM6 MAC 0.96
+decay 40 FUS           fSOD    28.3 peak    0.0 dev 0.998 width 1.333 LNM2 MAC 0.67  SPURIOUS
+decay 40 FUS           fSOD     3.5 peak    3.5 dev 0.002 width 0.058 LNM1 MAC 1.00
+decay 40 FUS           fSOD    22.0 peak   22.0 dev 0.002 width 0.042 LNM2 MAC 1.00
+decay 40 FUS           fSOD    61.6 peak   61.6 dev 0.000 width 0.041 LNM3 MAC 1.00
+decay 40 FUS           fSOD   120.5 peak  120.7 dev 0.001 width 0.045 LNM4 MAC 1.00
+decay 40 FUS           fSOD   198.2 peak  199.2 dev 0.005 width 0.055 LNM5 MAC 1.00
+decay 40 FUS           fSOD   292.8 peak  296.6 dev 0.013 width 0.072 LNM6 MAC 1.00

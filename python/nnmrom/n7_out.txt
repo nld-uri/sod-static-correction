@@ -1,0 +1,8 @@
+recognised planes (rad/s, one-sidedness): [(np.float64(205.2), np.float64(0.994))]
+plane 1 band (5-95% of power): 155.0-230.4 rad/s
+plane 1 at 205.2 rad/s; companions (index, peak rad/s, SOD freq, energy fraction): [(2, np.float64(159.2), 803.3, 0.000198)]
+plane+companions basis: 2 M-orthonormal directions (1 from the plane)
+r=1: plane+companions backbone error median 2.2e-03 (max 4.4e-02) | n4 at same r: LNM 1.1e-02  SOD (decay) 2.2e-03  POD (decay) 2.2e-03
+r=2: plane+companions backbone error median 1.2e-04 (max 1.4e-03) | n4 at same r: LNM 1.5e-03  MTA 8.0e-05  SOD (decay) 1.4e-04  POD (decay) 2.1e-04
+principal angles (deg, mass metric) of plane+companion to LNM1 + static tip vector (MTA, r=2): [5.45 0.  ]
+principal angles (deg, mass metric) of plane+companion to LNM 1-2: [2.1 0. ]

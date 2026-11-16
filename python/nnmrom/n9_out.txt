@@ -1,0 +1,75 @@
+P=30 N (H0=1.48e-02 J): plane 205.2 rad/s (one-sidedness 0.994), band 155-230; companions [(2, np.float64(159.2), 803.3, 0.0002), (17, np.float64(642.9), 1770407.6, 1.2e-06), (16, np.float64(645.0), 833340.9, 3.9e-07), (3, np.float64(963.4), 943.7, 0.17), (4, np.float64(969.6), 1132.9, 0.0001)]
+P=30 N (H0=1.48e-02 J): plane 2617.8 rad/s (one-sidedness 0.961), band 2245-3070; companions [(13, np.float64(12758.2), 14883.8, 4.8e-05), (12, np.float64(14636.8), 13721.1, 2.9e-05)]
+P=30 N (H0=1.48e-02 J): plane 5114.2 rad/s (one-sidedness 0.850), band 4297-22819; companions [(7, np.float64(5225.2), 4128.2, 0.00034), (14, np.float64(18534.2), 20653.8, 1.9e-05), (15, np.float64(28167.7), 25018.6, 1.1e-05), (19, np.float64(31413.8), 32783048.8, 1.2e-06), (18, np.float64(29843.1), 19518768.6, 5.2e-07)]
+P=30 N (H0=1.48e-02 J): plane 8456.6 rad/s (one-sidedness 0.898), band 6475-12486; companions []
+P=30: RC columns ['plane 205', 'comp 2 (159)', 'comp 4 (970)', 'plane 2618', 'plane 2618', 'plane 5114']
+P=30: RCd columns ['plane 205', 'comp 2 (159)', 'comp 4 (970)', 'plane 2618', 'plane 2618', 'plane 5114']
+P=30: RC1 columns ['plane 205', 'comp 2 (159)', 'comp 4 (970)', 'plane 2618', 'plane 5114', 'plane 8457']
+P=30: RC1f columns ['plane 205', 'comp 2 (159)', 'plane 2618', 'plane 5114', 'plane 8457']
+P=30: RCc columns ['mode 8230', 'comp 7 (15638)', 'mode 11887', 'rest 0', 'rest 1', 'rest 2']
+P=30: unpaired energy shares (top 6) [(3, np.float64(963.4), 0.17), (7, np.float64(5225.2), 0.00034), (2, np.float64(159.2), 0.0002), (4, np.float64(969.6), 0.0001), (13, np.float64(12758.2), 4.8e-05), (12, np.float64(14636.8), 2.9e-05)]
+P=30 r=1: backbone median | held-out static releases / NNM states, medians: LNM 1.9e-02  SOD 5.0e-03  SS 5.0e-03  RC 5.0e-03  RCd 5.0e-03  RC1 5.0e-03  RC1f 5.0e-03  RCc 3.9e+01
+P=30 r=2: backbone median | held-out static releases / NNM states, medians: LNM 2.4e-03/static 1.8e-01/NNM 1.1e-01  MTA 1.0e-04/static 3.9e-01/NNM 4.2e-02  SOD 2.5e-04/static 1.9e-01/NNM 3.1e-02  SS 1.1e-04/static 3.7e-01/NNM 3.4e-02  RC 1.9e-04/static 2.2e-01/NNM 2.5e-02  RCd 1.9e-04/static 2.2e-01/NNM 2.5e-02  RC1 1.9e-04/static 2.2e-01/NNM 2.5e-02  RC1f 1.9e-04/static 2.2e-01/NNM 2.5e-02  RCc 3.8e+01/static 1.0e+00/NNM 1.0e+00
+P=30 r=3: backbone median | held-out static releases / NNM states, medians: LNM 7.3e-04/static 4.6e-02/NNM 3.4e-02  MTA 1.9e-06/static 2.5e-02/NNM 7.2e-05  SOD 6.3e-06/static 2.3e-02/NNM 3.8e-04  SS 1.9e-06/static 2.6e-02/NNM 3.6e-05  RC 5.1e-06/static 2.3e-02/NNM 2.5e-04  RCd 5.1e-06/static 2.3e-02/NNM 2.5e-04  RC1 5.1e-06/static 2.3e-02/NNM 2.5e-04  RC1f 8.9e-05/static 8.6e-02/NNM 1.1e-02  RCc 3.8e+01/static 1.0e+00/NNM 1.0e+00
+P=30 r=4: backbone median | held-out static releases / NNM states, medians: LNM 3.1e-04/static 2.0e-02/NNM 1.5e-02  MTA 8.9e-07/static 9.9e-03/NNM 5.3e-06  SOD 9.9e-07/static 1.0e-02/NNM 2.7e-05  SS 1.4e-06/static 1.2e-02/NNM 3.4e-06  RC 9.5e-07/static 1.0e-02/NNM 1.9e-05  RCd 9.5e-07/static 1.0e-02/NNM 1.9e-05  RC1 9.5e-07/static 1.0e-02/NNM 1.9e-05  RC1f 6.6e-05/static 5.0e-02/NNM 6.3e-03  RCc 4.9e-03/static 1.4e+00/NNM 7.2e-01
+P=30 SOD r=2 principal angles (deg) to LNM 1-2: [1.56 0.  ], to MTA: [5.99 0.  ]
+P=30 SS r=2 principal angles (deg) to LNM 1-2: [6.94 0.  ], to MTA: [0.61 0.  ]
+P=30 RC r=2 principal angles (deg) to LNM 1-2: [2.1 0. ], to MTA: [5.45 0.  ]
+P=30 RCd r=2 principal angles (deg) to LNM 1-2: [2.1 0. ], to MTA: [5.45 0.  ]
+P=60 N (H0=3.59e-02 J): plane 230.4 rad/s (one-sidedness 0.987), band 163-260; companions [(2, np.float64(247.1), 514.2, 0.00055), (18, np.float64(730.9), 1680217.6, 2.1e-06), (17, np.float64(733.0), 778553.5, 1.2e-06), (16, np.float64(728.8), 302814.3, 3.9e-07)]
+P=60 N (H0=3.59e-02 J): plane 975.9 rad/s (one-sidedness 0.985), band 779-1043; companions [(7, np.float64(4980.1), 3932.8, 0.00037)]
+P=60 N (H0=3.59e-02 J): plane 2626.2 rad/s (one-sidedness 0.975), band 1990-5148; companions [(14, np.float64(13401.1), 15776.8, 6.5e-05), (13, np.float64(12232.5), 14811.4, 1.4e-05)]
+P=60 N (H0=3.59e-02 J): plane 5126.7 rad/s (one-sidedness 0.960), band 4624-26656; companions [(8, np.float64(5233.5), 4086.8, 0.00061), (15, np.float64(28272.4), 23898.3, 4.6e-05), (20, np.float64(31413.8), 33147223.3, 1.8e-06), (19, np.float64(29947.9), 23534296.4, 1e-06)]
+P=60 N (H0=3.59e-02 J): plane 8498.5 rad/s (one-sidedness 0.972), band 7070-24737; companions []
+P=60: RC columns ['plane 230', 'plane 230', 'comp 2 (247)', 'plane 976', 'plane 976', 'plane 2626']
+P=60: RCd columns ['plane 230', 'plane 230', 'plane 976', 'plane 976', 'plane 2626', 'plane 2626']
+P=60: RC1 columns ['plane 230', 'comp 2 (247)', 'plane 976', 'comp 7 (4980)', 'plane 2626', 'plane 5127']
+P=60: RC1f columns ['plane 230', 'comp 2 (247)', 'plane 976', 'plane 2626', 'plane 5127', 'plane 8498']
+P=60: RCc columns ['mode 2618', 'mode 5068', 'comp 7 (20838)', 'comp 8 (26270)', 'mode 8235', 'mode 11883']
+P=60: unpaired energy shares (top 6) [(8, np.float64(5233.5), 0.00061), (2, np.float64(247.1), 0.00055), (7, np.float64(4980.1), 0.00037), (14, np.float64(13401.1), 6.5e-05), (15, np.float64(28272.4), 4.6e-05), (13, np.float64(12232.5), 1.4e-05)]
+P=60 r=1: backbone median | held-out static releases / NNM states, medians: LNM 1.9e-02  SOD 6.3e-03  SS 6.0e-03  RC 6.0e-03  RCd 6.0e-03  RC1 6.0e-03  RC1f 6.0e-03  RCc 1.2e+01
+P=60 r=2: backbone median | held-out static releases / NNM states, medians: LNM 2.4e-03/static 1.8e-01/NNM 1.1e-01  MTA 1.0e-04/static 3.9e-01/NNM 4.2e-02  SOD 2.7e-04/static 2.1e-01/NNM 1.6e-02  SS 1.1e-04/static 3.7e-01/NNM 3.4e-02  RC 1.1e-04/static 3.7e-01/NNM 3.4e-02  RCd 1.1e-04/static 3.7e-01/NNM 3.4e-02  RC1 8.1e-05/static 3.7e-01/NNM 1.8e-02  RC1f 8.1e-05/static 3.7e-01/NNM 1.8e-02  RCc 1.2e+01/static 1.0e+00/NNM 1.0e+00
+P=60 r=3: backbone median | held-out static releases / NNM states, medians: LNM 7.3e-04/static 4.6e-02/NNM 3.4e-02  MTA 1.9e-06/static 2.5e-02/NNM 7.2e-05  SOD 3.9e-06/static 2.3e-02/NNM 1.6e-04  SS 3.7e-06/static 2.5e-02/NNM 1.1e-04  RC 3.7e-06/static 2.5e-02/NNM 1.1e-04  RCd 2.6e-06/static 2.3e-02/NNM 8.7e-05  RC1 1.8e-06/static 2.3e-02/NNM 5.3e-05  RC1f 1.8e-06/static 2.3e-02/NNM 5.3e-05  RCc 1.2e+01/static 1.0e+00/NNM 1.0e+00
+P=60 r=4: backbone median | held-out static releases / NNM states, medians: LNM 3.1e-04/static 2.0e-02/NNM 1.5e-02  MTA 8.9e-07/static 9.9e-03/NNM 5.3e-06  SOD 8.8e-07/static 1.0e-02/NNM 1.2e-05  SS 1.4e-06/static 1.2e-02/NNM 8.1e-06  RC 1.4e-06/static 1.2e-02/NNM 8.0e-06  RCd 1.4e-06/static 2.2e-02/NNM 1.2e-05  RC1 1.4e-06/static 2.4e-02/NNM 1.6e-05  RC1f 8.9e-07/static 9.8e-03/NNM 8.0e-06  RCc 1.2e+01/static 1.0e+00/NNM 1.0e+00
+P=60 SOD r=2 principal angles (deg) to LNM 1-2: [2.07 0.  ], to MTA: [5.49 0.  ]
+P=60 SS r=2 principal angles (deg) to LNM 1-2: [6.92 0.  ], to MTA: [0.63 0.  ]
+P=60 RC r=2 principal angles (deg) to LNM 1-2: [6.92 0.  ], to MTA: [0.63 0.  ]
+P=60 RCd r=2 principal angles (deg) to LNM 1-2: [6.92 0.  ], to MTA: [0.63 0.  ]
+P=120 N (H0=8.76e-02 J): plane 255.5 rad/s (one-sidedness 0.983), band 168-289; companions [(2, np.float64(274.3), 603.3, 0.0013), (18, np.float64(812.6), 1337606.7, 4.2e-06), (17, np.float64(814.7), 716141.6, 1.4e-06)]
+P=120 N (H0=8.76e-02 J): plane 992.7 rad/s (one-sidedness 0.983), band 867-1068; companions [(8, np.float64(4816.8), 4246.9, 0.0017), (7, np.float64(5095.3), 3745.6, 0.00017)]
+P=120 N (H0=8.76e-02 J): plane 2638.8 rad/s (one-sidedness 0.981), band 2044-3552; companions [(14, np.float64(13403.2), 16033.3, 8.6e-05), (13, np.float64(12228.4), 14947.9, 2.4e-05), (16, np.float64(17172.9), 223774.0, 1.2e-06)]
+P=120 N (H0=8.76e-02 J): plane 5130.9 rad/s (one-sidedness 0.936), band 4679-25994; companions [(15, np.float64(28245.2), 24072.9, 6.7e-05), (20, np.float64(31413.8), 33246070.2, 2.7e-06), (19, np.float64(29947.9), 23731649.4, 2e-06)]
+P=120 N (H0=8.76e-02 J): plane 8515.2 rad/s (one-sidedness 0.968), band 7238-24130; companions []
+P=120: RC columns ['plane 255', 'plane 255', 'comp 2 (274)', 'plane 993', 'plane 993', 'plane 2639']
+P=120: RCd columns ['plane 255', 'plane 255', 'plane 993', 'plane 993', 'plane 2639', 'plane 2639']
+P=120: RC1 columns ['plane 255', 'comp 2 (274)', 'plane 993', 'comp 8 (4817)', 'plane 2639', 'plane 5131']
+P=120: RC1f columns ['plane 255', 'comp 2 (274)', 'plane 993', 'plane 2639', 'plane 5131', 'plane 8515']
+P=120: RCc columns ['mode 247', 'comp 1 (274)', 'comp 9 (165)', 'mode 1012', 'mode 2618', 'comp 7 (15556)']
+P=120: unpaired energy shares (top 6) [(8, np.float64(4816.8), 0.0017), (2, np.float64(274.3), 0.0013), (7, np.float64(5095.3), 0.00017), (14, np.float64(13403.2), 8.6e-05), (15, np.float64(28245.2), 6.7e-05), (13, np.float64(12228.4), 2.4e-05)]
+P=120 r=1: backbone median | held-out static releases / NNM states, medians: LNM 1.9e-02  SOD 8.1e-03  SS 8.1e-03  RC 8.1e-03  RCd 8.1e-03  RC1 8.1e-03  RC1f 8.1e-03  RCc 8.1e-03
+P=120 r=2: backbone median | held-out static releases / NNM states, medians: LNM 2.4e-03/static 1.8e-01/NNM 1.1e-01  MTA 1.0e-04/static 3.9e-01/NNM 4.2e-02  SOD 1.7e-04/static 3.6e-01/NNM 1.2e-02  SS 1.0e-04/static 3.7e-01/NNM 3.2e-02  RC 1.0e-04/static 3.7e-01/NNM 3.2e-02  RCd 1.0e-04/static 3.7e-01/NNM 3.2e-02  RC1 1.6e-04/static 3.6e-01/NNM 1.2e-02  RC1f 1.6e-04/static 3.6e-01/NNM 1.2e-02  RCc 1.7e-04/static 3.6e-01/NNM 1.2e-02
+P=120 r=3: backbone median | held-out static releases / NNM states, medians: LNM 7.3e-04/static 4.6e-02/NNM 3.4e-02  MTA 1.9e-06/static 2.5e-02/NNM 7.2e-05  SOD 2.0e-06/static 2.3e-02/NNM 4.7e-05  SS 3.7e-06/static 2.4e-02/NNM 8.7e-05  RC 3.7e-06/static 2.4e-02/NNM 8.7e-05  RCd 3.0e-06/static 2.3e-02/NNM 1.0e-04  RC1 2.0e-06/static 2.3e-02/NNM 4.9e-05  RC1f 2.0e-06/static 2.3e-02/NNM 4.9e-05  RCc 1.4e-04/static 3.3e-01/NNM 9.9e-03
+P=120 r=4: backbone median | held-out static releases / NNM states, medians: LNM 3.1e-04/static 2.0e-02/NNM 1.5e-02  MTA 8.9e-07/static 9.9e-03/NNM 5.3e-06  SOD 8.9e-07/static 9.8e-03/NNM 4.1e-06  SS 1.4e-06/static 1.7e-02/NNM 8.6e-06  RC 1.4e-06/static 1.7e-02/NNM 8.5e-06  RCd 1.4e-06/static 2.5e-02/NNM 7.7e-06  RC1 1.7e-06/static 2.3e-02/NNM 2.3e-05  RC1f 8.9e-07/static 9.9e-03/NNM 8.1e-06  RCc 1.7e-06/static 2.3e-02/NNM 3.9e-05
+P=120 SOD r=2 principal angles (deg) to LNM 1-2: [4.42 0.  ], to MTA: [3.14 0.  ]
+P=120 SS r=2 principal angles (deg) to LNM 1-2: [6.76 0.  ], to MTA: [0.79 0.  ]
+P=120 RC r=2 principal angles (deg) to LNM 1-2: [6.76 0.  ], to MTA: [0.79 0.  ]
+P=120 RCd r=2 principal angles (deg) to LNM 1-2: [6.76 0.  ], to MTA: [0.79 0.  ]
+P=240 N (H0=2.15e-01 J): plane 226.2 rad/s (one-sidedness 0.969), band 163-402; companions [(2, np.float64(385.3), 762.5, 0.0036), (18, np.float64(1736.1), 1038875.6, 8.9e-06), (17, np.float64(1966.5), 321915.8, 6.3e-07)]
+P=240 N (H0=2.15e-01 J): plane 975.9 rad/s (one-sidedness 0.960), band 963-1181; companions [(8, np.float64(5267.1), 4006.5, 0.0026)]
+P=240 N (H0=2.15e-01 J): plane 2638.8 rad/s (one-sidedness 0.861), band 1830-23527; companions [(7, np.float64(2651.3), 2859.0, 0.00051), (14, np.float64(12875.5), 15511.1, 9.5e-05), (13, np.float64(14136.2), 13227.2, 6.2e-05), (15, np.float64(19577.1), 18427.1, 1.6e-05), (16, np.float64(28121.7), 24802.6, 7.3e-05), (20, np.float64(30299.7), 25807982.3, 5.8e-06), (21, np.float64(31413.8), 37352061.4, 2.1e-06), (19, np.float64(29059.9), 6457825.8, 2.4e-08)]
+P=240 N (H0=2.15e-01 J): plane 5130.9 rad/s (one-sidedness 0.938), band 4540-24419; companions []
+P=240 N (H0=2.15e-01 J): plane 8490.1 rad/s (one-sidedness 0.962), band 7033-19732; companions []
+P=240: RC columns ['plane 226', 'plane 226', 'comp 2 (385)', 'plane 976', 'plane 976', 'plane 2639']
+P=240: RCd columns ['plane 226', 'plane 226', 'plane 976', 'plane 976', 'plane 2639', 'plane 2639']
+P=240: RC1 columns ['plane 226', 'comp 2 (385)', 'plane 976', 'plane 2639', 'plane 5131', 'plane 8490']
+P=240: RC1f columns ['plane 226', 'comp 2 (385)', 'plane 976', 'plane 2639', 'plane 5131', 'plane 8490']
+P=240: RCc columns ['mode 216', 'comp 9 (170)', 'comp 2 (978)', 'mode 2658', 'comp 7 (15565)', 'mode 5085']
+P=240: unpaired energy shares (top 6) [(2, np.float64(385.3), 0.0036), (8, np.float64(5267.1), 0.0026), (7, np.float64(2651.3), 0.00051), (14, np.float64(12875.5), 9.5e-05), (16, np.float64(28121.7), 7.3e-05), (13, np.float64(14136.2), 6.2e-05)]
+P=240 r=1: backbone median | held-out static releases / NNM states, medians: LNM 1.9e-02  SOD 1.1e-02  SS 1.1e-02  RC 1.1e-02  RCd 1.1e-02  RC1 1.1e-02  RC1f 1.1e-02  RCc 1.1e-02
+P=240 r=2: backbone median | held-out static releases / NNM states, medians: LNM 2.4e-03/static 1.8e-01/NNM 1.1e-01  MTA 1.0e-04/static 3.9e-01/NNM 4.2e-02  SOD 3.3e-04/static 2.2e-01/NNM 4.1e-03  SS 8.3e-05/static 3.6e-01/NNM 2.9e-02  RC 8.3e-05/static 3.6e-01/NNM 2.9e-02  RCd 8.3e-05/static 3.6e-01/NNM 2.9e-02  RC1 3.0e-04/static 2.4e-01/NNM 4.1e-03  RC1f 3.0e-04/static 2.4e-01/NNM 4.1e-03  RCc 1.1e-02/static 1.1e+00/NNM 3.3e-01
+P=240 r=3: backbone median | held-out static releases / NNM states, medians: LNM 7.3e-04/static 4.6e-02/NNM 3.4e-02  MTA 1.9e-06/static 2.5e-02/NNM 7.2e-05  SOD 1.7e-06/static 2.3e-02/NNM 5.6e-05  SS 8.3e-06/static 3.9e-02/NNM 9.3e-05  RC 8.3e-06/static 3.9e-02/NNM 9.3e-05  RCd 8.4e-06/static 2.4e-02/NNM 3.1e-04  RC1 1.7e-06/static 2.3e-02/NNM 4.8e-05  RC1f 1.7e-06/static 2.3e-02/NNM 4.8e-05  RCc 1.6e-03/static 9.5e-02/NNM 4.0e-02
+P=240 r=4: backbone median | held-out static releases / NNM states, medians: LNM 3.1e-04/static 2.0e-02/NNM 1.5e-02  MTA 8.9e-07/static 9.9e-03/NNM 5.3e-06  SOD 8.7e-07/static 9.9e-03/NNM 3.0e-06  SS 1.6e-06/static 2.4e-02/NNM 2.7e-05  RC 1.6e-06/static 2.4e-02/NNM 2.8e-05  RCd 3.2e-06/static 2.2e-02/NNM 1.1e-04  RC1 8.5e-07/static 1.1e-02/NNM 8.6e-06  RC1f 8.5e-07/static 1.1e-02/NNM 8.6e-06  RCc 4.1e-04/static 2.2e-02/NNM 9.7e-03
+P=240 SOD r=2 principal angles (deg) to LNM 1-2: [2.43 0.01], to MTA: [5.13 0.  ]
+P=240 SS r=2 principal angles (deg) to LNM 1-2: [6.3 0. ], to MTA: [1.25 0.  ]
+P=240 RC r=2 principal angles (deg) to LNM 1-2: [6.3 0. ], to MTA: [1.25 0.  ]
+P=240 RCd r=2 principal angles (deg) to LNM 1-2: [6.3 0. ], to MTA: [1.25 0.  ]

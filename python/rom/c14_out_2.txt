@@ -1,0 +1,19 @@
+modal energy weights a_k^2: [1.000e+00 9.999e-01 9.926e-01 8.990e-01 5.041e-01 1.086e-01 1.310e-02
+ 1.600e-03 2.000e-04]
+S2 light: realization 1/1 done (75s)
+== S2 light, test rand: median error, r = 1..10
+   POD (freeHAM)     2.1e-01  2.7e-02  5.6e-03  1.7e-03  3.0e-04  1.3e-04  7.2e-05  4.6e-05  2.8e-05      nan
+   SOD (freeHAM)     1.1e-01  1.9e-02  5.1e-03  1.7e-03  3.0e-04  1.3e-04  7.2e-05  4.6e-05  2.8e-05      nan
+   LNM               1.1e-01  1.9e-02  5.1e-03  1.7e-03  2.9e-04  1.2e-04  6.8e-05  4.2e-05  2.8e-05  1.9e-05
+== S2 light, test mid: median error, r = 1..10
+   POD (freeHAM)     3.0e-01  4.2e-02  1.0e-02  6.5e-04  5.8e-04  1.3e-04  1.3e-04  5.0e-05  4.9e-05      nan
+   SOD (freeHAM)     2.4e-01  1.0e-02  1.0e-02  5.9e-04  5.9e-04  1.3e-04  1.3e-04  5.0e-05  4.9e-05      nan
+   LNM               2.4e-01  1.0e-02  1.0e-02  5.8e-04  5.8e-04  1.2e-04  1.2e-04  4.9e-05  4.9e-05  2.3e-05
+== S2 light, test free: median error, r = 1..10
+   POD (freeHAM)     2.0e-01  2.1e-03  2.4e-04  1.8e-05  7.7e-06  3.9e-06  3.4e-06  1.4e-06  1.1e-06      nan
+   SOD (freeHAM)     1.1e-02  5.7e-04  2.3e-04  1.8e-05  7.7e-06  3.9e-06  3.4e-06  1.4e-06  1.1e-06      nan
+   LNM               1.1e-02  5.7e-04  2.3e-04  1.7e-05  7.7e-06  3.9e-06  3.4e-06  1.2e-06  1.1e-06  1.0e-06
+== S2 light, test freeEE: median error, r = 1..10
+   POD (freeHAM)     2.3e-01  2.7e-02  5.8e-03  2.2e-03  1.1e-03  6.2e-04  4.0e-04  2.6e-04  8.9e-07      nan
+   SOD (freeHAM)     1.1e-01  1.9e-02  5.4e-03  2.2e-03  1.1e-03  6.2e-04  4.0e-04  2.6e-04  8.9e-07      nan
+   LNM               1.1e-01  1.9e-02  5.4e-03  2.2e-03  1.1e-03  6.2e-04  3.9e-04  2.3e-04  8.9e-07  8.9e-07

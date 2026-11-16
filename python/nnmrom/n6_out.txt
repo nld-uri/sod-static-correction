@@ -1,0 +1,22 @@
+/home/claude/sodpaper/python/nnmrom/nlsim.py:16: RuntimeWarning: The iteration is not making good progress, as measured by the 
+ improvement from the last ten iterations.
+  x=fsolve(lambda x: S['K']@x+S['k3']*x[S['tip']]**3*e-P*e,x,fprime=lambda x: S['K']+3*S['k3']*x[S['tip']]**2*np.outer(e,e),xtol=1e-14)
+/home/claude/sodpaper/python/nnmrom/n6_timehist.py:26: RuntimeWarning: The iteration is not making good progress, as measured by the 
+ improvement from the last ten iterations.
+  x0 = fsolve(lambda x: S['K'] @ x + k3 * x[tip]**3 * pt - e, np.linalg.solve(S['K'], e), xtol=1e-14)
+tip20 LNM r=2: mass-weighted error over 0.3 s 1.40e-01
+tip20 LNM r=4: mass-weighted error over 0.3 s 1.83e-02
+tip20 MTA r=2: mass-weighted error over 0.3 s 1.33e-01
+tip20 MTA r=4: mass-weighted error over 0.3 s 3.62e-03
+tip20 SOD_SR r=2: mass-weighted error over 0.3 s 7.10e-02
+tip20 SOD_SR r=4: mass-weighted error over 0.3 s 3.68e-03
+tip20 SOD_EE r=2: mass-weighted error over 0.3 s 1.00e-01
+tip20 SOD_EE r=4: mass-weighted error over 0.3 s 3.67e-03
+mid60 LNM r=2: mass-weighted error over 0.3 s 2.49e-01
+mid60 LNM r=4: mass-weighted error over 0.3 s 3.25e-02
+mid60 MTA r=2: mass-weighted error over 0.3 s 1.65e-01
+mid60 MTA r=4: mass-weighted error over 0.3 s 5.48e-03
+mid60 SOD_SR r=2: mass-weighted error over 0.3 s 1.34e-01
+mid60 SOD_SR r=4: mass-weighted error over 0.3 s 5.51e-03
+mid60 SOD_EE r=2: mass-weighted error over 0.3 s 1.36e-01
+mid60 SOD_EE r=4: mass-weighted error over 0.3 s 5.58e-03

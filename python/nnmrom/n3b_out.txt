@@ -1,0 +1,4 @@
+low branch H=1.01e-03 J f=26.1195 Hz: periodicity defect |x(T)-x0|/|x0| = 1.9e-12
+low branch H=2.98e-03 J f=29.2218 Hz: periodicity defect |x(T)-x0|/|x0| = 1.4e-12
+high branch H=4.02e-03 J f=30.4200 Hz: periodicity defect |x(T)-x0|/|x0| = 1.5e-10
+high branch H=1.00e-02 J f=35.0496 Hz: periodicity defect |x(T)-x0|/|x0| = 4.1e-12

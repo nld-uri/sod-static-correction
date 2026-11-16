@@ -1,0 +1,34 @@
+S2: realization 1/10
+S2: realization 2/10
+S2: realization 3/10
+S2: realization 4/10
+S2: realization 5/10
+S2: realization 6/10
+S2: realization 7/10
+S2: realization 8/10
+S2: realization 9/10
+S2: realization 10/10
+S2 snr=None tol=1e-10 none            : spurious rejected 0/32, genuine rejected 0/49 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 7.4e-03(10) r=4 mid 1.1e-02(10) r=6 rand 9.5e-05(10) r=6 mid 4.5e-04(10)
+S2 snr=None tol=1e-10 R1 halves       : spurious rejected 6/32, genuine rejected 4/49 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 8.6e-03(10) r=4 mid 9.6e-03(10) r=6 rand 1.1e-04(9) r=6 mid 4.5e-04(9)
+S2 snr=None tol=1e-10 R2 lag-diag 0.3 : spurious rejected 9/32, genuine rejected 7/49 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-02(10) r=4 mid 1.2e-03(10) r=6 rand 1.9e-02(10) r=6 mid 1.9e-03(10)
+S2 snr=None tol=1e-10 R3 spectral     : spurious rejected 30/32, genuine rejected 0/49 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 4.0e-03(10) r=4 mid 7.4e-04(10) r=6 rand 4.7e-04(2) r=6 mid 3.0e-04(2)
+S2 snr=None tol=1e-12 none            : spurious rejected 0/45, genuine rejected 0/55 | r=2 rand 1.1e-01(10) r=2 mid 2.4e-01(10) r=4 rand 5.8e-03(10) r=4 mid 1.1e-02(10) r=6 rand 4.2e-04(10) r=6 mid 6.1e-04(10)
+S2 snr=None tol=1e-12 R1 halves       : spurious rejected 40/45, genuine rejected 3/55 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.8e-03(10) r=4 mid 6.3e-04(10) r=6 rand 1.4e-04(6) r=6 mid 1.3e-04(6)
+S2 snr=None tol=1e-12 R2 lag-diag 0.3 : spurious rejected 10/45, genuine rejected 4/55 | r=2 rand 1.1e-01(10) r=2 mid 2.4e-01(10) r=4 rand 5.8e-03(10) r=4 mid 1.1e-02(10) r=6 rand 9.8e-05(10) r=6 mid 4.4e-04(10)
+S2 snr=None tol=1e-12 R3 spectral     : spurious rejected 34/45, genuine rejected 0/55 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.8e-03(10) r=4 mid 6.3e-04(10) r=6 rand 1.3e-04(10) r=6 mid 1.3e-04(10)
+S2 snr=None tol=1e-14 none            : spurious rejected 0/57, genuine rejected 0/43 | r=2 rand 1.1e-01(10) r=2 mid 2.4e-01(10) r=4 rand 5.8e-03(10) r=4 mid 1.1e-02(10) r=6 rand 1.5e-04(10) r=6 mid 5.1e-04(10)
+S2 snr=None tol=1e-14 R1 halves       : spurious rejected 56/57, genuine rejected 3/43 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.8e-03(10) r=4 mid 6.1e-04(10)
+S2 snr=None tol=1e-14 R2 lag-diag 0.3 : spurious rejected 21/57, genuine rejected 2/43 | r=2 rand 1.1e-01(10) r=2 mid 2.4e-01(10) r=4 rand 5.8e-03(10) r=4 mid 1.1e-02(10) r=6 rand 3.7e-04(10) r=6 mid 5.3e-04(10)
+S2 snr=None tol=1e-14 R3 spectral     : spurious rejected 44/57, genuine rejected 0/43 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.8e-03(10) r=4 mid 6.1e-04(10) r=6 rand 1.5e-04(9) r=6 mid 1.2e-04(9)
+S2 snr=60 tol=1e-10 none            : spurious rejected 0/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-10 R1 halves       : spurious rejected 20/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-10 R2 lag-diag 0.3 : spurious rejected 0/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-10 R3 spectral     : spurious rejected 49/50, genuine rejected 1/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 7.5e-04(6) r=6 mid 9.3e-04(6)
+S2 snr=60 tol=1e-12 none            : spurious rejected 0/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-12 R1 halves       : spurious rejected 20/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-12 R2 lag-diag 0.3 : spurious rejected 0/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-12 R3 spectral     : spurious rejected 49/50, genuine rejected 1/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 7.5e-04(6) r=6 mid 9.3e-04(6)
+S2 snr=60 tol=1e-14 none            : spurious rejected 0/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-14 R1 halves       : spurious rejected 20/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-14 R2 lag-diag 0.3 : spurious rejected 0/50, genuine rejected 0/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 1.7e-04(10) r=6 mid 4.8e-04(10)
+S2 snr=60 tol=1e-14 R3 spectral     : spurious rejected 49/50, genuine rejected 1/50 | r=2 rand 2.1e-02(10) r=2 mid 1.1e-02(10) r=4 rand 1.9e-03(10) r=4 mid 1.1e-03(10) r=6 rand 7.5e-04(6) r=6 mid 9.3e-04(6)

@@ -1,0 +1,23 @@
+{
+  "upload_type": "software",
+  "title": "Code, stored results and reproduction manual for: Smooth orthogonal decomposition bases learn static correction from response records",
+  "version": "1.0.0",
+  "license": "MIT",
+  "access_right": "open",
+  "publication_date": "2026-11-15",
+  "description": "Scripts, stored outputs and the reproduction manual for the article \"Smooth orthogonal decomposition bases learn static correction from response records\" (prepared for the Journal of Sound and Vibration). Every number, table and figure of the article is produced from the models by this code; the reproduction manual maps each to its script, seed and output file.",
+  "creators": [
+    {
+      "name": "Chelidze, David",
+      "affiliation": "University of Rhode Island",
+      "orcid": "0000-0003-0655-1439"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/nld-uri/sod-static-correction",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

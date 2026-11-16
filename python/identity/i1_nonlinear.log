@@ -1,0 +1,12 @@
+S4, 30 N static-release decay (zeta 0.01): data rank 8
+   i  SOD freq    angle(phi, load defl.) deg   share in phi: load    damping   ends      sampling  rank      closure
+   1    196.010       2.58e-04                  1.00e+00  5.05e-04  1.21e-05  1.36e-03  5.48e-06  2.5e-12
+   2    839.478       8.14e-03                  9.91e-01  1.26e-03  7.51e-06  1.02e-02  2.49e-04  1.3e-12
+   3   1249.085       3.68e-02                  9.92e-01  3.28e-03  1.06e-05  1.05e-02  5.75e-04  4.6e-12
+   4   2859.130       3.35e-01                  9.92e-01  2.09e-02  4.75e-06  3.14e-02  3.48e-03  7.2e-11
+S5, cross-well decay (zeta 0.02): data rank 11
+   i  SOD freq    angle(phi, load defl.) deg   share in phi: load    damping   ends      sampling  rank      closure
+   1      2.494       4.50e-02                  1.04e+00  1.04e-04  3.90e-02  1.33e-03  9.95e-05  3.8e-12
+   2     10.387       2.29e-01                  1.01e+00  7.23e-04  1.40e-02  1.93e-03  2.17e-04  1.0e-12
+   3     23.789       5.97e-01                  1.03e+00  6.30e-03  4.18e-02  1.78e-02  1.17e-03  1.3e-12
+   4     60.790       9.84e+00                  3.29e-01  2.87e-02  2.21e+00  7.81e-01  8.25e-02  2.2e-11

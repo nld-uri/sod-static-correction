@@ -1,0 +1,21 @@
+== S2 light
+  SR  : eps 1.23e-01 | leak sSOD 5.53e-02 SOD 1.11e-02 | max rel eig err sROM 1.20e-03 | sSOD mid 7.87e-04 freeEE 2.09e-03 | SOD mid 6.67e-04 freeEE 2.08e-03
+  EE  : eps 1.23e-01 | leak sSOD 9.96e-02 SOD 2.43e-02 | max rel eig err sROM 4.88e-03 | sSOD mid 2.13e-03 freeEE 2.31e-03 | SOD mid 6.82e-04 freeEE 2.08e-03
+  RE  : eps 1.23e-01 | leak sSOD 2.46e-01 SOD 8.53e-02 | max rel eig err sROM 2.73e-02 | sSOD mid 1.72e-01 freeEE 2.02e-01 | SOD mid 4.41e-03 freeEE 3.48e-03
+  EE4 : eps 9.98e-01 | leak sSOD 3.33e-10 SOD 3.32e-10 | max rel eig err sROM 2.62e-10 | sSOD mid 6.63e-04 freeEE 2.08e-03 | SOD mid 6.63e-04 freeEE 2.08e-03
+  HAM : eps 1.23e-01 | leak sSOD 1.88e-02 SOD 3.66e-03 | max rel eig err sROM 1.74e-04 | sSOD mid 6.68e-04 freeEE 2.08e-03 | SOD mid 6.64e-04 freeEE 2.08e-03
+  CM: mid 6.63e-04 freeEE 2.08e-03
+== S3 dashpot
+  SR  : eps 1.37e-01 | leak sSOD 6.73e-02 SOD 3.99e-01 | max rel eig err sROM 1.01e-03 | sSOD mid 2.73e-03 freeEE 1.99e-02 | SOD mid 2.31e-02 freeEE 1.54e-02
+  EE  : eps 1.37e-01 | leak sSOD 1.17e-01 SOD 4.15e-01 | max rel eig err sROM 6.03e-03 | sSOD mid 1.33e-02 freeEE 1.85e-02 | SOD mid 2.35e-02 freeEE 1.56e-02
+  RE  : eps 1.37e-01 | leak sSOD 2.92e-01 SOD 1.02e-01 | max rel eig err sROM 4.91e-02 | sSOD mid 2.26e-01 freeEE 2.03e-01 | SOD mid 5.33e-03 freeEE 1.36e-02
+  EE4 : eps 1.36e-01 | leak sSOD 2.67e-04 SOD 5.22e-01 | max rel eig err sROM 1.69e-06 | sSOD mid 1.45e-03 freeEE 2.18e-02 | SOD mid 2.54e-02 freeEE 1.65e-02
+  HAM : eps 1.37e-01 | leak sSOD 2.20e-02 SOD 5.76e-01 | max rel eig err sROM 2.05e-04 | sSOD mid 1.99e-03 freeEE 2.12e-02 | SOD mid 2.54e-02 freeEE 1.65e-02
+  CM: mid 1.42e-03 freeEE 4.96e-03
+== S3 dashpot_heavy
+  SR  : eps 3.19e-01 | leak sSOD 9.02e-02 SOD 4.91e-01 | max rel eig err sROM 5.48e-03 | sSOD mid 1.31e-02 freeEE 5.50e-02 | SOD mid 3.57e-02 freeEE 2.19e-02
+  EE  : eps 3.34e-01 | leak sSOD 2.03e-01 SOD 7.28e-02 | max rel eig err sROM 3.01e-02 | sSOD mid 1.19e-01 freeEE 6.04e-02 | SOD mid 3.95e-03 freeEE 2.99e-02
+  RE  : eps 3.35e-01 | leak sSOD 9.93e-01 SOD 1.43e-01 | max rel eig err sROM 8.00e-01 | sSOD mid 2.26e+00 freeEE 4.81e-01 | SOD mid 6.87e-03 freeEE 3.30e-02
+  EE4 : eps 3.35e-01 | leak sSOD 2.28e-03 SOD 5.15e-01 | max rel eig err sROM 3.28e-04 | sSOD mid 6.54e-03 freeEE 6.24e-02 | SOD mid 3.70e-02 freeEE 2.21e-02
+  HAM : eps 3.34e-01 | leak sSOD 3.34e-02 SOD 5.77e-01 | max rel eig err sROM 5.94e-03 | sSOD mid 8.11e-03 freeEE 5.77e-02 | SOD mid 3.89e-02 freeEE 2.11e-02
+  CM: mid 3.02e-03 freeEE 5.63e-03

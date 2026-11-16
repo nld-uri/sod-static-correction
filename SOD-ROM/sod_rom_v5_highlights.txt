@@ -1,0 +1,5 @@
+A free-decay SOD basis holds the modes plus the response to a point internal force
+A covariance identity relates each SOD direction to it, at its own SOD frequency
+On a dashpot beam the direction points at the dashpot among 60 degrees of freedom
+Ranked among the modes, that direction costs a mode at low ROM order
+Marking modes by state-plane rotation removes that loss at two to five modes

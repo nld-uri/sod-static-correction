@@ -1,0 +1,36 @@
+== S3 c_d = 0.2, plain SOD, rank 10: SOD frequencies [  3.42  21.97  61.39  69.44 120.51 198.15 293.45 405.56]
+   non-modal direction: i = 4, SOD frequency 69.44, angle to nearest LNM 16.69
+      angle to d_j at the tip translation (DOF 58): 2.462; rank of the tip translation among 60 DOFs: 1
+      three smallest: translation of node 30 2.462; translation of node 29 6.137; rotation of node 25 7.788; median over DOFs 24.50; largest 88.28
+      translations of nodes 5, 10, 15, 20, 25, 28, 29, 30: 24.79 25.02 88.28 20.91 51.03 13.26 6.14 2.46
+   control: modal direction 2: i = 2, SOD frequency 21.97, angle to nearest LNM 0.28
+      angle to d_j at the tip translation (DOF 58): 0.105; rank of the tip translation among 60 DOFs: 1
+      three smallest: translation of node 30 0.105; rotation of node 18 0.122; rotation of node 19 0.123; median over DOFs 0.37; largest 7.98
+      translations of nodes 5, 10, 15, 20, 25, 28, 29, 30: 0.37 0.39 0.46 0.76 1.01 0.21 0.14 0.10
+== S3 c_d = 0.2, scaled SOD, rank 10: SOD frequencies [  3.42  21.97  61.4   70.16 120.52 198.15 293.45 405.56]
+   non-modal direction: i = 4, SOD frequency 70.16, angle to nearest LNM 17.93
+      angle to d_j at the tip translation (DOF 58): 2.637; rank of the tip translation among 60 DOFs: 1
+      three smallest: translation of node 30 2.637; translation of node 29 6.540; rotation of node 25 8.341; median over DOFs 26.40; largest 88.75
+      translations of nodes 5, 10, 15, 20, 25, 28, 29, 30: 26.83 26.85 88.75 22.44 53.84 14.04 6.54 2.64
+   control: modal direction 2: i = 2, SOD frequency 21.97, angle to nearest LNM 0.28
+      angle to d_j at the tip translation (DOF 58): 0.105; rank of the tip translation among 60 DOFs: 1
+      three smallest: translation of node 30 0.105; rotation of node 18 0.122; rotation of node 19 0.122; median over DOFs 0.37; largest 7.97
+      translations of nodes 5, 10, 15, 20, 25, 28, 29, 30: 0.37 0.39 0.45 0.75 1.01 0.21 0.14 0.10
+== S3 c_d = 1.0, plain SOD, rank 10: SOD frequencies [  2.53  21.21  60.7  110.34 123.55 198.21 293.49 405.7 ]
+   non-modal direction: i = 4, SOD frequency 110.34, angle to nearest LNM 18.95
+      angle to d_j at the tip translation (DOF 58): 4.024; rank of the tip translation among 60 DOFs: 1
+      three smallest: translation of node 30 4.024; rotation of node 26 7.387; rotation of node 27 7.856; median over DOFs 27.85; largest 88.24
+      translations of nodes 5, 10, 15, 20, 25, 28, 29, 30: 28.66 61.14 25.47 47.63 29.06 27.28 10.01 4.02
+   control: modal direction 2: i = 2, SOD frequency 21.21, angle to nearest LNM 4.37
+      angle to d_j at the tip translation (DOF 58): 0.420; rank of the tip translation among 60 DOFs: 1
+      three smallest: translation of node 30 0.420; translation of node 29 0.984; translation of node 28 1.890; median over DOFs 5.62; largest 63.38
+      translations of nodes 5, 10, 15, 20, 25, 28, 29, 30: 5.57 5.78 6.60 10.42 11.99 1.89 0.98 0.42
+== S3 c_d = 1.0, scaled SOD, rank 10: SOD frequencies [  2.53  21.21  60.71 111.36 124.   198.23 293.5  405.73]
+   non-modal direction: i = 4, SOD frequency 111.36, angle to nearest LNM 16.86
+      angle to d_j at the tip translation (DOF 58): 3.793; rank of the tip translation among 60 DOFs: 1
+      three smallest: translation of node 30 3.793; rotation of node 26 6.647; rotation of node 27 7.058; median over DOFs 24.96; largest 88.50
+      translations of nodes 5, 10, 15, 20, 25, 28, 29, 30: 25.51 56.68 22.74 45.25 26.07 25.80 9.28 3.79
+   control: modal direction 2: i = 2, SOD frequency 21.21, angle to nearest LNM 4.36
+      angle to d_j at the tip translation (DOF 58): 0.419; rank of the tip translation among 60 DOFs: 1
+      three smallest: translation of node 30 0.419; translation of node 29 0.983; translation of node 28 1.888; median over DOFs 5.61; largest 63.34
+      translations of nodes 5, 10, 15, 20, 25, 28, 29, 30: 5.56 5.77 6.59 10.41 11.97 1.89 0.98 0.42

@@ -1,0 +1,4 @@
+P=30 N: smoothest config coordinate sqrt(mu) 196.0 rad/s, peak 215.7, separation 0.100, half-power width 0.087; first SOD direction vs (K - w^2 M)^-1 e_tip (w = 205.2) 0.26 deg, vs static tip vector 2.61 deg, vs LNM 1 1.14 deg
+P=60 N: smoothest config coordinate sqrt(mu) 216.3 rad/s, peak 242.9, separation 0.123, half-power width 0.095; first SOD direction vs (K - w^2 M)^-1 e_tip (w = 230.4) 0.46 deg, vs static tip vector 3.21 deg, vs LNM 1 1.74 deg
+P=120 N: smoothest config coordinate sqrt(mu) 231.8 rad/s, peak 247.1, separation 0.066, half-power width 0.322; first SOD direction vs (K - w^2 M)^-1 e_tip (w = 255.5) 0.86 deg, vs static tip vector 3.71 deg, vs LNM 1 2.24 deg
+P=240 N: smoothest config coordinate sqrt(mu) 243.9 rad/s, peak 215.7, separation 0.115, half-power width 0.330; first SOD direction vs (K - w^2 M)^-1 e_tip (w = 226.2) 0.61 deg, vs static tip vector 4.14 deg, vs LNM 1 2.67 deg

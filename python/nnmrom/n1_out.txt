@@ -1,0 +1,28 @@
+/home/claude/sodpaper/python/nnmrom/nlsim.py:16: RuntimeWarning: The iteration is not making good progress, as measured by the 
+ improvement from the last ten iterations.
+  x=fsolve(lambda x: S['K']@x+S['k3']*x[S['tip']]**3*e-P*e,x,fprime=lambda x: S['K']+3*S['k3']*x[S['tip']]**2*np.outer(e,e),xtol=1e-14)
+SOD frequencies (Hz), decay data: [ 31.2  133.61 198.8  455.04]   conservative 30 N: [ 36.73 151.91 415.18 821.66]   LNM: [ 23.66 148.28 415.21 813.68]
+test P=3 N: H=6.00e-04 J, f_full=25.229 Hz
+test P=10 N: H=3.53e-03 J, f_full=29.526 Hz
+test P=20 N: H=8.77e-03 J, f_full=33.708 Hz
+test P=30 N: H=1.48e-02 J, f_full=36.343 Hz
+LNM          r=1: P=3: df/f=+4.7e-03 e=1.1e-01  P=10: df/f=+3.0e-02 e=3.5e-01  P=20: df/f=+5.4e-02 e=7.3e-01  P=30: df/f=+8.3e-02 e=1.0e+00
+LNM          r=2: P=3: df/f=+1.5e-04 e=1.9e-02  P=10: df/f=+8.6e-04 e=3.6e-02  P=20: df/f=+4.7e-03 e=7.0e-02  P=30: df/f=+5.9e-03 e=9.7e-02
+LNM          r=3: P=3: df/f=+2.1e-04 e=7.2e-03  P=10: df/f=+7.3e-04 e=1.5e-02  P=20: df/f=+2.0e-03 e=2.8e-02  P=30: df/f=+2.4e-03 e=3.7e-02
+LNM          r=4: P=3: df/f=+5.7e-05 e=3.5e-03  P=10: df/f=+1.7e-04 e=6.2e-03  P=20: df/f=+5.5e-04 e=1.1e-02  P=30: df/f=+7.6e-04 e=1.5e-02
+SOD (decay)  r=1: P=3: df/f=+1.0e-02 e=1.5e-01  P=10: df/f=+2.9e-02 e=3.3e-01  P=20: df/f=+4.7e-02 e=6.6e-01  P=30: df/f=+7.4e-02 e=9.4e-01
+SOD (decay)  r=2: P=3: df/f=+8.2e-04 e=2.9e-02  P=10: df/f=+6.2e-04 e=4.8e-02  P=20: df/f=-1.2e-03 e=8.0e-02  P=30: df/f=+2.6e-03 e=1.1e-01
+SOD (decay)  r=3: P=3: df/f=-6.4e-05 e=2.7e-02  P=10: df/f=-1.6e-04 e=4.4e-02  P=20: df/f=+1.1e-04 e=6.5e-02  P=30: df/f=+8.0e-05 e=8.2e-02
+SOD (decay)  r=4: P=3: df/f=-9.0e-05 e=1.0e-02  P=10: df/f=+2.4e-05 e=1.7e-02  P=20: df/f=-7.5e-05 e=2.5e-02  P=30: df/f=-6.9e-06 e=3.1e-02
+POD (decay)  r=1: P=3: df/f=+9.0e-03 e=1.4e-01  P=10: df/f=+2.8e-02 e=3.3e-01  P=20: df/f=+4.8e-02 e=6.7e-01  P=30: df/f=+7.4e-02 e=9.5e-01
+POD (decay)  r=2: P=3: df/f=+5.8e-04 e=2.5e-02  P=10: df/f=-2.7e-04 e=3.5e-02  P=20: df/f=+4.3e-04 e=5.5e-02  P=30: df/f=+1.8e-03 e=7.8e-02
+POD (decay)  r=3: P=3: df/f=-1.6e-04 e=2.6e-02  P=10: df/f=-2.3e-04 e=4.2e-02  P=20: df/f=+2.9e-04 e=6.3e-02  P=30: df/f=-2.5e-04 e=7.9e-02
+POD (decay)  r=4: P=3: df/f=-3.9e-05 e=1.0e-02  P=10: df/f=-5.9e-05 e=1.7e-02  P=20: df/f=-1.1e-04 e=2.5e-02  P=30: df/f=-1.8e-04 e=3.2e-02
+SOD (30 N)   r=1: P=3: df/f=+2.6e-02 e=2.8e-01  P=10: df/f=+3.4e-02 e=3.9e-01  P=20: df/f=+4.6e-02 e=6.5e-01  P=30: df/f=+6.9e-02 e=8.9e-01
+SOD (30 N)   r=2: P=3: df/f=+2.5e-03 e=4.4e-02  P=10: df/f=-6.9e-04 e=3.9e-02  P=20: df/f=+2.2e-04 e=4.8e-02  P=30: df/f=+4.2e-04 e=6.0e-02
+SOD (30 N)   r=3: P=3: df/f=+1.2e-03 e=1.6e-02  P=10: df/f=+8.3e-04 e=1.7e-02  P=20: df/f=+1.5e-03 e=2.4e-02  P=30: df/f=+1.8e-03 e=3.0e-02
+SOD (30 N)   r=4: P=3: df/f=+3.8e-04 e=7.1e-03  P=10: df/f=-1.5e-05 e=7.0e-03  P=20: df/f=+2.3e-05 e=8.7e-03  P=30: df/f=+7.5e-05 e=1.1e-02
+POD (30 N)   r=1: P=3: df/f=+1.5e-02 e=1.8e-01  P=10: df/f=+3.0e-02 e=3.4e-01  P=20: df/f=+4.6e-02 e=6.5e-01  P=30: df/f=+7.2e-02 e=9.2e-01
+POD (30 N)   r=2: P=3: df/f=+2.2e-03 e=4.0e-02  P=10: df/f=-6.0e-04 e=3.9e-02  P=20: df/f=-2.4e-04 e=5.0e-02  P=30: df/f=+3.8e-04 e=6.3e-02
+POD (30 N)   r=3: P=3: df/f=+7.8e-04 e=1.6e-02  P=10: df/f=+4.5e-04 e=2.0e-02  P=20: df/f=+1.7e-03 e=3.0e-02  P=30: df/f=+1.0e-03 e=3.7e-02
+POD (30 N)   r=4: P=3: df/f=+3.1e-04 e=9.9e-03  P=10: df/f=-2.2e-05 e=1.4e-02  P=20: df/f=+1.2e-05 e=2.0e-02  P=30: df/f=+1.9e-05 e=2.4e-02

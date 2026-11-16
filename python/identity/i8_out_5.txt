@@ -1,0 +1,25 @@
+== S3 dashpot_heavy: 20 realizations, r = 1..8; each entry is over the SOD frequencies w_i, i <= r
+ smallest relative gap of w_i^2 to the reduced pencil eigenvalues, min over realizations
+   SOD   3.9e-03  3.9e-03  9.1e-04  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03
+   D     3.9e-03  3.9e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03
+   LNM   3.9e-03  3.9e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03
+ smallest relative gap of w_i^2 to the full-model eigenvalues, min over realizations
+   SOD   3.9e-03  3.9e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03
+   D     3.9e-03  3.9e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03
+   LNM   3.9e-03  3.9e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03  1.3e-03
+ largest relative interpolation error, undamped system, median over realizations
+   SOD   1.1e-04  1.7e-01  2.7e-02  3.6e-03  6.4e-03  1.9e-02  1.0e-03  1.2e-03
+   D     3.1e-10  2.5e-10  2.9e-10  2.7e-10  2.3e-10  2.8e-10  1.9e-10  3.8e-10
+   LNM   1.5e-03  1.4e-02  6.1e-03  5.6e-03  7.7e-03  9.4e-03  2.7e-02  2.3e-02
+ largest relative interpolation error, undamped system, max over realizations
+   SOD   1.6e-03  3.9e-01  4.7e-01  4.0e-02  7.5e-03  6.6e-02  3.4e-03  1.0e-02
+   D     1.0e-08  3.5e-09  1.2e-08  4.2e-09  3.2e-09  3.3e-09  7.9e-09  8.6e-09
+   LNM   5.8e-03  3.0e-02  3.0e-02  1.1e-02  9.4e-03  4.7e-02  6.9e-02  8.6e-02
+ largest relative interpolation error, damped system, median over realizations
+   SOD   1.5e-03  1.0e-01  2.0e-02  5.7e-03  7.0e-03  1.3e-02  1.2e-03  2.3e-03
+   D     1.5e-03  2.8e-03  1.8e-05  6.7e-04  3.8e-03  1.2e-02  4.4e-04  3.7e-03
+   LNM   2.7e-03  2.3e-02  9.4e-03  9.4e-03  1.5e-02  2.7e-02  3.0e-02  3.5e-02
+ largest relative interpolation error, damped system, max over realizations
+   SOD   1.7e-03  3.8e-01  1.0e-01  1.7e-02  7.8e-03  6.2e-02  4.3e-03  1.8e-02
+   D     1.7e-03  3.0e-03  1.6e-04  6.9e-04  3.8e-03  1.4e-02  3.3e-03  2.2e-02
+   LNM   8.7e-03  4.1e-02  3.3e-02  1.2e-02  1.6e-02  5.1e-02  7.1e-02  9.1e-02

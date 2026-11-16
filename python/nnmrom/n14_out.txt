@@ -1,0 +1,37 @@
+LNM 1 frequency 148.67 rad/s; first SOD frequency of the 30 N decay 196.01 rad/s
+angle(first SOD direction, K^-1 e_tip) = 2.607 deg; angle to LNM 1 = 1.136 deg
+angle to d(w_sod)  = 0.0003 deg
+smallest angle 9.35e-06 deg at w* = 196.019 rad/s (1.0000 w_sod)
+principal angles (deg), SOD r=4 vs MTA r=4: 1.75 0.00335 1.53e-05 1.64e-08
+LNM k outside the SOD r=4 span (relative M-norm): 1: 9.5e-06 2: 5.6e-05 3: 4.0e-03 4: 3.5e-01 5: 9.5e-01
+MTA          r=2: backbone error median 8.0e-05, max 2.4e-03
+MTA          r=3: backbone error median 1.4e-06, max 1.5e-05
+MTA          r=4: backbone error median 1.4e-06, max 1.5e-05
+BMTA(w_sod)  r=1: backbone error median 2.2e-03, max 4.4e-02
+BMTA(w_sod)  r=2: backbone error median 4.7e-05, max 2.1e-03
+BMTA(w_sod)  r=3: backbone error median 1.4e-06, max 1.5e-05
+BMTA(w_sod)  r=4: backbone error median 1.4e-06, max 1.5e-05
+BMTA(w*)     r=1: backbone error median 2.2e-03, max 4.4e-02
+BMTA(w*)     r=2: backbone error median 4.7e-05, max 2.1e-03
+BMTA(w*)     r=3: backbone error median 1.4e-06, max 1.5e-05
+BMTA(w*)     r=4: backbone error median 1.4e-06, max 1.5e-05
+HARM: LNM1, d(w), d(3w), d(5w) r=1: backbone error median 1.1e-02, max 6.4e-02
+HARM: LNM1, d(w), d(3w), d(5w) r=2: backbone error median 4.7e-05, max 2.1e-03
+HARM: LNM1, d(w), d(3w), d(5w) r=3: backbone error median 1.8e-06, max 1.7e-05
+HARM: LNM1, d(w), d(3w), d(5w) r=4: backbone error median 1.4e-06, max 1.5e-05
+BAND: LNM1, d(160), d(w), d(228) r=1: backbone error median 1.1e-02, max 6.4e-02
+BAND: LNM1, d(160), d(w), d(228) r=2: backbone error median 6.4e-05, max 2.2e-03
+BAND: LNM1, d(160), d(w), d(228) r=3: backbone error median 2.6e-06, max 2.1e-05
+BAND: LNM1, d(160), d(w), d(228) r=4: basis not formed (vectors dependent: Gram eigenvalue ratio 5.2e-17)
+LDR (Wilson) r=1: backbone error median 3.6e-02, max 9.3e-02
+LDR (Wilson) r=2: backbone error median 9.4e-05, max 2.5e-03
+LDR (Wilson) r=3: backbone error median 2.7e-06, max 2.2e-05
+LDR (Wilson) r=4: basis not formed (vectors dependent: Gram eigenvalue ratio 3.7e-16)
+D: d at the SOD freqs 1..r r=1: backbone error median 2.2e-03, max 4.4e-02
+D: d at the SOD freqs 1..r r=2: backbone error median 1.6e-04, max 1.8e-03
+D: d at the SOD freqs 1..r r=3: backbone error median 4.9e-06, max 1.6e-05
+D: d at the SOD freqs 1..r r=4: backbone error median 1.4e-06, max 1.5e-05
+SOD (decay)  r=1: backbone error median 2.2e-03, max 4.4e-02
+SOD (decay)  r=2: backbone error median 1.4e-04, max 1.8e-03
+SOD (decay)  r=3: backbone error median 2.0e-06, max 1.5e-05
+SOD (decay)  r=4: backbone error median 5.2e-07, max 2.3e-06

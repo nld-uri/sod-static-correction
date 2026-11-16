@@ -1,0 +1,43 @@
+r=2: rank 5; SOD freqs of the first r [ 3.4 10.3]; recognised in-band modes at [  3.5  22.   61.7 120.9] (angles to their planes, deg: [np.float64(0.0), np.float64(0.02), np.float64(0.86), np.float64(2.41)]); unrecognised among the first r: ['10.3']; RHB takes [0, 2]
+r=3: rank 7; SOD freqs of the first r [ 3.4 21.3 22.8]; recognised in-band modes at [  3.5  22.   61.7 120.9 199.7] (angles to their planes, deg: [np.float64(0.0), np.float64(0.02), np.float64(0.01), np.float64(0.23), np.float64(1.2)]); unrecognised among the first r: ['22.8']; RHB takes [0, 1, 3]
+r=4: rank 9; SOD freqs of the first r [ 3.4 21.9 35.8 61.6]; recognised in-band modes at [  3.5  22.   61.7 120.9 199.6] (angles to their planes, deg: [np.float64(0.0), np.float64(0.02), np.float64(0.01), np.float64(0.01), np.float64(0.1)]); unrecognised among the first r: ['35.8']; RHB takes [0, 1, 3, 4]
+r=5: rank 10; SOD freqs of the first r [  3.4  22.   44.6  61.7 120.5]; recognised in-band modes at [  3.5  22.   61.7 120.9 199.6] (angles to their planes, deg: [np.float64(0.0), np.float64(0.02), np.float64(0.01), np.float64(0.01), np.float64(0.05)]); unrecognised among the first r: ['44.6']; RHB takes [0, 1, 3, 4, 5]
+r=6: rank 10; SOD freqs of the first r [  3.4  22.   53.9  61.8 120.5 198.1]; recognised in-band modes at [  3.5  22.   61.7 120.9 199.6] (angles to their planes, deg: [np.float64(0.0), np.float64(0.02), np.float64(0.04), np.float64(0.02), np.float64(0.08)]); unrecognised among the first r: ['53.9']; RHB takes [0, 1, 3, 4, 5, 2]
+r=7: rank 10; SOD freqs of the first r [  3.4  22.   60.7  63.3 120.5 198.1 293.4]; recognised in-band modes at [  3.5  22.   61.7 120.9 199.6] (angles to their planes, deg: [np.float64(0.0), np.float64(0.02), np.float64(0.18), np.float64(0.03), np.float64(0.11)]); unrecognised among the first r: ['63.3', '293.4']; RHB takes [0, 1, 2, 4, 5, 3, 6]
+r=8: rank 10; SOD freqs of the first r [  3.4  22.   61.4  70.2 120.5 198.2 293.4 405.6]; recognised in-band modes at [  3.5  22.   61.7 120.9 199.6] (angles to their planes, deg: [np.float64(0.0), np.float64(0.01), np.float64(0.05), np.float64(0.04), np.float64(0.12)]); unrecognised among the first r: ['70.2', '293.4', '405.6']; RHB takes [0, 1, 2, 4, 5, 3, 6, 7]
+S3 dashpot: realization 1/20 (14s)
+S3 dashpot: realization 2/20 (28s)
+S3 dashpot: realization 3/20 (42s)
+S3 dashpot: realization 4/20 (56s)
+S3 dashpot: realization 5/20 (73s)
+S3 dashpot: realization 6/20 (91s)
+S3 dashpot: realization 7/20 (108s)
+S3 dashpot: realization 8/20 (126s)
+S3 dashpot: realization 9/20 (142s)
+S3 dashpot: realization 10/20 (158s)
+S3 dashpot: realization 11/20 (173s)
+S3 dashpot: realization 12/20 (188s)
+S3 dashpot: realization 13/20 (201s)
+S3 dashpot: realization 14/20 (214s)
+S3 dashpot: realization 15/20 (227s)
+S3 dashpot: realization 16/20 (241s)
+S3 dashpot: realization 17/20 (255s)
+S3 dashpot: realization 18/20 (270s)
+S3 dashpot: realization 19/20 (284s)
+S3 dashpot: realization 20/20 (297s)
+== S3 dashpot, random tip load: median error over 20 realizations, r = 2..8
+   LNM       3.9e-02  1.3e-02  4.3e-03  7.8e-04  3.2e-04  1.8e-04  1.1e-04
+   CM        3.9e-02  1.3e-02  4.3e-03  7.8e-04  3.3e-04  1.8e-04  1.1e-04
+   MTA-tip   1.7e-01  5.2e-02  1.7e-02  4.7e-03  2.7e-04  2.7e-05  7.0e-06
+   R0        1.4e-01  5.1e-02  1.7e-02  4.9e-03  2.5e-04  4.2e-05  1.9e-05
+   RHB       3.9e-02  1.3e-02  4.3e-03  7.9e-04  2.5e-04  4.2e-05  1.9e-05
+   median over realizations of R0/LNM:   3.48   4.07   3.98   6.33   0.76   0.23   0.17
+   median over realizations of RHB/LNM:   1.00   1.00   1.00   1.01   0.76   0.23   0.17
+== S3 dashpot, random mid load: median error over 20 realizations, r = 2..8
+   LNM       2.4e-02  2.4e-02  1.5e-03  1.5e-03  3.2e-04  3.1e-04  1.2e-04
+   CM        2.4e-02  2.4e-02  1.5e-03  1.5e-03  3.1e-04  3.1e-04  1.2e-04
+   MTA-tip   3.1e-01  2.7e-02  2.6e-02  1.5e-03  1.2e-03  2.9e-04  2.7e-04
+   R0        2.5e-01  2.6e-02  2.6e-02  1.7e-03  1.1e-03  3.3e-04  2.5e-04
+   RHB       2.4e-02  2.4e-02  1.5e-03  1.5e-03  1.1e-03  3.3e-04  2.5e-04
+   median over realizations of R0/LNM:  10.54   1.12  17.71   1.13   3.46   1.06   2.04
+   median over realizations of RHB/LNM:   1.00   1.00   1.00   1.00   3.46   1.06   2.04

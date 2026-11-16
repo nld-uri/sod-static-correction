@@ -1,0 +1,5 @@
+SOD bases hold the static correction of the loads their training records saw
+Ranked by smoothness, that quasi-static direction displaces an in-band mode
+Recognising modes by frequency and circularity removes the low-order loss
+Given the same load locations, SOD and static-correction ROMs agree within 3.4x
+A decay gave a local nonlinear force's inertia-bent correction without its location

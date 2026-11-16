@@ -1,0 +1,17 @@
+S2 heavy: realization 1/1 done (47s)
+== S2 heavy, test rand: median error, r = 1..10
+   POD (freeBL)      1.1e-01  2.0e-02  5.4e-03  2.0e-03  9.7e-04  5.5e-04  3.4e-04  2.4e-04  8.5e-05      nan
+   SOD (freeBL)      1.1e-01  2.0e-02  5.4e-03  2.0e-03  9.2e-04  5.1e-04  3.2e-04  2.2e-04  8.5e-05      nan
+   LNM               1.1e-01  2.0e-02  5.4e-03  1.8e-03  7.3e-04  3.6e-04  2.1e-04  1.3e-04  8.5e-05  5.9e-05
+== S2 heavy, test mid: median error, r = 1..10
+   POD (freeBL)      2.1e-01  9.7e-03  9.7e-03  1.4e-03  1.3e-03  5.6e-04  2.6e-04  2.1e-04  1.3e-04      nan
+   SOD (freeBL)      2.1e-01  9.7e-03  9.7e-03  1.4e-03  1.3e-03  5.1e-04  2.8e-04  2.1e-04  1.3e-04      nan
+   LNM               2.1e-01  9.7e-03  9.7e-03  1.3e-03  1.3e-03  3.4e-04  3.4e-04  1.3e-04  1.3e-04  6.5e-05
+== S2 heavy, test free: median error, r = 1..10
+   POD (freeBL)      1.1e-02  5.7e-04  2.5e-04  3.6e-05  1.2e-05  8.4e-06  7.9e-06  5.6e-06  1.9e-06      nan
+   SOD (freeBL)      1.1e-02  5.7e-04  2.5e-04  3.5e-05  1.3e-05  8.5e-06  8.0e-06  5.3e-06  1.9e-06      nan
+   LNM               1.1e-02  5.7e-04  2.5e-04  2.4e-05  1.3e-05  8.3e-06  7.4e-06  2.3e-06  1.9e-06  1.5e-06
+== S2 heavy, test freeEE: median error, r = 1..10
+   POD (freeBL)      1.1e-01  1.9e-02  6.3e-03  3.3e-03  2.2e-03  1.6e-03  1.2e-03  9.7e-04  7.6e-08      nan
+   SOD (freeBL)      1.1e-01  1.9e-02  6.3e-03  3.3e-03  2.1e-03  1.5e-03  1.2e-03  9.2e-04  7.6e-08      nan
+   LNM               1.1e-01  1.9e-02  6.2e-03  3.1e-03  1.9e-03  1.3e-03  8.9e-04  5.5e-04  7.6e-08  7.6e-08
