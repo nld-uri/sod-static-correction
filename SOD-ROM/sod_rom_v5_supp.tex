@@ -19,13 +19,104 @@
 \maketitle
 \noindent Section, figure, table and equation numbers without the prefix S refer to the main text. Every number below is produced by the scripts named in Appendix~B of the main text.
 
-\section{Petrov--Galerkin state ROM}\label{sec:s-pg}
-The first failed. Data covectors are undetermined outside the span of the data, and their input coupling $\|\bm{\psi}_i^{\mathsf T}\bm{B}_{\mathrm s}\|$ reached $2\times10^3$--$3\times10^5$. On S3 (below) with tip-dashpot coefficient $c_{\mathrm d}=0.2$ and a free-decay basis, its error under a random load was 70 at every order.
-\section{State-space SOD and the training signal}\label{sec:s-smix}
-State-space SOD on S3 behaves in the same way, plane by plane. From the free decay at $c_{\mathrm d}=0.2$, the pairs 1--2, 3--4, 5--6 and 7--8 matched modal planes 1--4. Their geometric-mean frequencies were within 0.2--2\,\% of $|s_i|$, and the planes within $0.3$--$14^\circ$ in the energy metric. The inter-plane correlation of that decay was 0.14.
-At $c_{\mathrm d}=1$ the correlation rose to 0.31, and plane 2 was off by $48^\circ$.
-From random or swept-sine records, the smoothest state direction was not modal, and pairs mixed planes, as in configuration space.
-\section{Sensitivity to the retained rank}\label{sec:rank}
+\noindent Sections~\ref{sec:acc}--\ref{sec:s-noise} hold the forced-record study that Section~\ref{sec:contrast} summarizes. Section~\ref{sec:complex} holds the complex-mode and state-space study, Sections~\ref{sec:s-s4} and \ref{sec:s-s5} the details of the two nonlinear cantilevers, and Section~\ref{sec:cost} the integration cost.
+
+\section{Forced training records: errors against order}\label{sec:acc}
+Does an SOD basis improve on the LNMs and on MTA, and at which orders?
+Figure~\ref{fig:error} shows the median error and interquartile range against state dimension.
+Away from the data rank the interquartile range was at most 0.76 of the median. Ratios between bases below are therefore meaningful. Near the rank, and for state SOD at $c_{\mathrm d}=1$, it reached 5.3.
+The data rank of random records varied between realizations, for example 8--9 on S2 with light damping. A median is reported only at orders that all 20 realizations supply.
+
+\paragraph{Low order: SOD is the LNM basis; POD from forced data is not.} At $r=1$ and 2, SOD from random or free-decay data matched the LNM ROM within 15\,\% on S1 and S2.
+POD from forced data did not on S2; on S1 it matched as well. Take S2 with light damping and one mode from random data. POD erred by $2.2\times10^{-1}$ on the training load, against $1.1\times10^{-1}$ for the LNM. On the free-decay test it erred by $2.0\times10^{-1}$ against $1.1\times10^{-2}$.
+Swept-sine SOD failed at $r=2$ on S2 with light damping: $1.5\times10^{-1}$ against $1.9\times10^{-2}$ (Section~\ref{sec:mix}).
+
+\paragraph{Intermediate order: the random-trained basis falls behind.} At $r=3$--4, SOD from random data was worse than the LNMs on S2. It was 4.8 times worse at $r=3$ on the training load, and 18 times worse at $r=4$ at mid-span.
+Free-decay SOD was not. On S2 with light damping, BL and SR bases matched the LNMs within 4\,\% through $r=5$.
+
+\paragraph{High order, training load: data beat the LNMs, and match or beat MTA.} At $r=8$, SOD from random data erred by:
+\begin{itemize}
+\item S1: $4.3\times10^{-5}$ (light) and $1.7\times10^{-6}$ (heavy), against LNM $2.3\times10^{-4}$ and $6.3\times10^{-4}$, and MTA $4.6\times10^{-5}$ and $3.7\times10^{-5}$;
+\item S2: $1.6\times10^{-6}$ (light) and $1.9\times10^{-7}$ (heavy), against LNM $4.2\times10^{-5}$ and $1.2\times10^{-4}$, and MTA $1.1\times10^{-5}$ and $1.8\times10^{-5}$.
+\end{itemize}
+POD gave nearly the same values. On S1 and S2 with heavy damping, $r=8$ is the data rank. There SOD and POD span one subspace and give identical ROMs.
+The gain over the LNMs comes from the quasi-static response of truncated modes, which a forced record contains. MTA adds that response from the model as the static deflection under each load, one vector per load location.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig_c_error.pdf}
+\caption{ROM displacement error against state dimension $2r$, median and interquartile range over 20 realizations. Columns: S1 with heavy Rayleigh damping; S2 with light Rayleigh damping; S3 with $c_{\mathrm d}=1$. Top: new random load at the training location. Bottom: transfer test (free decay from a floor-4 point load for S1; random mid-span load for S2 and S3). Training signal in brackets; free, BL: order-matched band-limited decay; sSOD: state-space SOD; CM: complex-mode truncation.}
+\label{fig:error}
+\end{figure}
+So the same random-trained basis is worse than the LNMs at intermediate order and better at high order, and the gain belongs to the training load. Sections~\ref{sec:adds} and \ref{sec:displace} explain both.
+
+\section{Forced training records: what the record adds}\label{sec:adds}
+Is the high-order gain of a random-trained SOD basis the static correction, and does it serve only the loads the record saw?
+We answer first by the geometry of the basis and then by moving the load.
+
+\paragraph{Containment of the static vectors.} Figure~\ref{fig:static}a gives the containment residual \eqref{eq:contain} of the two static load vectors of S2, $\bK^{-1}\bm{b}_{\mathrm{tip}}$ and $\bK^{-1}\bm{b}_{\mathrm{mid}}$, with light damping and the 20 random tip records of Section~\ref{sec:acc}.
+\begin{itemize}
+\item At $r=8$ the SOD subspace holds the tip vector to $\rho=1.8\times10^{-7}$ (median), against $3.3\times10^{-5}$ for the LNMs, about 190 times closer. At $r=7$ the figures are $1.6\times10^{-6}$ and $5.2\times10^{-5}$.
+\item It holds the mid-span vector no better than the LNMs: $7.9\times10^{-5}$ against $3.7\times10^{-5}$ at $r=8$. The record never saw that load.
+\item The SOD basis of the order-matched band-limited decay contains no static correction. Its residuals equal those of the LNMs within 12\,\% ($3.6\times10^{-5}$ for the tip vector at $r=8$), as its LNM-level errors in Figure~\ref{fig:error} require.
+\end{itemize}
+POD of the same records contained the tip vector equally well ($1.7\times10^{-7}$ at $r=8$). At the data rank the two span one subspace.
+
+\paragraph{Principal angles.} At $r=8$, seven of the eight principal angles between the SOD subspace and MTA with the tip vector only were below $0.03^\circ$ (medians); the eighth was $13^\circ$ (at most $15^\circ$). Against the eight LNMs, six angles were below $0.01^\circ$, then $2^\circ$ and $50^\circ$. Against MTA with both static vectors, the largest angle was $69^\circ$, because the mid-span vector is missing.
+The random record thus supplies the LNMs it excites and, in place of LNM~8, the static correction of the load it saw.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{fig_c_static.pdf}
+\caption{What a random tip record adds to the SOD basis; S2, light Rayleigh damping, 20 realizations. (a) Containment residual \eqref{eq:contain} of the static load vectors $\bK^{-1}\bm{b}_{\mathrm{tip}}$ (filled, solid) and $\bK^{-1}\bm{b}_{\mathrm{mid}}$ (open, dashed) against the basis order $r$: SOD of the random tip records (median and interquartile range), LNMs, and SOD of the order-matched band-limited decay. (b) Largest principal angle ($\bM$ metric) between the first $r$ SOD directions and the first $r$ LNMs, and between them and the first $r-1$ LNMs augmented by one static vector; median and range. Scripts: \texttt{g1\_static\_containment.py}, \texttt{g3\_third\_direction.py}, \texttt{mkfig\_c\_static.py}.}
+\label{fig:static}
+\end{figure}
+
+\paragraph{Transfer: the gain stays at the load locations each basis was given.} For a random load at mid-span, the bases trained at the tip lost their advantage. MTA as defined above contains the static vector of the mid-span load. We therefore also built MTA with the tip vector only. We also trained data bases on independent random loads at both locations. At $r=8$ on the mid-span test:
+\begin{itemize}
+\item tip only: SOD erred by $1.2\times10^{-4}$ (S2, light) and $3.1\times10^{-4}$ (S2, heavy). MTA with the tip vector erred by $1.1\times10^{-4}$ and $2.9\times10^{-4}$, and the LNMs by $4.8\times10^{-5}$ and $1.4\times10^{-4}$;
+\item both locations: SOD erred by $6.0\times10^{-6}$ and $9.0\times10^{-6}$; MTA by $4.2\times10^{-6}$ and $7.9\times10^{-6}$.
+\end{itemize}
+On S3 the pattern held. SOD and MTA from one location erred by $2.7$--$6.0\times10^{-4}$. From both locations, MTA erred by $1.0$--$2.3\times10^{-5}$ and SOD by $1.9$--$7.8\times10^{-5}$.
+So on S2 and S3, SOD and MTA gained at the same load locations: those each basis was given. SOD needs response records at those locations.
+On S2 at $r=7$, SOD and LNM were within 10\,\% of each other. The LNM curve for the mid-span load is a staircase, flat at $r=3$, 5 and 7. Mid-span lies within 2\,\% of a node of modes 3, 5 and 7.
+On S1 the transfer test, a free decay from a point load at floor 4, was nearly basis-independent. All bases stayed within a factor of 2.1 of one another for $r=3$--9. None was consistently best.
+MTA is not uniformly better. On the S2 free-decay test it was 44 times worse than the LNMs at $r=3$. At $r=8$ it was about twice as poor. On S1 it did not beat the LNMs on the floor-4 decay.
+The data-driven gain is the persistence problem of \citet{Ilbeigi2017}, seen in a linear system: on S2 and S3 the data bases gained only at the load locations of their records.
+
+\paragraph{Noisy training records.} The gain above used model kinematics. With white noise of 60 or 40\,dB on the training displacements the S2 error stopped falling at $r=6$--7, and the high-order gain was lost (Section~\ref{sec:s-noise}).
+
+\section{Forced training records: why low orders fail}\label{sec:displace}
+Why is the random-trained basis worse than the LNMs at $r=3$--5, when it holds the useful direction?
+Figure~\ref{fig:static}b and the LNM content of each SOD subspace answer it.
+
+\paragraph{One direction, ranked too early.} The SOD subspace of order $r$ held only $r-1$ LNMs for $r=3$--7 (median $\bM$-residual of each LNM below 0.1). At $r=3$ it held modes 1 and 2; LNM~3 had residual 0.17. At $r=5$ it held modes 1--4, and at $r=6$ modes 1--5, all the modes inside the load band.
+The extra direction is the tip static correction. From $r=3$ on, the SOD subspace lay within $2$--$13^\circ$ (medians) of the first $r-1$ LNMs augmented by $\bK^{-1}\bm{b}_{\mathrm{tip}}$. It lay $10$--$50^\circ$ from the first $r$ LNMs, and $38$--$76^\circ$ from the first $r-1$ LNMs augmented by the mid-span vector (Figure~\ref{fig:static}b).
+The direction enters at $r=3$ because it is smoother than the upper in-band modes: the third SOD frequency of a random record was 47.7, between modes 2 and 3 (Section~\ref{sec:mix}).
+The errors follow the count of in-band modes. Against the LNM ROM the SOD ROM was 4.8 times worse at $r=3$ and 6.5 times worse at $r=5$, while it lacked one in-band mode. At $r=6$, with all five in-band modes present, it was 1.4 times better. At $r=7$ and 8 it was 11 and 27 times better.
+The direction that carries the gain at high order is the one that causes the loss at low order.
+
+\subsection{Mixing by training signal}\label{sec:mix}
+The same ranking explains how the training signal shapes the basis.
+Figure~\ref{fig:mac} compares configuration SOD modes with LNMs by the mass-weighted modal assurance criterion (MAC; \citealp{Allemang2003}; one realization).
+\begin{itemize}
+\item \emph{Free decay, proportional damping.} On S2, SOD modes 1--8 matched LNMs 1--8 with MAC $\ge0.93$. Frequencies of modes 1--6 were within 0.03--1.6\,\%. The modal coordinates were nearly uncorrelated (largest correlation 0.07).
+\item \emph{Random and swept sine.} Extra smooth directions appeared between genuine modes. On S2 with random data, SOD returned frequencies 3.5, 22.0, 47.7, 62.2, 121, 200. The third is a mixture of LNMs 1--3 (MAC 0.19, 0.28, 0.51): the quasi-static tip direction of Section~\ref{sec:displace}. The sweep inserted a direction at 17.1, below mode 2.
+\item \emph{Free decay with the dashpot.} Non-proportional damping correlates the modal coordinates (0.71). Configuration SOD modes 2--4 mixed (MAC 0.82, 0.86, 0.58), as the exactness criterion predicts.
+\end{itemize}
+Every direction ranked among the modes shifts the genuine modes down one rank. A truncated basis then omits a mode it needs, which explains the intermediate-order errors.
+State-space SOD on S3 behaves in the same way, plane by plane (Section~\ref{sec:s-smix}).
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.92\textwidth]{fig_c_mac.pdf}
+\caption{MAC between configuration SOD modes 1--8 (rows, smoothest first) and LNMs 1--8 (columns); the training data excite no higher modes. Top: S2, light damping. Bottom: S3, $c_{\mathrm d}=0.2$. Columns: training signal.}
+\label{fig:mac}
+\end{figure}
+
+A free decay under proportional damping avoids the displacement, because it contains no quasi-static response. A forced record contains it, and ranking by smoothness misplaces it.
+
+\subsection{Sensitivity to the retained rank}\label{sec:rank}
 Smaller rank tolerances admit a second kind of smooth non-modal direction: weakly excited ones. They depend on how much of the near-null data space is kept.
 For S2 under a random tip load, POD eigenvalues fall from 1 to $1.7\times10^{-9}$ over eight directions. They then drop to $9\times10^{-12}$ and below.
 \begin{itemize}
@@ -36,17 +127,45 @@ For S2 under a random tip load, POD eigenvalues fall from 1 to $1.7\times10^{-9}
 The spurious directions carried energy fractions of $6\times10^{-5}$--$3\times10^{-4}$, comparable to the fourth and fifth LNM components. An energy threshold therefore cannot separate them.
 Weakly excited directions can look smooth. Their mean-square frequency is set by how little they move, not by a mode.
 We observed them in clean, band-limited records. Section~\ref{sec:noise} shows how to recognise the genuine modes.
-\section{Recognition: details and other orders}\label{sec:s-recog}
-\paragraph{Configuration SOD.}
-We applied a fixed 5\,\% version of this test to the ten smoothest coordinates of clean S2 records. Kinematics came from the model. The test rejected 108 of 134 spurious directions and no genuine mode (10 realizations, tolerances $10^{-10}$--$10^{-14}$). A two-halves rule rejected 102 and also 10 of 147 genuine modes; a lag-diagonality rule rejected 40 and 13.
-\paragraph{State SOD.}
-Pairing by rank fails. Pairing adjacent coordinates in SOD order lost the slowest plane of random-load records, because a quasi-static coordinate sat between its two members. Requiring the two members' raw spectral peaks to agree lost it in 4 of 10 records, because those peaks scattered by up to 21\,\% under random forcing. With smoothed spectra and the loose gate, the mode-1 plane was recognised in all 8 test records. Modal planes gave a one-sidedness of 0.89--0.99, other pairs 0.51--0.75. A strong plane can be contaminated by another mode at its own frequency, which lowers its one-sidedness. A pair scoring 0.75--0.85 is therefore also kept under two conditions. Its one-sidedness within $\pm30\,\%$ of its peak must be at least 0.95. It must also carry at least 1\,\% of the response energy. The banded test alone is unsafe. On noisy linear records it admitted up to 15 times more non-modal pairs. Two narrowband noise coordinates in quadrature also look circular. With the energy gate, the model-reduction results did not change. From one random-load record on S3 ($c_{\mathrm d}=0.2$) the recognised planes were at 3.7, 22.1, 62.5, 121.2 and 201.4\,rad/s. From the band-limited decay they were at 3.5, 22.0, 61.7, 120.9 and 199.6\,rad/s. The damped frequencies are 3.5, 22.0, 61.7, 120.9 and 199.7\,rad/s.
+
+\section{Forced training records: recognising modes}\label{sec:noise}
+How can the quasi-static direction be kept without letting it displace a mode?
+For model reduction the kinematics come from the model: velocities and state derivatives are exact, and no measurement noise enters.
+Modes are therefore recognised, paired and ordered by their own frequency or circularity, never by their SOD value. Smoothness says how slowly a projection moves. It does not say which mode the projection belongs to, as Sections~\ref{sec:displace} and \ref{sec:rank} show.
+
+\subsection{Recognising modes}\label{sec:recog}
+\paragraph{Configuration SOD: spectral consistency.} A coordinate that is a single real mode has its mean-square frequency at its spectral peak. A mixture of modes does not. We read each coordinate's spectrum from its periodogram of the type-II discrete cosine transform (DCT-II), smoothed over $\pm2\,\%$ in frequency. A raw periodogram of a randomly forced coordinate has single-bin spikes. Its arg-max is then not the resonance, and its bin-level width misses the damping width $2\zeta\omega$. Coordinate $i$ is kept if its peak lies within $\max(5\,\%,\,w_i)$ of its SOD frequency $\sqrt{\mu_i}$. Here $w_i$ is the relative half-power width of that peak, capped at 15\,\%. The width makes the test damping-aware. The cap matters. A drifting or broadband coordinate peaks near zero frequency, with a width above 1, and would otherwise pass. The test assumes one frequency per coordinate. A nonlinear decay sweeps that frequency, and the test can then reject a genuine NNM (Section~\ref{sec:nlbb}). Circularity needs no fixed frequency. Two kept coordinates that share one peak cannot both be that mode. The one carrying more response energy, $\|\bphi_i\|^2\avg{q_i^2}$, is kept. Recognised modes are ordered by peak frequency.
+Applied with a fixed 5\,\% tolerance to the ten smoothest coordinates of clean S2 records, the test rejected 108 of 134 spurious directions and no genuine mode (10 realizations, tolerances $10^{-10}$--$10^{-14}$). Two other rules did worse. A two-halves rule keeps a coordinate if SOD of each half of the record returns a smooth mode with MAC above 0.9 and frequency within 5\,\% of it; it rejected 102 spurious directions and also 10 of 147 genuine modes. A lag-diagonality rule keeps a coordinate if its lagged correlation with every other coordinate stays below 0.3 at lags of 1/16 to 1/2 of its own period; it rejected 40 and 13 (\texttt{c19\_selection\_rules.py}).
+
+\paragraph{State SOD: circularity.} Consider the two coordinates of a modal plane. Up to a real change of basis, they are the real and imaginary parts of one complex modal coordinate. SOD returns them uncorrelated and with unit variance, so in their own plane the cloud is round. Read as $z=q_a+\mathrm i\,q_b$, the pair rotates one way and the spectrum of $z$ is one-sided. Two unrelated coordinates, or coordinates of two different planes, give a nearly symmetric spectrum.
+Pairs are therefore formed by matching, not by rank. Candidate pairs are paired greedily by one-sidedness and kept above 0.85; only one plane is kept per frequency. A loose frequency gate, four times the spectral tolerance, only limits the search. The plane frequency is the peak of the one-sided spectrum of $z$, and planes are ordered by it.
+Pairing by rank fails. Pairing adjacent coordinates in SOD order lost the slowest plane of random-load records, because a quasi-static coordinate sat between its two members. Requiring the two members' raw spectral peaks to agree lost it in 4 of 10 records, because those peaks scattered by up to 21\,\% under random forcing. With smoothed spectra and the loose gate, the mode-1 plane was recognised in all 8 test records. Modal planes gave a one-sidedness of 0.89--0.99, other pairs 0.51--0.75. A strong plane can be contaminated by another mode at its own frequency, which lowers its one-sidedness. A pair scoring 0.75--0.85 is therefore also kept under two conditions. Its one-sidedness within $\pm30\,\%$ of its peak must be at least 0.95. It must also carry at least 1\,\% of the response energy. The banded test alone is unsafe. On noisy linear records it admitted up to 15 times more non-modal pairs. Two narrowband noise coordinates in quadrature also look circular. With the energy gate, the model-reduction results did not change. From one random-load record on S3 ($c_{\mathrm d}=0.2$) the recognised planes were at 3.7, 22.1, 62.5, 121.2 and 201.4. From the band-limited decay they were at 3.5, 22.0, 61.7, 120.9 and 199.6. The damped frequencies are 3.5, 22.0, 61.7, 120.9 and 199.7.
+
+\subsection{Selection for model reduction}\label{sec:romsel}
+We compared two bases from the same SOD, with model kinematics (10 realizations):
+\begin{itemize}
+\item R0: the plain basis, in SOD order;
+\item RHB: the recognised modes or planes inside the load band, $\omega\le\omega_{\mathrm c}$, first, ordered by frequency; then the remaining coordinates in SOD order.
+\end{itemize}
+Section~\ref{sec:s-recog} compares four other orders.
+Modes above the load band respond quasi-statically to it. The smooth direction that carries that response serves a ROM better than the mode itself. This is why RHB stops at $\omega_{\mathrm c}$.
+\paragraph{S2, random tip load.} RHB removed the low-order damage of spurious directions. In no record was it more than 11\,\% worse than R0 at any order.
+\begin{itemize}
+\item Tolerance $10^{-12}$: the median two-mode error fell from $1.1\times10^{-1}$ to $2.0\times10^{-2}$ on the training load. At mid-span it fell from $2.2\times10^{-1}$ to $1.0\times10^{-2}$. The four-mode errors fell from $6.1\times10^{-3}$ to $1.8\times10^{-3}$ and from $1.0\times10^{-2}$ to $6.5\times10^{-4}$.
+\item Tolerance $10^{-10}$: the four-mode mid-span error fell from $1.1\times10^{-2}$ to $7.6\times10^{-4}$.
+\item At $r=6$ RHB equalled R0 at tolerance $10^{-10}$ and improved it at $10^{-12}$ ($1.7\times10^{-4}$ to $1.0\times10^{-4}$ on the training load). At $r=8$ all bases erred by $1.4\times10^{-6}$ on the training load.
+\end{itemize}
+\paragraph{S3, $c_{\mathrm d}=0.2$, state SOD.} From random-load records RHB improved state dimension 4 in every record (median training-load error $2.9\times10^{-1}\to1.0\times10^{-1}$, mid-span $3.7\times10^{-1}\to9.2\times10^{-2}$). At state dimension 8 it was slightly worse (median ratio 1.1--1.2, at most 2.5 in one record). From 12 on it equalled R0. Planes from forced records are tilted by their quasi-static response (Section~\ref{sec:ic}). From the band-limited decay the recognised order matched the SOD order, and all bases were identical.
+For model reduction we therefore recommend RHB. Recognised in-band modes come first, by frequency; the rest follow in SOD order.
+Recognition thus keeps the static-correction direction in the basis but places it behind the in-band modes it displaced.
+
+\subsection{Other orders}\label{sec:s-recog}
 \paragraph{Two other recognition orders.}
 \begin{itemize}
 \item RID: the recognised modes or planes only, up to $1.2\,\omega_{\mathrm c}$, ordered by frequency;
 \item RH: the recognised modes first, by frequency, then the remaining coordinates in SOD order;
 \end{itemize}
-RH also puts the recognised mode 6 (about 295\,rad/s) first. It was 1.3--10 times worse than R0 on the training load at $r=6$ and tolerance $10^{-10}$, though better at mid-span. RID alone stops at the six modes below $1.2\,\omega_{\mathrm c}$.
+RH also puts the recognised mode 6 (frequency about 295) first. It was 1.3--10 times worse than R0 on the training load at $r=6$ and tolerance $10^{-10}$, though better at mid-span. RID alone stops at the six modes below $1.2\,\omega_{\mathrm c}$.
 \paragraph{Can a frequency place the other coordinates?} Two further orders placed every coordinate by a frequency.
 \begin{itemize}
 \item RF: recognised modes at their peak frequency, all other coordinates at their SOD frequency $\sqrt{\mu}$.
@@ -56,9 +175,51 @@ RF gave the same ROMs as R0 in every record (S2 at both tolerances, S3 at $10^{-
 RQ was no better than R0 at $r=6$ and 8 on S2. The median ratio was 1.0--4.0 at tolerance $10^{-10}$ and 1.0--57 at $10^{-12}$. On S3 it was worse from state dimension 12. The median ratio was 1.3--220 on random records; the ratio was 2.3--5.5 on the single band-limited decay.
 At tolerance $10^{-12}$ it improved $r=2$ (median ratio 0.5--0.6), but RHB did as well or better. A quasi-static direction is stiff, so RQ moves it to the end of the basis. A ROM of low order then cannot use it.
 The value of such a direction lies in its share of the forced response. The SOD order already measures that share.
-\section{Complex modes and the training decay}\label{sec:s-complex}
-\paragraph{Complex modes: state-space SOD restores much of the modal basis.} On S3 the modes are complex. Configuration SOD from free decay mixed the modes; state-space SOD mixed them much less.
-On the forced tests, complex modes bought little. A configuration ROM was built on the undamped LNMs, with the full damping matrix projected. It erred within 25\,\% of complex-mode truncation at every order (ratio 0.96--1.25). On the free test decay complex-mode truncation was 2.5--7 times better at state dimension 8. Configuration SOD fails on S3 because its modes mix, not because the true modes are complex.
+
+\section{Load responses at the SOD frequencies: forced records}\label{sec:s-forced}
+For the random tip-load training records of Section~\ref{sec:acc}, identity \eqref{eq:identity} of the main text holds with the load as the force. Table~\ref{tab:s-forced} compares the SOD ROM with the ROM on the model-built basis $\operatorname{span}\{\bm{d}(\sqrt{\mu_1}),\dots,\bm{d}(\sqrt{\mu_r})\}$, $\bm{d}(\omega)=(\bK-\omega^2\bM)^{-1}\bm{b}$, with the SOD frequencies taken from the same record (\texttt{i2\_interp\_basis.py}; 20 realizations, new random load at the training input). With light damping and with the tip dashpot the two agree within factors of 0.82--1.68. With heavy Rayleigh damping the model-built basis falls behind as the order grows, by 4.5 (S1) and 40 (S2) at $r=8$. The real parts of the damped responses $(\bK-\omega^2\bM+\mathrm i\omega\bC)^{-1}\bm{b}$ brought the S2 factor at $r=8$ to 2.0, but were 2.7--5.5 times worse than SOD at $r=1$ and 2, and did not help on S1 (5.1 at $r=8$; \texttt{i3\_damped\_basis.py}). What SOD holds beyond the undamped load responses under heavy proportional damping is not identified here.
+The median angles between the smooth modes and $\bm{d}(\sqrt{\mu_i})$ were $0.001^\circ$, $0.017^\circ$, $5.0^\circ$, $0.54^\circ$ and $1.4^\circ$ for directions 1--5 of S2 with light damping; the third is the non-modal direction near 50 (\texttt{i1\_forced\_identity.py}).
+
+\begin{table}[tbp]
+\centering\small
+\caption{Median over 20 realizations of the ROM error on the model-built basis of load responses at the SOD frequencies, divided by the SOD ROM error; random load at the training input. Smallest and largest value over $r=1$--8, and the value at $r=8$. Script: \texttt{i2\_interp\_basis.py}.}
+\label{tab:s-forced}
+\begin{tabular}{lccc}
+\toprule
+case & smallest & largest & $r=8$\\ \midrule
+S1, light Rayleigh & 0.96 & 1.00 & 0.99\\
+S2, light Rayleigh & 0.82 & 1.21 & 1.13\\
+S3, $c_{\mathrm d}=0.2$ & 1.00 & 1.52 & 1.19\\
+S3, $c_{\mathrm d}=1$ & 0.97 & 1.68 & 1.12\\
+S1, heavy Rayleigh & 0.91 & 4.46 & 4.46\\
+S2, heavy Rayleigh & 0.62 & 40.05 & 40.05\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Noisy training records}\label{sec:s-noise}
+The high-order gain of Section~\ref{sec:adds} used model kinematics. We repeated S2 with measured training records. All 60 displacements carried white noise at 60 or 40\,dB and were smoothed by Whittaker smoothing (WH; penalty on the third difference, 100\,Hz corner, one setting for all channels) \citep{Eilers2003}. Velocities came from the smoothed record (5 realizations).
+\begin{itemize}
+\item Noise removed the data rank, so the bases reached every order. Their error, however, stopped falling at $r=6$--7.
+\item At $r=8$ on the training load, SOD erred by $1.4\times10^{-4}$ (light) and $2.5\times10^{-5}$ (heavy) at 60\,dB. At 40\,dB it erred by $1.4\times10^{-2}$ and $1.5\times10^{-3}$. With model kinematics it erred by $1.5\times10^{-6}$ and $2.0\times10^{-7}$.
+\item At 60\,dB SOD was 3 times worse than the LNMs (light) or 5 times better (heavy). At 40\,dB it was 11--300 times worse. POD behaved the same.
+\end{itemize}
+The floor rose 100-fold for a 10-fold rise in noise amplitude. The high-order gain therefore needs clean training records. For model reduction they should come from the model.
+
+\section{Complex modes and state-space SOD ROMs}\label{sec:complex}
+On S3 the modes are complex, and configuration SOD from a free decay mixed modes 2--4 (MAC 0.82, 0.86 and 0.58; Section~\ref{sec:mix}). Complex modes themselves bought little on the forced tests: a configuration ROM on the undamped LNMs, with the full damping matrix projected, erred within 25\,\% of complex-mode truncation at every order (ratio 0.96--1.25). On the free test decay complex-mode truncation was 2.5--7 times better at state dimension 8. Configuration SOD fails on S3 because its modes mix, not because the true modes are complex.
+State-space SOD of the order-matched band-limited decay mixed them much less. On the forced tests at state dimension 8 it came within a factor of 2.7 of complex-mode truncation, and it cut the mid-span error of configuration SOD by 5--13 times. Above state dimension 8 its error stalled near $10^{-3}$ on the random test: weakly excited planes are poorly determined by a decay. No energy-Galerkin state ROM was unstable.
+The planes follow the record, as the configuration modes did. A decay tilts them toward the modes it excites above the retained band; where the leakage exceeded 0.05, the ROM converted it into a relative eigenvalue error of 0.2--0.8 times its square. Of the decays tested, those with little energy above the retained band, relative to the energy inside it, gave the most accurate state ROMs: static release, and band-limited decays matched to the ROM order. A forced record tilts the planes by its quasi-static response; state SOD from random records erred by $6.1\times10^{-1}$ at state dimension 2 ($c_{\mathrm d}=0.2$). Sections~\ref{sec:s-pg}--\ref{sec:ic} give the Petrov--Galerkin result, the dependence on the training signal, the errors per case, the trajectories and the training-decay study.
+
+\subsection{Petrov--Galerkin state ROM}\label{sec:s-pg}
+The Petrov--Galerkin state ROM of Section~\ref{sec:ssod} failed. Data covectors are undetermined outside the span of the data, and their input coupling $\|\bm{\psi}_i^{\mathsf T}\bm{B}_{\mathrm s}\|$ reached $2\times10^3$--$3\times10^5$. On S3 with tip-dashpot coefficient $c_{\mathrm d}=0.2$ and a free-decay basis, its error under a random load was 70 at every order.
+
+\subsection{State-space SOD and the training signal}\label{sec:s-smix}
+State-space SOD on S3 depends on the training signal as configuration SOD does (Section~\ref{sec:mix}), plane by plane. From the free decay at $c_{\mathrm d}=0.2$, the pairs 1--2, 3--4, 5--6 and 7--8 matched modal planes 1--4. Their geometric-mean frequencies were within 0.2--2\,\% of $|s_i|$, and the planes within $0.3$--$14^\circ$ in the energy metric. The inter-plane correlation of that decay was 0.14.
+At $c_{\mathrm d}=1$ the correlation rose to 0.31, and plane 2 was off by $48^\circ$.
+From random or swept-sine records, the smoothest state direction was not modal, and pairs mixed planes, as in configuration space.
+
+\subsection{Errors per case and trajectories}\label{sec:s-complex}
 At state dimension 8, with BL training (SR in brackets; Section~\ref{sec:ic} compares other decays):
 \begin{itemize}
 \item $c_{\mathrm d}=0.2$: state SOD erred by $4.6\times10^{-3}$ ($4.5\times10^{-3}$), $2.0\times10^{-3}$ ($2.1\times10^{-3}$) and $9.8\times10^{-4}$ ($2.2\times10^{-4}$) on the random, mid-span and SR-decay tests. Configuration SOD erred by $1.7\times10^{-2}$, $2.7\times10^{-2}$ and $6.5\times10^{-4}$, and complex-mode truncation by $4.3\times10^{-3}$, $1.5\times10^{-3}$ and $4.3\times10^{-5}$;
@@ -67,7 +228,6 @@ At state dimension 8, with BL training (SR in brackets; Section~\ref{sec:ic} com
 Consider forced tests at state dimension 8. State SOD from the BL decay came within a factor of 2.7 of complex modes. At 10--16 the factor grew to 1.9--25. It was also within that factor of the LNM ROM (1.1--2.3). It cut the mid-span error of configuration SOD by 5--13 times (random tip test: 2--4). On the SR-decay test it stayed 20--70 times above the complex modes (SR training: 5--10 times). The planes are estimated from a short, correlated decay, and part of this gap is the initial-state projection (Section~\ref{sec:ic}).
 Above state dimension 8 the BL state SOD error stalled near $10^{-3}$ on the random test. The SR basis kept improving, to $6.9\times10^{-5}$ at state dimension 16 for $c_{\mathrm d}=0.2$. Its error stopped falling above 14--16. On the mid-span test it rose already from 10 to 12, and at $c_{\mathrm d}=1$ it became erratic. Weakly excited planes are poorly determined by a decay.
 State SOD from forced records was poor at low order: $6.1\times10^{-1}$ at state dimension 2 for $c_{\mathrm d}=0.2$. Its smoothest directions are forced, not modal (Section~\ref{sec:mix}).
-No energy-Galerkin state ROM was unstable.
 
 \paragraph{Trajectories.} Figure~\ref{fig:traj} compares tip responses at state dimension 8 for one realization (seed 2026).
 On S2 under the mid-span load, the LNM ROM overlays the full model. So does the SOD ROM from the equal-energy decay. Their errors were $5.7\times10^{-4}$ and $5.9\times10^{-4}$. Random-trained SOD and MTA erred by $1.0\times10^{-2}$ and $1.3\times10^{-2}$; at $r=4$ MTA keeps only two LNMs.
@@ -79,6 +239,7 @@ On S3 with $c_{\mathrm d}=1$, complex-mode truncation erred by $2.9\times10^{-3}
 \caption{Tip displacement of the full model and ROMs at state dimension 8, one realization. Left: random mid-span load, $t=100$--102. Right: equal-energy test decay ($b_k=(-1)^{k-1}$). (a,b) S2, light Rayleigh damping, configuration ROMs (SOD from the equal-energy decay and from a random tip load). (e,f) S3, $c_{\mathrm d}=1$, state ROMs, MTA and complex modes. (c,d,g,h) Error: root-mean-square (RMS) value of the tip-displacement difference over a sliding 0.1 window. It is divided by the RMS of the full-model tip displacement over the plotted window. Training decays for state SOD: static release, equal energy, and band-limited with $\omega_{\mathrm b}=\omega_4$.}
 \label{fig:traj}
 \end{figure}
+
 \subsection{Which free decay to train on}\label{sec:ic}
 Impact testing aims to excite every mode in the band of interest, with similar force at each frequency. The hammer tip sets that band: a hard tip widens it, a soft tip narrows it. An equal-energy initial state is the numerical analogue of a hard tip. We therefore repeated the free-decay training with EE and BL decays, one realization per case and the ensemble seeds.
 Random-trained bases do not depend on the initial state; the random tests reproduce the first ensemble realization.
@@ -114,6 +275,7 @@ Equal excitation helps where rank is scarce: heavy damping, or noise that buries
 \label{fig:ic}
 \end{figure}
 With complex modes, too, the state-SOD planes follow the record. A decay gives planes tilted toward the modes it excites above the retained band, and a forced record gives planes tilted by its quasi-static response.
+
 \section{The COST F3 cantilever (S4)}\label{sec:s-s4}
 \paragraph{Held-out tests over a longer record.} Figure~\ref{fig:nltraj} shows two of these tests over 0.3\,s. At $r=4$ the LNM error grows with time, from phase drift. Over the record it was $1.8\times10^{-2}$ (20\,N tip) and $3.3\times10^{-2}$ (60\,N mid-span). The MTA and SOD errors stay flat, $3.6$--$5.6\times10^{-3}$ over the record, set by the truncated modes.
 
@@ -146,7 +308,7 @@ The windows are neither closed nor free of mode 2, which the static release exci
 \item One non-modal coordinate peaked inside the plane's swept band. Its energy share grew with the load, from $2\times10^{-4}$ to $3.6\times10^{-3}$. With the plane it spans a configuration space $2.1^\circ$ from LNMs 1--2: it is the bend toward mode 2.
 \item Band-passed to the swept band, the record had two significant configuration directions, then a drop of 2--3 decades. The state record had four, then a drop by 17--38; the drop after the second value was 4--16. This is consistent with one bend direction, adding one configuration and two state directions. A bent NNM with $\ell$ such directions needs $1+\ell$ configuration and $2+2\ell$ state directions. The bend, and hence $\ell$, depends on amplitude; a decay sweeps through it.
 \end{itemize}
-At 30\,N the bend also contaminated the mode-2 plane, which then failed the circularity test (0.836). The rescue rule of Section~\ref{sec:s-recog} recovered it.
+At 30\,N the bend also contaminated the mode-2 plane, which then failed the circularity test (0.836). The rule for contaminated planes of Section~\ref{sec:recog} recovered it.
 We then ordered a configuration basis by frequency. Each recognised plane enters by its dominant displacement direction, followed by the coordinates peaking in its band. The rest follow in SOD order. Against configuration SOD at $r=2$--4, its backbone error was within 3\,\% or better at every load. At $r=3$ and 60\,N it was $1.8\times10^{-6}$ against $3.9\times10^{-6}$, as low as MTA. On motion started on the NNM it was 2--3 times worse at $r=4$ for 120 and 240\,N.
 Frequency and circularity therefore recognise the bent NNM and its out-of-plane direction. As an ordering they helped at 60\,N, by 2.2--3.3 times on the backbone at $r=2$ and 3. Otherwise they changed ROM accuracy little. Configuration SOD's first direction already lies $0.3$--$0.9^\circ$ from $(\bK-\omega^2\bM)^{-1}\bm{e}_{\mathrm{tip}}$, the shape forced at the NNM frequency. Here $\bm{e}_{\mathrm{tip}}$ is the unit load at the tip displacement. The same direction lies $1.1$--$2.7^\circ$ from LNM~1.
 \paragraph{Cost.} All models were integrated by average-acceleration Newmark. At $\Delta t=2\times10^{-5}$\,s the full model took 0.89\,s and the LNM, SOD and POD ROMs 0.45--0.58\,s, best of three (\texttt{n2b\_cost\_best3.py}). The differences among ROMs are within the run-to-run spread of up to 27\,\%. Two- and four-mode ROMs took the same time, so per-step overhead, not model size, set it.
@@ -215,7 +377,15 @@ LNM, in well & 4 & 98.6 & $1.7\times10^{-3}$ & $1.9\times10^{-3}$\\
 \bottomrule
 \end{tabular}
 \end{table}
-\section{Integration cost at matched integration accuracy}\label{sec:s-cost}
+
+\section{Integration cost at matched integration accuracy}\label{sec:cost}\label{sec:s-cost}
+Are SOD ROMs faster, as reported \citep{Ilbeigi2018}, and if so, is the gain a property of SOD?
+Two facts frame the answer.
+A full-rank change of coordinates is a congruence of $(\bM,\bK)$ and a similarity of the first-order state matrix $\bm{A}$, so it leaves every eigenvalue unchanged.
+An explicit integrator is limited by the spectral radius $\rho(\bm{A})$, not only by the highest natural frequency $\omega_{\max}$. With $\bC=\alpha\bM+\beta\bK$ the high finite-element modes are overdamped, and their real eigenvalues, about $\beta\omega^2$, can exceed $\omega_{\max}$. A change of coordinates leaves $\rho(\bm{A})$ unchanged; truncation can lower it.
+What a change of coordinates can alter is how an adaptive integrator weighs its error estimate and, for an implicit integrator, how well its Newton iterations are conditioned.
+We compared cost at matched integration accuracy. Each model, with each adaptive integrator (RK45 and Radau), was charged its cheapest run whose displacement error against a tight reference of the same model was at most $10^{-6}$ (protocol below; Table~\ref{tab:cost}). This prices integration alone. It does not compare cost against the ROM's total error relative to the full model, which truncation sets; that comparison was not made.
+
 \paragraph{Protocol.} Each model was integrated over 20 (S1) or 10 (S2) periods of mode 1 under a chirp load from $0.5\omega_1$ to $\omega_{\mathrm c}$, with light damping. The SOD and POD bases come from one random record (seed 5).
 Every ROM was integrated in Ritz coordinates of its subspace: the eigenvectors of the reduced pencil $(\bm{\varPhi}^{\mathsf T}\bK\bm{\varPhi},\bm{\varPhi}^{\mathsf T}\bM\bm{\varPhi})$, normalized so that the reduced mass is the identity. Under Rayleigh damping the reduced stiffness and damping are then diagonal. The raw smooth modes, with unit Euclidean columns, are kept for one contrast.
 Three integrators were used: RK45, the adaptive explicit Runge--Kutta pair of \citet{Dormand1980}; Radau, the implicit fifth-order Radau IIA method \citep{Hairer1996} with analytic Jacobian, both as implemented in SciPy \citep{Virtanen2020}; and central differences at 0.9 of $2/\omega_{\max}$. The central-difference scheme treats damping implicitly, $(\bM/\Delta t^2+\bC/(2\Delta t))\bx_{k+1}=\dots$, so its step limit is $2/\omega_{\max}$ whatever the damping.
@@ -238,188 +408,6 @@ All wall times in this paper were measured on one machine: a two-core Intel Xeon
 \end{itemize}
 \citet{Ilbeigi2018} studied a ten-dimensional, full-order SOD model of a nonlinear control system and reported that it ran about twice as fast as the original. A full-rank linear change of coordinates cannot change the eigenvalues. At a fixed tolerance, the coordinate scaling alone produced differences of that size here, and at matched integration accuracy they vanished. We have not tested their system.
 For SOD ROMs we recommend Ritz coordinates of the retained subspace: they decouple the reduced model and, in every case tested, were no costlier than any other basis of the same subspace.
-\section{Noisy training records}\label{sec:s-noise}
-\paragraph{Noisy training records.} The gain above used model kinematics. We repeated S2 with measured training records. All 60 displacements carried white noise at 60 or 40\,dB and were smoothed by Whittaker smoothing (WH; penalty on the third difference, 100\,Hz corner, one setting for all channels) \citep{Eilers2003}. Velocities came from the smoothed record (5 realizations).
-\begin{itemize}
-\item Noise removed the data rank, so the bases reached every order. Their error, however, stopped falling at $r=6$--7.
-\item At $r=8$ on the training load, SOD erred by $1.4\times10^{-4}$ (light) and $2.5\times10^{-5}$ (heavy) at 60\,dB. At 40\,dB it erred by $1.4\times10^{-2}$ and $1.5\times10^{-3}$. With model kinematics it erred by $1.5\times10^{-6}$ and $2.0\times10^{-7}$.
-\item At 60\,dB SOD was 3 times worse than the LNMs (light) or 5 times better (heavy). At 40\,dB it was 11--300 times worse. POD behaved the same.
-\end{itemize}
-The floor rose 100-fold for a 10-fold rise in noise amplitude. The high-order gain therefore needs clean training records. For model reduction they should come from the model.
-With noise-free training kinematics, the SOD subspace therefore contains the static vector of the training load ($\rho=1.8\times10^{-7}$ at $r=8$, 190 times closer than the LNMs) and not that of the unseen load. MTA adds the same vector from the model.
-
-\section{Forced training records: errors against order}\label{sec:acc}
-Does an SOD basis improve on the LNMs and on MTA, and at which orders?
-Figure~\ref{fig:error} shows the median error and interquartile range against state dimension.
-Away from the data rank the interquartile range was at most 0.76 of the median. Ratios between bases below are therefore meaningful. Near the rank, and for state SOD at $c_{\mathrm d}=1$, it reached 5.3.
-The data rank of random records varied between realizations, for example 8--9 on S2 with light damping. A median is reported only at orders that all 20 realizations supply.
-
-\paragraph{Low order: SOD is the LNM basis; POD from forced data is not.} At $r=1$ and 2, SOD from random or free-decay data matched the LNM ROM within 15\,\% on S1 and S2.
-POD from forced data did not on S2; on S1 it matched as well. Take S2 with light damping and one mode from random data. POD erred by $2.2\times10^{-1}$ on the training load, against $1.1\times10^{-1}$ for the LNM. On the free-decay test it erred by $2.0\times10^{-1}$ against $1.1\times10^{-2}$.
-Swept-sine SOD failed at $r=2$ on S2 with light damping: $1.5\times10^{-1}$ against $1.9\times10^{-2}$ (Section~\ref{sec:mix}).
-
-\paragraph{Intermediate order: the random-trained basis falls behind.} At $r=3$--4, SOD from random data was worse than the LNMs on S2. It was 4.8 times worse at $r=3$ on the training load, and 18 times worse at $r=4$ at mid-span.
-Free-decay SOD was not. On S2 with light damping, BL and SR bases matched the LNMs within 4\,\% through $r=5$.
-
-\paragraph{High order, training load: data beat the LNMs, and match or beat MTA.} At $r=8$, SOD from random data erred by:
-\begin{itemize}
-\item S1: $4.3\times10^{-5}$ (light) and $1.7\times10^{-6}$ (heavy), against LNM $2.3\times10^{-4}$ and $6.3\times10^{-4}$, and MTA $4.6\times10^{-5}$ and $3.7\times10^{-5}$;
-\item S2: $1.6\times10^{-6}$ (light) and $1.9\times10^{-7}$ (heavy), against LNM $4.2\times10^{-5}$ and $1.2\times10^{-4}$, and MTA $1.1\times10^{-5}$ and $1.8\times10^{-5}$.
-\end{itemize}
-POD gave nearly the same values. On S1 and S2 with heavy damping, $r=8$ is the data rank. There SOD and POD span one subspace and give identical ROMs.
-The gain over the LNMs comes from the quasi-static response of truncated modes, which a forced record contains. MTA adds that response from the model as the static deflection under each load, one vector per load location.
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=\textwidth]{fig_c_error.pdf}
-\caption{ROM displacement error against state dimension $2r$, median and interquartile range over 20 realizations. Columns: S1 with heavy Rayleigh damping; S2 with light Rayleigh damping; S3 with $c_{\mathrm d}=1$. Top: new random load at the training location. Bottom: transfer test (free decay from a floor-4 point load for S1; random mid-span load for S2 and S3). Training signal in brackets; free, BL: order-matched band-limited decay; sSOD: state-space SOD; CM: complex-mode truncation.}
-\label{fig:error}
-\end{figure}
-So the same random-trained basis is worse than the LNMs at intermediate order and better at high order, and the gain belongs to the training load. Sections~\ref{sec:adds} and \ref{sec:displace} explain both.
-
-
-
-\section{Forced training records: what the record adds}\label{sec:adds}
-Is the high-order gain of a random-trained SOD basis the static correction, and does it serve only the loads the record saw?
-We answer first by the geometry of the basis and then by moving the load.
-
-\paragraph{Containment of the static vectors.} Figure~\ref{fig:static}a gives the containment residual \eqref{eq:contain} of the two static load vectors of S2, $\bK^{-1}\bm{b}_{\mathrm{tip}}$ and $\bK^{-1}\bm{b}_{\mathrm{mid}}$, with light damping and the 20 random tip records of Section~\ref{sec:acc}.
-\begin{itemize}
-\item At $r=8$ the SOD subspace holds the tip vector to $\rho=1.8\times10^{-7}$ (median), against $3.3\times10^{-5}$ for the LNMs, about 190 times closer. At $r=7$ the figures are $1.6\times10^{-6}$ and $5.2\times10^{-5}$.
-\item It holds the mid-span vector no better than the LNMs: $7.9\times10^{-5}$ against $3.7\times10^{-5}$ at $r=8$. The record never saw that load.
-\item The SOD basis of the order-matched band-limited decay contains no static correction. Its residuals equal those of the LNMs within 12\,\% ($3.6\times10^{-5}$ for the tip vector at $r=8$), as its LNM-level errors in Figure~\ref{fig:error} require.
-\end{itemize}
-POD of the same records contained the tip vector equally well ($1.7\times10^{-7}$ at $r=8$). At the data rank the two span one subspace.
-
-\paragraph{Principal angles.} At $r=8$, seven of the eight principal angles between the SOD subspace and MTA with the tip vector only were below $0.03^\circ$ (medians); the eighth was $13^\circ$ (at most $15^\circ$). Against the eight LNMs, six angles were below $0.01^\circ$, then $2^\circ$ and $50^\circ$. Against MTA with both static vectors, the largest angle was $69^\circ$, because the mid-span vector is missing.
-The random record thus supplies the LNMs it excites and, in place of LNM~8, the static correction of the load it saw.
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=\textwidth]{fig_c_static.pdf}
-\caption{What a random tip record adds to the SOD basis; S2, light Rayleigh damping, 20 realizations. (a) Containment residual \eqref{eq:contain} of the static load vectors $\bK^{-1}\bm{b}_{\mathrm{tip}}$ (filled, solid) and $\bK^{-1}\bm{b}_{\mathrm{mid}}$ (open, dashed) against the basis order $r$: SOD of the random tip records (median and interquartile range), LNMs, and SOD of the order-matched band-limited decay. (b) Largest principal angle ($\bM$ metric) between the first $r$ SOD directions and the first $r$ LNMs, and between them and the first $r-1$ LNMs augmented by one static vector; median and range. Scripts: \texttt{g1\_static\_containment.py}, \texttt{g3\_third\_direction.py}, \texttt{mkfig\_c\_static.py}.}
-\label{fig:static}
-\end{figure}
-
-\paragraph{Transfer: the gain stays at the load locations each basis was given.} For a random load at mid-span, the bases trained at the tip lost their advantage. MTA as defined above contains the static vector of the mid-span load. We therefore also built MTA with the tip vector only. We also trained data bases on independent random loads at both locations. At $r=8$ on the mid-span test:
-\begin{itemize}
-\item tip only: SOD erred by $1.2\times10^{-4}$ (S2, light) and $3.1\times10^{-4}$ (S2, heavy). MTA with the tip vector erred by $1.1\times10^{-4}$ and $2.9\times10^{-4}$, and the LNMs by $4.8\times10^{-5}$ and $1.4\times10^{-4}$;
-\item both locations: SOD erred by $6.0\times10^{-6}$ and $9.0\times10^{-6}$; MTA by $4.2\times10^{-6}$ and $7.9\times10^{-6}$.
-\end{itemize}
-On S3 the pattern held. SOD and MTA from one location erred by $2.7$--$6.0\times10^{-4}$. From both locations, MTA erred by $1.0$--$2.3\times10^{-5}$ and SOD by $1.9$--$7.8\times10^{-5}$.
-So on S2 and S3, SOD and MTA gained at the same load locations: those each basis was given. SOD needs response records at those locations.
-On S2 at $r=7$, SOD and LNM were within 10\,\% of each other. The LNM curve for the mid-span load is a staircase, flat at $r=3$, 5 and 7. Mid-span lies within 2\,\% of a node of modes 3, 5 and 7.
-On S1 the transfer test, a free decay from a point load at floor 4, was nearly basis-independent. All bases stayed within a factor of 2.1 of one another for $r=3$--9. None was consistently best.
-MTA is not uniformly better. On the S2 free-decay test it was 44 times worse than the LNMs at $r=3$. At $r=8$ it was about twice as poor. On S1 it did not beat the LNMs on the floor-4 decay.
-The data-driven gain is the persistence problem of \citet{Ilbeigi2017}, seen in a linear system: on S2 and S3 the data bases gained only at the load locations of their records.
-
-\paragraph{Noisy training records.} The gain above used model kinematics. With white noise of 60 or 40\,dB on all 60 training displacements, smoothed before differentiation, the S2 error stopped falling at $r=6$--7. At $r=8$ on the training load SOD erred by $1.4\times10^{-4}$ (light damping, 60\,dB) and $1.4\times10^{-2}$ (40\,dB), against $1.5\times10^{-6}$ with model kinematics; at 40\,dB it was 11--300 times worse than the LNMs (Section~\ref{sec:s-noise}). The high-order gain therefore needs clean training records. For model reduction they come from the model.
-
-
-
-\section{Forced training records: why low orders fail}\label{sec:displace}
-Why is the random-trained basis worse than the LNMs at $r=3$--5, when it holds the useful direction?
-Figure~\ref{fig:static}b and the LNM content of each SOD subspace answer it.
-
-\paragraph{One direction, ranked too early.} The SOD subspace of order $r$ held only $r-1$ LNMs for $r=3$--7 (median $\bM$-residual of each LNM below 0.1). At $r=3$ it held modes 1 and 2; LNM~3 had residual 0.17. At $r=5$ it held modes 1--4, and at $r=6$ modes 1--5, all the modes inside the load band.
-The extra direction is the tip static correction. From $r=3$ on, the SOD subspace lay within $2$--$13^\circ$ (medians) of the first $r-1$ LNMs augmented by $\bK^{-1}\bm{b}_{\mathrm{tip}}$. It lay $10$--$50^\circ$ from the first $r$ LNMs, and $38$--$76^\circ$ from the first $r-1$ LNMs augmented by the mid-span vector (Figure~\ref{fig:static}b).
-The direction enters at $r=3$ because it is smoother than the upper in-band modes: the third SOD frequency of a random record was 47.7, between modes 2 and 3 (Section~\ref{sec:mix}).
-The errors follow the count of in-band modes. Against the LNM ROM the SOD ROM was 4.8 times worse at $r=3$ and 6.5 times worse at $r=5$, while it lacked one in-band mode. At $r=6$, with all five in-band modes present, it was 1.4 times better. At $r=7$ and 8 it was 11 and 27 times better.
-The direction that carries the gain at high order is the one that causes the loss at low order.
-
-\subsection{Mixing by training signal}\label{sec:mix}
-The same ranking explains how the training signal shapes the basis.
-Figure~\ref{fig:mac} compares configuration SOD modes with LNMs by the mass-weighted modal assurance criterion (MAC; \citealp{Allemang2003}; one realization).
-\begin{itemize}
-\item \emph{Free decay, proportional damping.} On S2, SOD modes 1--8 matched LNMs 1--8 with MAC $\ge0.93$. Frequencies of modes 1--6 were within 0.03--1.6\,\%. The modal coordinates were nearly uncorrelated (largest correlation 0.07).
-\item \emph{Random and swept sine.} Extra smooth directions appeared between genuine modes. On S2 with random data, SOD returned frequencies 3.5, 22.0, 47.7, 62.2, 121, 200. The third is a mixture of LNMs 1--3 (MAC 0.19, 0.28, 0.51): the quasi-static tip direction of Section~\ref{sec:displace}. The sweep inserted a direction at 17.1, below mode 2.
-\item \emph{Free decay with the dashpot.} Non-proportional damping correlates the modal coordinates (0.71). Configuration SOD modes 2--4 mixed (MAC 0.82, 0.86, 0.58), as the exactness criterion predicts.
-\end{itemize}
-Every direction ranked among the modes shifts the genuine modes down one rank. A truncated basis then omits a mode it needs, which explains the intermediate-order errors.
-State-space SOD on S3 behaves in the same way, plane by plane (Section~\ref{sec:s-smix}).
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=0.92\textwidth]{fig_c_mac.pdf}
-\caption{MAC between configuration SOD modes 1--8 (rows, smoothest first) and LNMs 1--8 (columns); the training data excite no higher modes. Top: S2, light damping. Bottom: S3, $c_{\mathrm d}=0.2$. Columns: training signal.}
-\label{fig:mac}
-\end{figure}
-
-Smaller rank tolerances admit a second kind of smooth non-modal direction: weakly excited ones, whose mean-square frequency is set by how little they move, not by a mode (Section~\ref{sec:rank}).
-A free decay under proportional damping avoids the displacement, because it contains no quasi-static response. A forced record contains it, and ranking by smoothness misplaces it.
-
-
-\section{Forced training records: recognising modes}\label{sec:noise}
-How can the quasi-static direction be kept without letting it displace a mode?
-For model reduction the kinematics come from the model: velocities and state derivatives are exact, and no measurement noise enters.
-Modes are therefore recognised, paired and ordered by their own frequency or circularity, never by their SOD value. Smoothness says how slowly a projection moves. It does not say which mode the projection belongs to, as Sections~\ref{sec:displace} and \ref{sec:rank} show.
-
-\subsection{Recognising modes}\label{sec:recog}
-\paragraph{Configuration SOD: spectral consistency.} A coordinate that is a single real mode has its mean-square frequency at its spectral peak. A mixture of modes does not. We read each coordinate's spectrum from its periodogram of the type-II discrete cosine transform (DCT-II), smoothed over $\pm2\,\%$ in frequency. A raw periodogram of a randomly forced coordinate has single-bin spikes. Its arg-max is then not the resonance, and its bin-level width misses the damping width $2\zeta\omega$. Coordinate $i$ is kept if its peak lies within $\max(5\,\%,\,w_i)$ of its SOD frequency $\sqrt{\mu_i}$. Here $w_i$ is the relative half-power width of that peak, capped at 15\,\%. The width makes the test damping-aware. The cap matters. A drifting or broadband coordinate peaks near zero frequency, with a width above 1, and would otherwise pass. The test assumes one frequency per coordinate. A nonlinear decay sweeps that frequency, and the test can then reject a genuine NNM (Section~\ref{sec:nlbb}). Circularity needs no fixed frequency. Two kept coordinates that share one peak cannot both be that mode. The one carrying more response energy, $\|\bphi_i\|^2\avg{q_i^2}$, is kept. Recognised modes are ordered by peak frequency.
-Applied with a fixed 5\,\% tolerance to the ten smoothest coordinates of clean S2 records, the test rejected 108 of 134 spurious directions and no genuine mode (10 realizations, tolerances $10^{-10}$--$10^{-14}$; Section~\ref{sec:s-recog} compares two other rules).
-
-\paragraph{State SOD: circularity.} Consider the two coordinates of a modal plane. Up to a real change of basis, they are the real and imaginary parts of one complex modal coordinate. SOD returns them uncorrelated and with unit variance, so in their own plane the cloud is round. Read as $z=q_a+\mathrm i\,q_b$, the pair rotates one way and the spectrum of $z$ is one-sided. Two unrelated coordinates, or coordinates of two different planes, give a nearly symmetric spectrum.
-Pairs are therefore formed by matching, not by rank. Candidate pairs are paired greedily by one-sidedness and kept above 0.85; only one plane is kept per frequency. A loose frequency gate, four times the spectral tolerance, only limits the search. The plane frequency is the peak of the one-sided spectrum of $z$, and planes are ordered by it.
-Pairing by rank fails: pairing adjacent coordinates in SOD order lost the slowest plane of random-load records, because a quasi-static coordinate sat between its two members. With smoothed spectra and the loose gate, the mode-1 plane was recognised in all 8 test records. Modal planes gave a one-sidedness of 0.89--0.99, other pairs 0.51--0.75. Section~\ref{sec:s-recog} gives the rule for a plane contaminated by another mode at its own frequency.
-
-\subsection{Selection for model reduction}\label{sec:romsel}
-We compared two bases from the same SOD, with model kinematics (10 realizations):
-\begin{itemize}
-\item R0: the plain basis, in SOD order;
-\item RHB: the recognised modes or planes inside the load band, $\omega\le\omega_{\mathrm c}$, first, ordered by frequency; then the remaining coordinates in SOD order.
-\end{itemize}
-Section~\ref{sec:s-recog} compares four other orders.
-Modes above the load band respond quasi-statically to it. The smooth direction that carries that response serves a ROM better than the mode itself. This is why RHB stops at $\omega_{\mathrm c}$.
-\paragraph{S2, random tip load.} RHB removed the low-order damage of spurious directions. In no record was it more than 11\,\% worse than R0 at any order.
-\begin{itemize}
-\item Tolerance $10^{-12}$: the median two-mode error fell from $1.1\times10^{-1}$ to $2.0\times10^{-2}$ on the training load. At mid-span it fell from $2.2\times10^{-1}$ to $1.0\times10^{-2}$. The four-mode errors fell from $6.1\times10^{-3}$ to $1.8\times10^{-3}$ and from $1.0\times10^{-2}$ to $6.5\times10^{-4}$.
-\item Tolerance $10^{-10}$: the four-mode mid-span error fell from $1.1\times10^{-2}$ to $7.6\times10^{-4}$.
-\item At $r=6$ RHB equalled R0 at tolerance $10^{-10}$ and improved it at $10^{-12}$ ($1.7\times10^{-4}$ to $1.0\times10^{-4}$ on the training load). At $r=8$ all bases erred by $1.4\times10^{-6}$ on the training load.
-\end{itemize}
-\paragraph{S3, $c_{\mathrm d}=0.2$, state SOD.} From random-load records RHB improved state dimension 4 in every record (median training-load error $2.9\times10^{-1}\to1.0\times10^{-1}$, mid-span $3.7\times10^{-1}\to9.2\times10^{-2}$). At state dimension 8 it was slightly worse (median ratio 1.1--1.2, at most 2.5 in one record). From 12 on it equalled R0. Planes from forced records are tilted by their quasi-static response (Section~\ref{sec:ic}). From the band-limited decay the recognised order matched the SOD order, and all bases were identical.
-For model reduction we therefore recommend RHB. Recognised in-band modes come first, by frequency; the rest follow in SOD order.
-Recognition thus keeps the static-correction direction in the basis but places it behind the in-band modes it displaced.
-
-
-\section{Complex modes and state-space SOD ROMs}\label{sec:complex}
-On S3 the modes are complex, and configuration SOD from a free decay mixed modes 2--4 (MAC 0.82, 0.86 and 0.58; Section~\ref{sec:mix}). Complex modes themselves bought little on the forced tests: a configuration ROM on the undamped LNMs, with the full damping matrix projected, erred within 25\,\% of complex-mode truncation at every order. Configuration SOD fails on S3 because its modes mix, not because the true modes are complex.
-State-space SOD of the order-matched band-limited decay mixed them much less. On the forced tests at state dimension 8 it came within a factor of 2.7 of complex-mode truncation, and it cut the mid-span error of configuration SOD by 5--13 times. Above state dimension 8 its error stalled near $10^{-3}$ on the random test: weakly excited planes are poorly determined by a decay. No energy-Galerkin state ROM was unstable.
-The planes follow the record, as the configuration modes did. A decay tilts them toward the modes it excites above the retained band; where the leakage exceeded 0.05, the ROM converted it into a relative eigenvalue error of 0.2--0.8 times its square. Of the decays tested, those with little energy above the retained band, relative to the energy inside it, gave the most accurate state ROMs: static release, and band-limited decays matched to the ROM order. A forced record tilts the planes by its quasi-static response; state SOD from random records erred by $6.1\times10^{-1}$ at state dimension 2 ($c_{\mathrm d}=0.2$). Section~\ref{sec:s-complex} gives the errors per case, the trajectories and the training-decay study.
-
-\section{Computation cost}\label{sec:cost}
-Are SOD ROMs faster, as reported \citep{Ilbeigi2018}, and if so, is the gain a property of SOD?
-Two facts frame the answer.
-A full-rank change of coordinates is a congruence of $(\bM,\bK)$ and a similarity of the first-order state matrix $\bm{A}$, so it leaves every eigenvalue unchanged.
-An explicit integrator is limited by the spectral radius $\rho(\bm{A})$, not only by the highest natural frequency $\omega_{\max}$. With $\bC=\alpha\bM+\beta\bK$ the high finite-element modes are overdamped, and their real eigenvalues, about $\beta\omega^2$, can exceed $\omega_{\max}$. A change of coordinates leaves $\rho(\bm{A})$ unchanged; truncation can lower it.
-What a change of coordinates can alter is how an adaptive integrator weighs its error estimate and, for an implicit integrator, how well its Newton iterations are conditioned.
-We compared cost at matched integration accuracy. Each model, with each adaptive integrator (RK45 and Radau), was charged its cheapest run whose displacement error against a tight reference of the same model was at most $10^{-6}$ (protocol and table in Section~\ref{sec:s-cost}). This prices integration alone. It does not compare cost against the ROM's total error relative to the full model, which truncation sets; that comparison was not made.
-On S2 under a chirp load, truncation set the cost. The full model is limited by an overdamped finite-element mode with eigenvalue $-9.3\times10^5$. RK45 needed $3.5\times10^7$ evaluations for it and $4.0\times10^4$ for the four-mode LNM ROM, about 870 times fewer.
-The coordinates of a subspace did not set it. The order-8 SOD subspace needed 72\,386 RK45 evaluations in Ritz coordinates and 71\,378 in raw smooth modes; on S1 the raw basis needed 1.2 times as many. For the implicit Radau method the raw smooth modes, whose reduced mass matrix has condition number $7.4\times10^6$, needed 1.9 times the evaluations of Ritz coordinates.
-At one fixed tolerance, by contrast, the same subspace needed 416\,k RK45 evaluations in raw smooth modes and 158\,k in Ritz coordinates, at errors of $2.1\times10^{-10}$ and $3.8\times10^{-9}$. An absolute tolerance weighs coordinates by their scale, and a change of coordinates changes the scale. \citet{Ilbeigi2018} reported a full-order SOD model of a nonlinear control system about twice as fast as the original; that is the size of difference coordinate scaling alone produced here at a fixed tolerance. We have not tested their system.
-For SOD ROMs we recommend Ritz coordinates of the retained subspace: they decouple the reduced model and, in every case tested, were no costlier than any other basis of the same subspace.
-
-
-
-\section{Load responses at the SOD frequencies: forced records}\label{sec:s-forced}
-For the random tip-load training records of Section~\ref{sec:acc}, identity \eqref{eq:identity} of the main text holds with the load as the force. Table~\ref{tab:s-forced} compares the SOD ROM with the ROM on the model-built basis $\operatorname{span}\{\bm{d}(\sqrt{\mu_1}),\dots,\bm{d}(\sqrt{\mu_r})\}$, $\bm{d}(\omega)=(\bK-\omega^2\bM)^{-1}\bm{b}$, with the SOD frequencies taken from the same record (\texttt{i2\_interp\_basis.py}; 20 realizations, new random load at the training input). With light damping and with the tip dashpot the two agree within factors of 0.82--1.68. With heavy Rayleigh damping the model-built basis falls behind as the order grows, by 4.5 (S1) and 40 (S2) at $r=8$. The real parts of the damped responses $(\bK-\omega^2\bM+\mathrm i\omega\bC)^{-1}\bm{b}$ brought the S2 factor at $r=8$ to 2.0, but were 2.7--5.5 times worse than SOD at $r=1$ and 2, and did not help on S1 (5.1 at $r=8$; \texttt{i3\_damped\_basis.py}). What SOD holds beyond the undamped load responses under heavy proportional damping is not identified here.
-The median angles between the smooth modes and $\bm{d}(\sqrt{\mu_i})$ were $0.001^\circ$, $0.017^\circ$, $5.0^\circ$, $0.54^\circ$ and $1.4^\circ$ for directions 1--5 of S2 with light damping; the third is the non-modal direction near 50\,rad/s (\texttt{i1\_forced\_identity.py}).
-
-\begin{table}[tbp]
-\centering\small
-\caption{Median over 20 realizations of the ROM error on the model-built basis of load responses at the SOD frequencies, divided by the SOD ROM error; random load at the training input. Smallest and largest value over $r=1$--8, and the value at $r=8$. Script: \texttt{i2\_interp\_basis.py}.}
-\label{tab:s-forced}
-\begin{tabular}{lccc}
-\toprule
-case & smallest & largest & $r=8$\\ \midrule
-S1, light Rayleigh & 0.96 & 1.00 & 0.99\\
-S2, light Rayleigh & 0.82 & 1.21 & 1.13\\
-S3, $c_{\mathrm d}=0.2$ & 1.00 & 1.52 & 1.19\\
-S3, $c_{\mathrm d}=1$ & 0.97 & 1.68 & 1.12\\
-S1, heavy Rayleigh & 0.91 & 4.46 & 4.46\\
-S2, heavy Rayleigh & 0.62 & 40.05 & 40.05\\
-\bottomrule
-\end{tabular}
-\end{table}
 
 \bibliographystyle{elsarticle-num-names}
 \bibliography{../refs}

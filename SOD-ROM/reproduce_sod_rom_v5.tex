@@ -1,0 +1,245 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{booktabs,longtable,array,xcolor}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\f}[1]{\texttt{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlength{\parskip}{3pt}\setlength{\parindent}{0pt}
+\title{Reproduction manual for SOD-ROM v5:\\ \large What a free decay teaches a smooth orthogonal decomposition basis}
+\author{D.~Chelidze, Nonlinear Dynamics Laboratory, URI}
+\date{\today}
+\begin{document}
+\emergencystretch=2em
+\maketitle
+
+\section{What this manual covers}
+Every number, table and figure of SOD-ROM v5 and of its supplementary material comes from a Python script in \f{python/\allowbreak{}}.
+This manual says which script, how to run it, which random seed it uses, which file holds its output, and how long it takes.
+Section~\ref{sec:map} maps the paper to the scripts, section by section. Numbers without a prefix are main-text sections, figures and tables; numbers with the prefix S are in the supplement.
+The driver \f{python/\allowbreak{}run\_\allowbreak{}sod\_\allowbreak{}rom\_\allowbreak{}v5.sh} runs everything in the right order.
+
+All results are simulations. Each script is deterministic for a given seed. Re-running it reproduces its stored output file to the printed precision; wall times are the exception.
+Run times below are wall-clock on a 2-core Linux machine.
+
+Version 5 rebuilds the paper on free-decay training records. Its new results come from the scripts in \f{python/\allowbreak{}identity/\allowbreak{}} (\f{i1}--\f{i7}). The forced-record, complex-mode, nonlinear and cost results are those of version 4, now mostly in the supplement; their scripts and stored outputs are unchanged. The v3 and v4 manuals and drivers are kept unchanged.
+
+\section{Environment}
+\begin{itemize}
+\item Computations: Python 3.11 with NumPy 2.4.4, SciPy 1.17.1 and Matplotlib 3.10.9. Nothing else is needed.
+\item Cost runs of Section~S10 and the S4 wall times of Section~S8 (\f{c36}, \f{k1}, \f{k2}, \f{n2b}): Python 3.13, NumPy 2.5, SciPy 1.18, on a two-core Intel Xeon at 2.1~GHz, one BLAS thread. These are the wall times the paper prints. Evaluation and step counts do not depend on the machine.
+\item The SOD Toolbox (\url{https://github.com/nld-uri/sod-toolbox}), as \f{SOD-toolbox/\allowbreak{}} beside \f{python/\allowbreak{}}. The paper libraries add it to the Python path themselves; nothing needs installing.
+\item A \LaTeX\ installation for the figures (\f{text.usetex=True}, Computer Modern). Figure~1 is TikZ, \f{figures/\allowbreak{}tikz/\allowbreak{}fig\_\allowbreak{}c\_\allowbreak{}systems\_\allowbreak{}tikz.tex}, compiled with the paper.
+\item Timing runs must run alone, with one BLAS thread (\f{OPENBLAS\_\allowbreak{}NUM\_\allowbreak{}THREADS=1}). The driver does this.
+\end{itemize}
+
+\section{Layout and shared modules}
+\begin{longtable}{L{0.30\textwidth}L{0.64\textwidth}}
+\toprule
+path & content\\ \midrule
+\f{SOD-toolbox/\allowbreak{}python/\allowbreak{}sodtoolbox/\allowbreak{}} & SOD Toolbox: configuration and state SOD (\f{core}), recognition rules (\f{recognize}), windowed SOD (\f{tracking}), bases, ROMs and exact simulation (\f{rom}), residual bases (\f{residual})\\
+\f{SOD-toolbox/\allowbreak{}matlab/\allowbreak{}} & base-MATLAB port, \f{sod\_\allowbreak{}*.m}; self-test \f{test\_\allowbreak{}sod.m} against \f{sod\_\allowbreak{}reference.mat}\\
+\f{python/\allowbreak{}rom/\allowbreak{}} & linear benchmarks S1--S3: accuracy, geometry, mixing, recognition, complex modes, cost\\
+\f{python/\allowbreak{}nnmrom/\allowbreak{}} & nonlinear benchmark S4, the COST F3 cantilever\\
+\f{python/\allowbreak{}moonbeam/\allowbreak{}} & nonlinear benchmark S5, the two-well beam\\
+\f{python/\allowbreak{}identity/\allowbreak{}} & the covariance identity, the free-decay angle tests and the three recognition routes on the S3 decays (\f{i1}--\f{i7}); the interpolation check \f{i8}, not used by the paper\\
+\f{figures/\allowbreak{}} & every figure of the paper, as vector PDF; \f{figures/\allowbreak{}tikz/\allowbreak{}} for Figure~1\\
+\f{SOD-ROM/\allowbreak{}tables/\allowbreak{}tab\_\allowbreak{}c\_\allowbreak{}cost.tex} & Table~S4, written by \f{mktab\_\allowbreak{}c\_\allowbreak{}cost.py}\\
+\f{python/\allowbreak{}rom/\allowbreak{}systems.py} & S1 shear frame, S2/S3 cantilever (with tip dashpot), Rayleigh damping, state matrices\\
+\f{python/\allowbreak{}rom/\allowbreak{}romlib.py} & band-limited noise (\f{band\_\allowbreak{}noise}), swept sine (\f{chirp})\\
+\f{python/\allowbreak{}rom/\allowbreak{}romlib2.py} & (wraps the toolbox) exact zero-order-hold simulation, LNM, MTA, POD, SOD and state-SOD bases, configuration and energy-Galerkin state ROMs, the mass-weighted error, complex-mode truncation\\
+\f{python/\allowbreak{}rom/\allowbreak{}sellib.py} & (wraps the toolbox) mode recognition: \f{gsod}, \f{select\_\allowbreak{}config} (spectral consistency, width cap 15\%), \f{pair\_\allowbreak{}state} (circularity 0.85, energy-gated banded rescue), ordering rules\\
+\f{python/\allowbreak{}nnmrom/\allowbreak{}costbeam.py}, \f{nlsim.py} & COST F3 beam model; Newmark integration with the cubic tip spring; static deflection\\
+\f{python/\allowbreak{}nnmrom/\allowbreak{}n3\_\allowbreak{}backbone\_\allowbreak{}hb.py} & harmonic balance and pseudo-arclength continuation of NNM backbones\\
+\f{python/\allowbreak{}*/\allowbreak{}plotprefs.py} & figure style: \LaTeX\ text, MATLAB colours, colour-vision check\\
+\bottomrule
+\end{longtable}
+Folders named \f{superseded\_\allowbreak{}*} hold outputs of earlier rule versions. They are kept for the record and are not used by this paper.
+
+\section{Running everything}
+\begin{verbatim}
+cd python
+bash run_sod_rom_v5.sh                  # all stages, about 19.5 h
+bash run_sod_rom_v5.sh identity cost    # chosen stages only
+bash run_sod_rom_v5.sh figs             # redraw figures and Table S4 from stored outputs
+\end{verbatim}
+Stages, in order: \f{toolbox} (1~min), \f{ensemble} (7.5~h), \f{geometry} (a few minutes), \f{ic} (0.5~h), \f{mix} (0.3~h), \f{select} (1.5~h), \f{nonlin} (1.5~h), \f{moon} (7.5~h, \f{mb10} included; \f{n14} runs in \f{nonlin}), \f{identity} (about 1~h), \f{cost} (alone; see Section~S10 below), \f{figs}.
+\f{identity} needs no output of the other stages.
+\f{geometry} needs no output of \f{ensemble}: it regenerates the \f{c18} case-2 records from their seeds.
+Within \f{cost}, \f{k1} runs before \f{k2}, which reads its pickles.
+
+To check a re-run, compare each new output file with the stored one (\f{diff}); the stored files are the ones the paper quotes.
+
+\paragraph{Toolbox migration.} The stored outputs of the ensemble and moon-sweep stages were produced before the SOD code moved into the toolbox. \f{test\_\allowbreak{}equivalence.py} checks 28 functions against the original code: identical, or within $10^{-10}$, except \f{gsod}, which forms the covariances before projecting; there the difference is below $10^{-6}$ near the rank cut. After the move the recognition, mode-shape and nonlinear scripts were rerun (\f{c3}, \f{c4}, \f{c6}, \f{c9}, \f{c19}, \f{c20}, \f{c26}, \f{c33}, \f{c35}, \f{n4}, \f{n10}, \f{n11}, \f{n11b}, \f{n13}, \f{mb2}, \f{mb9}); no number the paper prints moved. The geometry and cost scripts (\f{g1}--\f{g3}, \f{c36}, \f{k1}, \f{k2}, \f{n2b}) were written on the toolbox. The long ensemble and moon-sweep stages were not rerun.
+
+\section{Map from the paper to the scripts}\label{sec:map}
+Seeds are NumPy \f{default\_\allowbreak{}rng(seed)}. ``Stdout'' means the numbers are printed and the driver saves them to the named file. Folders: (rom) \f{python/\allowbreak{}rom/\allowbreak{}}, (nl) \f{python/\allowbreak{}nnmrom/\allowbreak{}}, (mb) \f{python/\allowbreak{}moonbeam/\allowbreak{}}, (id) \f{python/\allowbreak{}identity/\allowbreak{}}. The main text names no scripts outside Appendix~B; this map is the place to find them.
+
+\subsection*{Sections 2.3, 4--6 and 8: the identity, the free-decay tests and recognition; Section S5}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Sec.~2.3: the terms of the identity close to $10^{-11}$ of $\|\phi_i\|_M$ or better; Sec.~5 and 7.1, S4 decay: angles $0.0003^\circ$--$0.34^\circ$ to $\bf d$ and force-term shares 0.99--1.00; Sec.~7.2, S5 decay: $0.05^\circ$, $0.23^\circ$, $0.60^\circ$, record-end share 0.04; Section~S5: angles on the S2 random records & \f{i1\_\allowbreak{}forced\_\allowbreak{}identity.py} (id); cases 0--5 forced records, \f{s4}, \f{s5} decays & $100+i$; none for s4, s5 & \f{i1\_\allowbreak{}out.txt}, \f{i1\_\allowbreak{}case<i>.log}, \f{i1\_\allowbreak{}nonlinear.log}, \f{i1\_\allowbreak{}results\_\allowbreak{}*.pkl}; about 15~min\\
+Sec.~5 and Table~2: SOD frequencies and angles of the order-8 decays (S2 light, S3 with $c_{\rm d}=0.2$ and 1); force-term and Rayleigh shares 0.79 and 0.22; non-modal direction against $r$; Sec.~8: heavy Rayleigh damping, angles $0.16^\circ$--$48^\circ$ & \f{i4\_\allowbreak{}free\_\allowbreak{}decay\_\allowbreak{}identity.py} (id) & -- & \f{i4\_\allowbreak{}out.txt}; 1~min\\
+Sec.~4 (S3: plain-order ratios to the LNMs, MTA-tip, CM), Sec.~6 Route~1 (spectral consistency; failure at $c_{\rm d}=1$), Table~3 ``plain'' & \f{i5\_\allowbreak{}decay\_\allowbreak{}recognition.py <0|1>} (id) & $500+k$ & \f{i5\_\allowbreak{}out\_\allowbreak{}<k>.txt}, \f{i5\_\allowbreak{}case<k>.pkl}; 5~min per case\\
+Sec.~6 Route~2: circularity on the decays (one-sidedness 0.86, 0.96--0.98); state ROM 2.3--8.4 and 5.9--24 times the LNM error at $r=5$--8 & \f{i6\_\allowbreak{}state\_\allowbreak{}recognition.py <0|1>} (id) & $500+k$ & \f{i6\_\allowbreak{}out\_\allowbreak{}<k>.txt}, \f{i6\_\allowbreak{}case<k>.pkl}; 5~min per case\\
+Sec.~6 Route~3 and Table~3 ``modes first''; angles of the marked modes to their planes; mid-span ratios; Fig.~2. The paper's rule has a $5^\circ$ threshold (second argument); the first runs, without it, are kept and give the same printed errors & \f{i7\_\allowbreak{}hybrid\_\allowbreak{}recognition.py <0|1> 5}, \f{mkfig\_\allowbreak{}decay\_\allowbreak{}recognition.py} (id) & $500+k$ & \f{i7\_\allowbreak{}out\_\allowbreak{}<k>\_\allowbreak{}thr5.txt}, \f{i7\_\allowbreak{}case<k>\_\allowbreak{}thr5.pkl} (and \f{i7\_\allowbreak{}out\_\allowbreak{}<k>.txt}); 5~min per case; \f{figures/\allowbreak{}fig\_\allowbreak{}v5\_\allowbreak{}decay.pdf}\\
+Sec.~8 and Section~S5, Table~S1: ROM on the model-built basis of $\bf d$ at the SOD frequencies against the SOD ROM (0.82--1.21 on S2 light; 4.5 and 40 under heavy Rayleigh damping) & \f{i2\_\allowbreak{}interp\_\allowbreak{}basis.py <case 0..5>} (id) & $100+i$ & \f{i2\_\allowbreak{}out\_\allowbreak{}<i>.txt}, \f{i2\_\allowbreak{}case<i>.pkl}; 0.5--12~min per case\\
+Section~S5: real parts of the damped load responses (2.0 on S2 at $r=8$; 5.1 on S1) & \f{i3\_\allowbreak{}damped\_\allowbreak{}basis.py <1|3>} (id) & $100+i$ & \f{i3\_\allowbreak{}out\_\allowbreak{}<i>.txt}, \f{i3\_\allowbreak{}case<i>.pkl}; 1--5~min per case\\
+\bottomrule
+\end{longtable}
+\f{i1}--\f{i3} reuse the seeds and draw order of \f{c18\_\allowbreak{}ensemble.py}. \f{i5}--\f{i7} share one set of test loads (seed $500+k$), so their ratios to the LNM, CM and MTA-tip ROMs are on the same 20 realizations.
+
+\subsection*{Sections 1 and 8: the forced-record numbers quoted in the main text}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Sec.~8: S2 random tip record, 27 times better than the LNMs at $r=8$, 4.8 times worse at $r=3$ & \f{c18\_\allowbreak{}ensemble.py 2}, \f{c18\_\allowbreak{}summary.py} (rom) & 102 & \f{c18\_\allowbreak{}case2.pkl}, \f{c18\_\allowbreak{}summary.txt}\\
+\bottomrule
+\end{longtable}
+
+\subsection*{Section 2: Method; Section S7.1}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Sec.~2.2 and Section~S7.1: Petrov--Galerkin failure (input coupling $2\times10^3$--$3\times10^5$); energy-Galerkin errors & \f{c6\_\allowbreak{}pg\_\allowbreak{}vs\_\allowbreak{}eg.py} (rom) & 1 & \f{c6\_\allowbreak{}out.txt}; 5~min\\
+Sec.~2.4: exactness criterion, virial defect $-4\zeta^2/(1+4\zeta^2)$ & \f{c35\_\allowbreak{}proof\_\allowbreak{}checks.py} (rom) & 35 & \f{c35\_\allowbreak{}out.txt}; seconds\\
+Sec.~2.5: containment residual and principal angles (definitions) & \f{g1\_\allowbreak{}static\_\allowbreak{}containment.py} (rom) & 102 & see Section~S2\\
+\bottomrule
+\end{longtable}
+
+\subsection*{Section 3: Benchmarks}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Fig.~1 (systems); frequencies of S1, S2 & \f{figures/\allowbreak{}tikz/\allowbreak{}fig\_\allowbreak{}c\_\allowbreak{}systems\_\allowbreak{}tikz.tex}; \f{systems.py} (rom) & -- & compiled with the paper\\
+S4 data (COST F3) & \f{costbeam.py} (nl) & -- & --\\
+Static release: 98--99\% of the energy in mode 1 & \f{c33\_\allowbreak{}unmapped.py} (rom) & -- & \f{c33\_\allowbreak{}out.txt}; seconds\\
+Table~1 (settings) & \f{c18\_\allowbreak{}ensemble.py} header & -- & --\\
+\bottomrule
+\end{longtable}
+
+\subsection*{Section S1: Forced training records, errors against order; Section 4, Rayleigh paragraph}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+All medians and IQRs (low, intermediate and high order); IQR/median bounds 0.76 and 5.3; Fig.~S1; Sec.~4: the S2 decay basis within 12\% of the LNMs, and the errors at $r=8$; Sec.~8: decay ROM up to 1.75 times the LNM error under heavy Rayleigh damping & \f{c18\_\allowbreak{}ensemble.py <case 0..5>}, \f{c18\_\allowbreak{}summary.py}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}error2.py} (rom) & $100+i$ & \f{c18\_\allowbreak{}case<i>.pkl}, \f{c18\_\allowbreak{}out\_\allowbreak{}<i>.txt}, \f{c18\_\allowbreak{}summary.txt}; S1 4~min, S2 70~min, S3 2--2.3~h per case\\
+\bottomrule
+\end{longtable}
+\f{mkfig\_\allowbreak{}c\_\allowbreak{}error2.py} writes \f{figures/\allowbreak{}fig\_\allowbreak{}c\_\allowbreak{}error.pdf}. The older \f{mkfig\_\allowbreak{}c\_\allowbreak{}error.py} writes the same file name and is not used.
+
+\subsection*{Section S2: What the record adds; Section S6}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Containment of $\bf K^{-1}b_{tip}$ and $\bf K^{-1}b_{mid}$ (SOD, LNM, POD, BL decay); principal angles to MTA-tip(8) and LNM(8); Fig.~S2a; the residuals quoted in Sec.~8 & \f{g1\_\allowbreak{}static\_\allowbreak{}containment.py 20}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}static.py} (rom) & 102 (c18 case~2 draw order) & \f{g1\_\allowbreak{}out.txt}, \f{g1\_\allowbreak{}results.pkl}; about 1~min\\
+Fig.~S2b (largest principal angles against $r$) & \f{g3\_\allowbreak{}third\_\allowbreak{}direction.py 20}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}static.py} (rom) & 102 & \f{g3\_\allowbreak{}out.txt}, \f{g3\_\allowbreak{}results.pkl}; minutes\\
+Transfer: MTA with the tip vector only; data trained at both locations & \f{c28\_\allowbreak{}fair\_\allowbreak{}transfer.py <case 2..5>} (rom) & $100+i$ & \f{c28\_\allowbreak{}case<i>.pkl}, \f{c28\_\allowbreak{}out\_\allowbreak{}<i>.txt}; 48--53~min per case\\
+Mid-span within 2\% of a node of modes 3, 5, 7 & \f{c33\_\allowbreak{}unmapped.py} (rom) & -- & \f{c33\_\allowbreak{}out.txt}\\
+Noisy training records, Sections~S2 and S6 (60, 40~dB; error floors 11--300 times) & \f{c31\_\allowbreak{}noisy\_\allowbreak{}training.py <2|3>} (rom) & $31+i$ & \f{c31\_\allowbreak{}case<i>.pkl}, \f{c31\_\allowbreak{}out\_\allowbreak{}<i>.txt}; 8--10~min per case\\
+\bottomrule
+\end{longtable}
+The draws per realization are, in order: training load, test load at the training input, mid-span test load. \f{c28} draws its two-location training load after these. Its first realization therefore sees the \f{c18} loads; later ones do not, because the extra draw shifts the stream. The \f{c28} comparisons are internal to \f{c28}. \f{g1}--\f{g3} repeat the \f{c18} case-2 draws exactly.
+
+\subsection*{Section S3: Why low orders fail on forced records; Section S7.2}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+$r-1$ LNMs held for $r=3$--7; LNM~3 residual 0.17 at $r=3$ & \f{g2\_\allowbreak{}mode\_\allowbreak{}displacement.py 20} (rom) & 102 & \f{g2\_\allowbreak{}out.txt}, \f{g2\_\allowbreak{}results.pkl}; minutes\\
+Angles $2$--$13^\circ$ to LNMs plus $\bf K^{-1}b_{tip}$; $10$--$50^\circ$ to LNMs; $38$--$76^\circ$ with $\bf K^{-1}b_{mid}$ & \f{g3\_\allowbreak{}third\_\allowbreak{}direction.py 20} (rom) & 102 & \f{g3\_\allowbreak{}out.txt}\\
+Section~S3.1: MAC list, SOD frequencies, modal correlation; Fig.~S3 & \f{c3\_\allowbreak{}mac.py}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}mac.py} (rom) & 11 & \f{c3\_\allowbreak{}mac.pkl}, \f{c3\_\allowbreak{}out.txt}; 5~min\\
+Section~S7.2: state planes on S3 (pairs, angles, correlation 0.14/0.31) & \f{c9\_\allowbreak{}state\_\allowbreak{}planes.py} (rom) & 11 & \f{c9\_\allowbreak{}out.txt}; 5~min\\
+Section~S3.2: rank tolerances, spurious directions & \f{c4\_\allowbreak{}rank.py} (rom) & 11 & \f{c4\_\allowbreak{}out.txt}; 3~min\\
+\bottomrule
+\end{longtable}
+
+\subsection*{Section S4: Recognising modes on forced records}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Section~S4.1: spectral consistency (108 of 134 spurious directions), two-halves and lag-diagonality rules & \f{c19\_\allowbreak{}selection\_\allowbreak{}rules.py} (rom) & 19 & \f{c19\_\allowbreak{}out.txt}; 40~min\\
+Adjacent pairing failure & \f{c20\_\allowbreak{}state\_\allowbreak{}selection.py} & 20 & \f{c20\_\allowbreak{}out.txt}\\
+Width cap (drifting coordinates), Section~S4.1 & \f{c25\_\allowbreak{}width\_\allowbreak{}diag.py} (cap off) & 25 & \f{c25\_\allowbreak{}out.txt}; 10~min\\
+Mode-1 plane; one-sidedness 0.89--0.99 and 0.51--0.75 & \f{c24\_\allowbreak{}mode1\_\allowbreak{}diag.py} & 24 & \f{c24\_\allowbreak{}out.txt}; 10~min\\
+Section~S4.1, rule for contaminated planes: up to 15 times more non-modal pairs without the energy gate & \f{c26\_\allowbreak{}circ\_\allowbreak{}rules.py} & 26 & \f{c26\_\allowbreak{}out.txt}; 17~min\\
+Section~S4.2 (R0, RHB) and Section~S4.3 (RID, RH, RF, RQ): all ratios & \f{c21\_\allowbreak{}rom\_\allowbreak{}selection.py} & 21 & \f{c21\_\allowbreak{}out.txt}, \f{c21\_\allowbreak{}results.pkl}; 35~min\\
+\bottomrule
+\end{longtable}
+
+\subsection*{Section S7: Complex modes and state-space SOD ROMs}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Sections~S7 and S7.3: S3 state SOD, CM and LNM errors at state dimension 8--16 & \f{c18\_\allowbreak{}ensemble.py <case 4|5>}, \f{c18\_\allowbreak{}summary.py} (rom) & $100+i$ & \f{c18\_\allowbreak{}case<i>.pkl}, \f{c18\_\allowbreak{}summary.txt}\\
+Fig.~S4 (trajectories) & \f{c11\_\allowbreak{}timehist.py}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}traj.py} (rom) & 2026 & \f{c11\_\allowbreak{}timehist.npz}, \f{c11\_\allowbreak{}out.txt}; 10~min\\
+Section~S7.4: all single-realization numbers; Fig.~S5c--f & \f{c10\_\allowbreak{}equal\_\allowbreak{}energy.py}, \f{c14\_\allowbreak{}bandlimited.py}, \f{c15\_\allowbreak{}matched.py} \f{<case>}, \f{c16\_\allowbreak{}ic\_\allowbreak{}summary.py} & $100+i$ & \f{c10/\allowbreak{}c14/\allowbreak{}c15\_\allowbreak{}case<i>.pkl}, \f{c16\_\allowbreak{}ic\_\allowbreak{}summary.txt}; 3--8~min per case\\
+Equal record energy & \f{c12\_\allowbreak{}record\_\allowbreak{}energy.py} & 2026 & \f{c12\_\allowbreak{}out.txt}\\
+Mechanism: correlations 0.12/0.14/0.32--0.34, leakage, 0.2--0.8 times leakage$^2$; Fig.~S5a,b & \f{c13\_\allowbreak{}leakage.py}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}ic.py} & 2026 & \f{c13\_\allowbreak{}out.txt}; 10~min\\
+Free-decay tests of state ROMs (initial-state projection) & \f{c17\_\allowbreak{}ic\_\allowbreak{}projection.py} & -- & \f{c17\_\allowbreak{}out.txt}\\
+\bottomrule
+\end{longtable}
+
+\subsection*{Section 7.1: A nonlinear backbone (S4); Section S8}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Reference backbone, 5:1 tongue; periodicity check $1.5\times10^{-10}$ & \f{n3\_\allowbreak{}backbone\_\allowbreak{}hb.py 8}, \f{n3b\_\allowbreak{}check\_\allowbreak{}periodic.py} (nl) & -- & \f{n3\_\allowbreak{}backbone\_\allowbreak{}full\_\allowbreak{}Kh8.pkl}, \f{n3b\_\allowbreak{}out.txt}; 30~min\\
+Backbone errors by $r$ (LNM, MTA, SOD, POD), held-out plucked tests; Fig.~3 & \f{n4\_\allowbreak{}rom\_\allowbreak{}backbones.py}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}nl.py} & -- & \f{n4\_\allowbreak{}results.pkl}, \f{n4\_\allowbreak{}out.txt}; 20~min\\
+Section~S8: band-limited training decay & \f{n5\_\allowbreak{}equal\_\allowbreak{}energy.py} & -- & \f{n5\_\allowbreak{}results.pkl}, \f{n5\_\allowbreak{}out.txt}; 20~min\\
+Fig.~S6 (time histories) & \f{n6\_\allowbreak{}timehist.py}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}nltraj.py} & -- & \f{n6\_\allowbreak{}timehist.npz}; 5~min\\
+Backbone extension to 0.059~J & \f{n9a\_\allowbreak{}backbone\_\allowbreak{}ext.py} & -- & \f{n9a\_\allowbreak{}backbone\_\allowbreak{}ext.pkl}; 5~min\\
+Fig.~S7, ``Tracking the backbone'' (Section~S8), and the four-mode ROM to 0.048~J (Sec.~7.1) & \f{n12\_\allowbreak{}backbone\_\allowbreak{}track.py}, \f{mkfig\_\allowbreak{}c\_\allowbreak{}track.py} & -- & \f{n12\_\allowbreak{}results.pkl}, \f{n12\_\allowbreak{}out.txt}; 10~min\\
+Section~S8, ``Bending out of the plane'': 30--240~N, companion energy, $2.1^\circ$ from LNMs 1--2 & \f{n7\_\allowbreak{}ssod\_\allowbreak{}companions.py}, \f{n9\_\allowbreak{}strong\_\allowbreak{}companions.py 0.3} & -- & \f{n7\_\allowbreak{}out.txt}, \f{n9\_\allowbreak{}out\_\allowbreak{}band0.3.txt}; 15~min\\
+Plane span; embedding dimension; mode-2 plane at 30~N (0.836) & \f{n10\_\allowbreak{}plane\_\allowbreak{}span.py}, \f{n11\_\allowbreak{}diagnose.py}, \f{n11b\_\allowbreak{}banded\_\allowbreak{}circ.py} & -- & \f{n10\_\allowbreak{}out.txt}, \f{n11\_\allowbreak{}out.txt}, \f{n11b\_\allowbreak{}out.txt}; 15~min\\
+Peak against SOD frequency (10--12\%); first SOD direction $0.3$--$0.9^\circ$ from $(\bf K-\omega^2 M)^{-1}e_{tip}$ (Section~S8) & \f{n13\_\allowbreak{}checks.py} & -- & \f{n13\_\allowbreak{}out.txt}; 5~min\\
+Sec.~7.1 ``The bent correction as a basis vector'', the first-direction angle $0.0003^\circ$, Discussion (factors 2.5--2.7 at $r=3$ and 4), Section~S8 and Table~S2 & \f{n14\_\allowbreak{}bent\_\allowbreak{}mta.py} (after \f{n3}) & -- & \f{n14\_\allowbreak{}out.txt}, \f{n14\_\allowbreak{}results.pkl}; about 2~min\\
+Section~S8, cost paragraph: Newmark wall times, best of three & \f{n2b\_\allowbreak{}cost\_\allowbreak{}best3.py} (nl) & -- & \f{n2b\_\allowbreak{}out.txt}; 1~min, alone\\
+\bottomrule
+\end{longtable}
+
+\subsection*{Section 7.2: Two-well beam (S5); Section S9}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Model: $x^*=0.1$, well and clamped frequencies & \f{mb\_\allowbreak{}model.py} & -- & \f{mb\_\allowbreak{}model\_\allowbreak{}out.txt}; seconds\\
+Training decay (18 crossings, last at 14.1), data rank 11, POD 98.7\%, SOD frequencies, MAC 0.05; bases & \f{mb2\_\allowbreak{}train.py 1} & -- & \f{mb2\_\allowbreak{}bases.pkl}, \f{mb2\_\allowbreak{}out.txt}; 1~min\\
+Frequency sweep at $A=0.3$ (Sec.~7.2, Section~S9): full model and ROMs & \f{mb1\_\allowbreak{}full.py 0.3}, \f{mb3\_\allowbreak{}rom\_\allowbreak{}sweep.py 0.3 <basis>} & -- & \f{mb1\_\allowbreak{}full\_\allowbreak{}A0.3.pkl}, \f{mb3\_\allowbreak{}A0.3\_\allowbreak{}<basis>\_\allowbreak{}r<r>.pkl}; 6~min (full), 16--21~min per basis\\
+Frequency-sweep jumps and $W_1$ errors; Table~4 & \f{mb4\_\allowbreak{}compare.py 0.3} & -- & \f{mb4\_\allowbreak{}out.txt}\\
+Amplitude sweep at $\Omega=0.85\,\omega_w$; Fig.~S8 & \f{mb6\_\allowbreak{}amp\_\allowbreak{}sweep.py full|<basis>}, \f{mkfig\_\allowbreak{}mb\_\allowbreak{}amp\_\allowbreak{}all.py} & -- & \f{mb6\_\allowbreak{}full.pkl}, \f{mb6\_\allowbreak{}<basis>\_\allowbreak{}r<r>.pkl}; 16~min (full), 45--50~min per basis\\
+Amplitude-sweep landmarks, classification agreement, extremes errors; Table~4. The stored file is the v3 comparison, without DMTS & \f{mb7\_\allowbreak{}amp\_\allowbreak{}compare.py} & -- & \f{mb7\_\allowbreak{}out.txt}\\
+Cascade zoom: period 2, 4, 8 and escape; Fig.~4 & \f{mb6z\_\allowbreak{}cascade.py full|<basis>}, \f{mb8\_\allowbreak{}cascade\_\allowbreak{}compare.py}, \f{mkfig\_\allowbreak{}mb\_\allowbreak{}cascade.py} & -- & \f{mb6z\_\allowbreak{}*.pkl}, \f{mb8\_\allowbreak{}out.txt}; 17~min (full), 45--55~min per basis\\
+One-mode ROMs: $q^*$, well frequency (Table~4); $0.7^\circ$ to $\bf K^{-1}e_{tip}$ & \f{mb9\_\allowbreak{}onemode.py} & -- & \f{mb9\_\allowbreak{}out.txt}; seconds\\
+Dynamic correction $\bf d(\omega)=(K-\omega^2 M)^{-1}e_{tip}$: angles to the first SOD direction ($0.69^\circ$ at 0, $2.2^\circ$ at $\omega_w$, $0.003^\circ$ at 2.42, $0.05^\circ$ at the first SOD frequency 2.49); one-mode DMTS ($-0.32\%$, $+1.26\%$); bases DMTS & \f{mb10\_\allowbreak{}dynamic\_\allowbreak{}correction.py} & -- & \f{mb10\_\allowbreak{}out.txt}, \f{mb10\_\allowbreak{}bases.pkl}; seconds\\
+Amplitude sweeps of DMTS at $r=1,2$ & \f{mb10\_\allowbreak{}dynamic\_\allowbreak{}correction.py sweep DMTS <r>} & -- & \f{mb6\_\allowbreak{}DMTS\_\allowbreak{}r<r>.pkl}; 9--10~min per order, two at a time\\
+Sec.~7.2 ``More modes'' (both measures at $r=2$; DMTS $3.1\times10^{-4}$) and Table~S3 & \f{mb7\_\allowbreak{}amp\_\allowbreak{}compare.py}, after the DMTS sweeps & -- & \f{mb7\_\allowbreak{}out\_\allowbreak{}v4.txt}, \f{mb10\_\allowbreak{}compare\_\allowbreak{}out.txt}\\
+\bottomrule
+\end{longtable}
+
+\subsection*{Section S10: Integration cost at matched integration accuracy}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Table~S4: $\omega_{\max}$, $\rho(\bf A_r)$, CD steps, least RK45 and Radau work at error $10^{-6}$ and its best-of-3 wall time; overdamped eigenvalue $-9.3\times10^5$; raw against Ritz coordinates; ratios in the bullet list of Section~S10 & \f{c36\_\allowbreak{}cost\_\allowbreak{}matched.py <0|1>}, \f{mktab\_\allowbreak{}c\_\allowbreak{}cost.py} (rom) & 5 & \f{c36\_\allowbreak{}out\_\allowbreak{}<k>.txt}, \f{c36\_\allowbreak{}results\_\allowbreak{}<k>.pkl}, \f{SOD-ROM/\allowbreak{}tables/\allowbreak{}tab\_\allowbreak{}c\_\allowbreak{}cost.tex}; run time not recorded, alone\\
+Five bases of one SOD subspace; RK45 at the fixed setting (416\,k and 158\,k evaluations) & \f{k1\_\allowbreak{}basis\_\allowbreak{}cost.py <0|1>} (rom) & 5 & \f{k1\_\allowbreak{}out\_\allowbreak{}<k>.txt}, \f{k1\_\allowbreak{}results\_\allowbreak{}<k>.pkl}; run time not recorded, alone\\
+Fixed setting: Radau 11.3~s (full, physical) and 3.8~s (full, LNM) and their errors & \f{k2\_\allowbreak{}matched\_\allowbreak{}cost.py} (rom), after \f{k1} & 5 & \f{k2\_\allowbreak{}out.txt}, \f{k2\_\allowbreak{}results.pkl}; run time not recorded, alone\\
+\bottomrule
+\end{longtable}
+\f{c36} uses the training record of the earlier \f{c2\_\allowbreak{}timing.py} (\f{default\_\allowbreak{}rng(5)}, random load at the training input) and its chirp load; \f{k1} reproduces the stored \f{c2} evaluation counts exactly for the raw basis.
+
+\subsection*{Appendix A: Proofs}
+\begin{longtable}{L{0.31\textwidth}L{0.25\textwidth}L{0.08\textwidth}L{0.25\textwidth}}
+\toprule
+paper item & script & seed & output; run time\\ \midrule
+Damped-decay defect, first-order mode rotation, Proposition~1 (pair product, equal values) & \f{c35\_\allowbreak{}proof\_\allowbreak{}checks.py} (rom) & 35 & \f{c35\_\allowbreak{}out.txt}; seconds\\
+\bottomrule
+\end{longtable}
+
+\section{Notes}
+\begin{itemize}
+\item The nonlinear scripts are deterministic; they draw no random numbers.
+\item \f{n9\_\allowbreak{}strong\_\allowbreak{}companions.py} without an argument runs the broadband circularity test only; the paper uses the argument \f{0.3} (energy-gated banded rescue).
+\item \f{g2} and \f{g3} default to 10 realizations; the paper uses 20, passed as the argument.
+\item \f{mb7\_\allowbreak{}amp\_\allowbreak{}compare.py} compares every \f{mb6\_\allowbreak{}*\_\allowbreak{}r*.pkl} it finds. Run after the DMTS sweeps it also lists DMTS and two exploratory bases of an earlier draft (RK, RX), which the paper does not use; \f{mb7\_\allowbreak{}out\_\allowbreak{}v4.txt} is that output. Its rows for the v3 bases equal \f{mb7\_\allowbreak{}out.txt}.
+\item \f{i8\_\allowbreak{}interp\_\allowbreak{}check.py} (id) tests whether an SOD basis of a forced record interpolates the transfer function at its SOD frequencies. It does not, and the paper makes no such claim; the script and its outputs are kept for the record.
+\item Scripts not listed here belong to earlier drafts or to the identification note. They are kept for the record and are not used by this paper.
+\end{itemize}
+\end{document}

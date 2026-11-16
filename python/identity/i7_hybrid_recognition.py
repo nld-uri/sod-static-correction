@@ -15,7 +15,9 @@
    CM (complex-mode truncation, state dimension 2r, as in c18).
    Tests (20 realizations, seed 500 + case): random load at the tip and random load at mid-span, band omega_c = 250,
    forced ROM response from rest; error as in c18 (merr, every 5th sample).
-   Usage: python3 i7_hybrid_recognition.py <0|1> -> i7_out_<k>.txt (stdout), i7_case<k>.pkl"""
+   Optional angle threshold (degrees): a plane marks a configuration mode only if the mode lies within the threshold
+   of the plane's displacement span; without it (the first runs) every in-band plane marks its closest mode.
+   Usage: python3 i7_hybrid_recognition.py <0|1> [threshold_deg] -> i7_out_<k>[_thr<t>].txt (stdout), i7_case<k>[_thr<t>].pkl"""
 import os, sys, pickle, time, numpy as np
 from scipy.linalg import eigh
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, '..', 'rom'))
@@ -25,6 +27,7 @@ from romlib2 import simulate_state, lnm, mta, complex_modes, rom_config, rom_sta
 from sellib import gsod, pair_state, rom_order_config
 from scipy.linalg import subspace_angles
 Lc = None
+THR = float(sys.argv[2]) if len(sys.argv) > 2 else None; TAG = '' if THR is None else f'_thr{THR:g}'
 ci = int(sys.argv[1]); cname = ['dashpot', 'dashpot_heavy'][ci]; NR = 20; ORD = range(2, 9); dt = 1e-3; N = 200000; wc = 250.0; wmax = 1.2 * wc
 S = beam(dashpot=(0.2, 1.0)); M, K, B = S['M'], S['K'], S['B']; C = S['C'][cname]; n = len(M); A, Bs = state(M, K, C, B)
 wL2, PL = eigh(K, M); wL = np.sqrt(wL2); kEE = np.where(wL < np.pi / (4 * dt))[0]; wk = wL[kEE]
@@ -38,7 +41,9 @@ for r in ORD:
     for a_, b_, f_, c_ in sorted(planes, key=lambda p: p[2]):
         D2 = Lc @ Phs[:n, [a_, b_]]; U2 = np.linalg.svd(D2, full_matrices=False)[0]
         al = [np.degrees(np.arccos(min(1.0, np.linalg.norm(U2.T @ (Lc @ Phi[:, i])) / np.linalg.norm(Lc @ Phi[:, i])))) if i not in ib else 1e9 for i in range(Phi.shape[1])]
-        i_ = int(np.argmin(al)); ib.append(i_); pk[i_] = f_; angs.append(round(al[i_], 2))
+        i_ = int(np.argmin(al)); angs.append(round(al[i_], 2))
+        if THR is not None and al[i_] > THR: continue      # plane has no configuration mode within the threshold
+        ib.append(i_); pk[i_] = f_
     od = rom_order_config(ib, Phi.shape[1]); un = lambda P: P / np.linalg.norm(P, axis=0)
     bases[('R0', r)] = un(Phi[:, :r]); bases[('RHB', r)] = un(Phi[:, od[:r]])
     bases[('LNM', r)] = lnm(M, K, r); bases[('MTA-tip', r)] = mta(M, K, B[:, :1], r)
@@ -58,7 +63,7 @@ for rr in range(NR):
             Xr = rom_state(A, Bs, PsiC[:, :2 * r], PhiC[:, :2 * r], v, dt, None, n, W=None, dec=5)[0]
             res.setdefault(('CM', r, tk), []).append(merr(Xr, Xt[tk], M))
     print(f"S3 {cname}: realization {rr + 1}/{NR} ({time.time() - t0:.0f}s)", flush=True)
-pickle.dump(dict(res=res, info=info), open(os.path.join(HERE, f'i7_case{ci}.pkl'), 'wb'))
+pickle.dump(dict(res=res, info=info), open(os.path.join(HERE, f'i7_case{ci}{TAG}.pkl'), 'wb'))
 for tk in ('tip', 'mid'):
     print(f"== S3 {cname}, random {tk} load: median error over {NR} realizations, r = 2..8")
     for bn in ('LNM', 'CM', 'MTA-tip', 'R0', 'RHB'):

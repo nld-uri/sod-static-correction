@@ -1,4 +1,4 @@
-"""Figure 2 of SOD-ROM v5: decay-trained SOD bases on the dashpot cantilever (S3), from i7_case0.pkl and i7_case1.pkl.
+"""Figure 2 of SOD-ROM v5: decay-trained SOD bases on the dashpot cantilever (S3), from i7_case0_thr5.pkl and i7_case1_thr5.pkl.
    Median ROM error over 20 test loads against order r, for the LNMs, MTA with the tip vector, the SOD basis in plain
    order and with the recognised modes first. Output: ../../figures/fig_v5_decay.pdf (vector, drawn at print width)."""
 import os, sys, pickle, numpy as np
@@ -15,7 +15,7 @@ sty = {'LNM': dict(color='black', ls='-', marker='o', label='LNM'),
 fig, ax = plt.subplots(2, 2, figsize=(6.3, 4.7), sharex=True)
 R = list(range(2, 9)); letters = 'abcd'
 for j, (ci, cd) in enumerate([(0, '0.2'), (1, '1')]):
-    res = pickle.load(open(os.path.join(HERE, f'i7_case{ci}.pkl'), 'rb'))['res']
+    res = pickle.load(open(os.path.join(HERE, f'i7_case{ci}_thr5.pkl'), 'rb'))['res']
     for i, (tk, name) in enumerate([('tip', 'tip load'), ('mid', 'mid-span load')]):
         a = ax[i, j]
         for bn, st in sty.items():
