@@ -67,7 +67,7 @@ for st in $STAGES; do
     ;;
   identity)   # Secs. 2.3, 4-6, 8 and S5 (identity terms, decay angles, recognition routes, model-built basis); about 1 h
     cd "$ID"; python3 i1_forced_identity.py > i1_run.log    # writes i1_out.txt; uses the S4 and S5 model modules, no stored output
-    python3 i4_free_decay_identity.py > i4_out.txt
+    python3 i4_free_decay_identity.py > i4_out.txt; python3 i9_location_scan.py > i9_out.txt
     run2 "$ID" "for k in 0 1; do python3 i5_decay_recognition.py \$k > i5_out_\$k.txt; done" \
                "for k in 0 1; do python3 i6_state_recognition.py \$k > i6_out_\$k.txt; done"
     run2 "$ID" "python3 i7_hybrid_recognition.py 0 5 > i7_out_0_thr5.txt" "python3 i7_hybrid_recognition.py 1 5 > i7_out_1_thr5.txt"
