@@ -27,17 +27,17 @@
 
 
 \begin{abstract}
-Smooth orthogonal decomposition (SOD) builds reduced-order model (ROM) bases from response records. Trained on one free decay, it gives three different outcomes.
-On a Rayleigh-damped cantilever the basis is the linear normal modes (LNMs), within 12\,\% in ROM error.
-With a tip dashpot it is 6 times more accurate than the LNMs at eight modes and 3.5--6 times less accurate at two to five.
-With a cubic tip spring it lowers the backbone error by two to three decades.
-We test one explanation. A free decay is driven only by internal forces, and the SOD basis holds the modes plus, for a force concentrated at one point, the structure's response to a force there at the direction's own SOD frequency.
-A covariance identity, which keeps the force term of the SOD eigenproblem, states this with its damping and record-end corrections.
-The dashpot decay has one non-modal direction, $17^\circ$ from the nearest LNM and $2.5^\circ$ from the tip-force response. On two nonlinear cantilevers the first SOD direction lies within $0.05^\circ$ of that response.
-The obstacle is ranking: SOD orders that direction among the modes by its frequency, and at low order it displaces a mode.
-Modal planes recognised by their one-way rotation in the displacement--velocity state mark the modal directions; with these placed first, the decay basis equalled the LNMs at two to five modes and kept its gain from six, for both dashpots tested.
-Its ROM errors then track modal truncation augmentation with the tip static vector, which must be told where the force acts; the decay was not.
-Forced training records are used only as a contrast. All results are numerical, from full-field records with model velocities.
+Smooth orthogonal decomposition (SOD) builds reduced-order model (ROM) bases from response records. Trained on one free decay of a cantilever, it gave three outcomes.
+With Rayleigh damping the basis was the linear normal modes (LNMs), within 12\,\% in ROM error.
+With a tip dashpot it was 6 times more accurate than the LNMs at eight modes and 3.5--6.3 times less accurate at two to five.
+With a cubic tip spring it lowered the backbone-curve error by two to three decades.
+We test one explanation: besides the modes, the basis holds the structure's response to an internal force concentrated at one point, at that direction's own SOD frequency.
+A covariance identity that keeps the force term states this.
+The dashpot decay had one non-modal direction, $17^\circ$ from the nearest LNM and $2.5^\circ$ from the tip-force response; on two nonlinear cantilevers the first SOD direction lay within $0.05^\circ$ of it.
+Modal truncation augmentation with the tip static vector, which is told where the force acts, erred within a factor of 1.2 of the decay basis at two to six modes.
+SOD ranks the force-response direction among the modes, and at low order it displaces one.
+With the modal directions marked by the one-way rotation of their state-space planes and placed first, the decay basis equalled the LNMs at two to five modes and kept its gain from six, for both dashpots tested.
+All results are numerical, from full-field records with model velocities.
 \end{abstract}
 
 \begin{keyword}
@@ -451,7 +451,7 @@ What the evidence does not show is the same mechanism on measured records. Every
 \paragraph{Limitations.} All data are simulated and full-field, with model velocities and accelerations; sensor coverage and estimated kinematics were not tested. Each benchmark has one concentrated internal force, at the tip; several forces, or a distributed nonlinearity whose force pattern changes with amplitude, were not tested. The dashpot tests use one beam, two dashpot coefficients, one decay per order and 20 test loads; the nonlinear tests use one training decay each. Heavy proportional damping biased the decay modes by up to $48^\circ$, and the decay ROM was then up to 1.75 times worse than the LNM ROM. The $5^\circ$ threshold of the marking rule was set after the angles were seen, $4.0^\circ$ at most for the marked modes and $22.7^\circ$ for the rejected one; it was not tested on another structure. We tested linear Galerkin bases only, with no manifold-based ROM \citep{Haller2016,Jain2017} for comparison.
 
 \section{Conclusions}\label{sec:concl}
-A free decay teaches an SOD basis the modes and the structure's concentrated internal forces. With light Rayleigh damping the decay basis was the LNM basis. With a tip dashpot, a cubic tip spring or a two-well tip force it held, in addition, the response to a force at that point at the direction's own SOD frequency; a covariance identity with the force term kept gives this result and its damping and record-end corrections. The low-frequency limit of that response is the static vector of MTA, and the decay-trained ROMs tracked MTA-tip, without the force location being supplied.
+A free decay teaches an SOD basis the modes and the structure's concentrated internal forces. With light Rayleigh damping the decay basis was the LNM basis. With a tip dashpot, a cubic tip spring or a two-well tip force it held, in addition, the response to a force at that point at the direction's own SOD frequency; a covariance identity with the force term kept gives this result and its damping and record-end corrections. The low-frequency limit of that response is the static vector of MTA. In SOD order the ROM of the dashpot decay tracked MTA-tip within a factor of 1.2 at two to six modes, without the force location being supplied.
 SOD ranks the force-response direction among the modes, and a truncated basis then loses a mode: 3.5--6.3 times the LNM error at two to five modes on the dashpot beam. With the modal directions marked by the circular planes of state-space SOD and placed first, the decay basis equalled the LNMs at two to five modes and was up to 6 times better from six, for dashpots giving first-mode damping ratios of 0.13 and 0.60. The gain holds for loads the tip-force response serves; under a mid-span load the basis was 1.7--3.5 times worse than the LNMs at six and eight modes.
 
 
