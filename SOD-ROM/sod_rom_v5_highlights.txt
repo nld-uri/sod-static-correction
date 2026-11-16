@@ -1,0 +1,5 @@
+A free decay teaches an SOD basis the modes and the concentrated internal forces
+Each added direction is the response to a force at that point at its SOD frequency
+A covariance identity with the force term kept gives the result and its corrections
+Ranked among the modes, that direction costs a mode at low order
+Modes marked by circular state planes go first; the gain from six modes is kept
