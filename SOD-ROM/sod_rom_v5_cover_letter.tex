@@ -1,45 +1,38 @@
-\documentclass[11pt]{letter}
-\usepackage[margin=1in]{geometry}
-\usepackage[hidelinks]{hyperref}
+% Cover letter for SOD-ROM v5, on the NLD letterhead. DRAFT for the author to edit.
+% Compile with XeLaTeX beside nld.cls, fonts/ and logos/ from
+% "NLD Templates/NLD brand 2026/LaTeX/nld-latex":  latexmk -xelatex sod_rom_v5_cover_letter.tex
+% Items marked DECIDE or VERIFY need the author's decision or check.
+\documentclass[letter]{nld}
 \usepackage{booktabs,array}
-\signature{David Chelidze\\ Professor of Mechanical Engineering and Applied Mechanics\\ Director, Nonlinear Dynamics Laboratory\\ University of Rhode Island}
-\address{Nonlinear Dynamics Laboratory\\ Department of Mechanical, Industrial and Systems Engineering\\ University of Rhode Island\\ Kingston, RI 02881, USA\\ chelidze@uri.edu}
 \date{\today}
 \begin{document}
-% DRAFT for the author to edit. Items marked DECIDE or VERIFY need the author's decision or check.
-\begin{letter}{The Editor-in-Chief\\ Journal of Sound and Vibration}
-\opening{Dear Editor,}
+\begin{nldletter}{The Editor-in-Chief\\ Journal of Sound and Vibration\\[1.2em] Dear Editor,}
+Please consider the manuscript ``What a free decay teaches a smooth orthogonal decomposition basis'' as a full-length article.
 
-Please consider the manuscript ``What a free decay teaches a smooth orthogonal decomposition basis'' for publication in the Journal of Sound and Vibration as a full-length article.
+Smooth orthogonal decomposition (SOD) was introduced in this journal for vibration mode identification (Chelidze and Zhou, 2006; Farooq and Feeny, 2008) and has since served as a basis for reduced-order models. A basis trained on a single free decay of a cantilever reproduces the linear normal modes when the damping is light and proportional. With a tip dashpot it is six times more accurate than the modes at eight modes and 3.5 to 6.3 times less accurate at two to five. With a cubic tip spring it lowers the backbone-curve error by two to three decades at three and four modes. These outcomes have had no common explanation.
 
-Smooth orthogonal decomposition (SOD) was introduced in this journal for vibration mode identification (Chelidze and Zhou, 2006; Farooq and Feeny, 2008) and has since served as a basis for reduced-order models. One observation has had no explanation. A basis trained on a single free decay of a cantilever reproduces the linear normal modes when the damping is proportional. With a tip dashpot it is six times more accurate than the modes at eight modes and 3.5 to 6.3 times less accurate at two to five. With a cubic tip spring it lowers the backbone-curve error by two to three decades.
+The manuscript tests one explanation. A free decay is driven only by internal forces. For a force concentrated at one point, the SOD basis holds, besides the modes, the structure's response to a force at that point at the direction's own SOD frequency. A covariance identity relates every SOD direction to that response. On the dashpot beam the non-modal direction lies $17^\circ$ from the nearest mode and $2.5^\circ$ from the tip-force response, and among forces at all 60 degrees of freedom the dashpot's is the closest. The low-order loss is traced to how SOD ranks that direction, and a recognition rule removes it. All results are numerical, and the manuscript states where the result holds and where it does not.
 
-The manuscript tests one explanation. A free decay is driven only by internal forces. For a force concentrated at one point, the SOD basis holds, besides the modes, the structure's response to a force at that point at the direction's own SOD frequency. A covariance identity that keeps the force term of the SOD eigenproblem states this with its damping and record-end corrections. On the dashpot beam the non-modal direction lies $17^\circ$ from the nearest mode and $2.5^\circ$ from the tip-force response; on two nonlinear cantilevers the first SOD direction lies within $0.05^\circ$ of it. The low-order loss is traced to ranking, and it is removed by marking the modal directions through the one-way rotation of their state-space planes.
-
-For readers of the journal, the result connects a data-driven basis to static correction: the decay supplies what modal truncation augmentation supplies, without being told where the force acts, and the text states where that holds and where it does not. All results are numerical, from full-field records with model velocities, and the manuscript says so in its abstract and limitations.
-
-The work is original, has not been published and is not under consideration elsewhere. I am the sole author and declare no competing interests. The scripts, their stored outputs and a reproduction manual are archived at Zenodo (\url{https://doi.org/10.5281/zenodo.24248585}) and will be public on submission. The use of generative AI tools is declared in the manuscript, as the publisher's policy requires. Supplementary material with the forced-record contrast, the complex-mode study, the details of the nonlinear benchmarks and integration cost is submitted with the manuscript.
-
-% DECIDE (author): keep, edit or remove the list of suggested reviewers below; screen it for conflicts of interest.
-I suggest the reviewers listed on the next page.
-
-\closing{Sincerely,}
-\end{letter}
+The work is original, has not been published and is not under consideration elsewhere. I am the sole author and have no competing interests. The scripts, their stored outputs and a reproduction manual are archived at Zenodo (DOI 10.5281/zenodo.24248585) and will be public on submission. The use of generative AI tools is declared in the manuscript, as the publisher's policy requires.
+% DECIDE (author): keep, edit or remove the list of suggested reviewers; screen it for conflicts of interest.
+Suggested reviewers are listed on the next page.
+\end{nldletter}
 
 \newpage
-\noindent\textbf{Suggested reviewers (draft; the author must screen for conflicts of interest)}
+\noindent{\sffamily\bfseries Suggested reviewers} {\sffamily\small(draft; to be screened for conflicts of interest)}
 
 \medskip
-\noindent\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.33\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
+{\small
+\noindent\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}>{\raggedright\arraybackslash}p{0.36\textwidth}@{}}
 \toprule
-name & affiliation and contact & why\\ \midrule
-Brian F. Feeny & Professor, Department of Mechanical Engineering, Michigan State University, USA. \texttt{feeny@msu.edu} (department directory) & Proper and smooth orthogonal decomposition for modal analysis; co-author of the 2008 paper whose Eq.~(8) the identity extends\\[4pt]
-Cyril Touz\'e & Professor, IMSIA, ENSTA, Institut Polytechnique de Paris, France. \texttt{cyril.touze@ensta.fr} (address printed on a 2025 thesis proposal; an older address ends in \texttt{ensta-paris.fr}) & Reduced-order models of nonlinear vibrating structures; nonlinear normal modes; comparison with POD\\[4pt]
-Paolo Tiso & Institute for Mechanical Systems, ETH Z\"urich, Switzerland. Email: VERIFY on the ETH page; not found in my search & Galerkin reduced-order models for structural dynamics; static and modal-derivative basis vectors\\[4pt]
-Ludovic Renson & Associate Professor, Department of Mechanical Engineering, Imperial College London, UK. Email: VERIFY (the college profile gives the user name \texttt{l.renson}) & Nonlinear normal modes, nonlinear model reduction, experimental continuation\\
+Name & Affiliation and contact & Expertise\\ \midrule
+Brian F. Feeny & Professor, Department of Mechanical Engineering, Michigan State University, USA. feeny@msu.edu (department directory) & Proper and smooth orthogonal decomposition for modal analysis; co-author of the 2008 paper whose Eq.~(8) the identity extends\\[4pt]
+Cyril Touz\'e & Professor, IMSIA, ENSTA, Institut Polytechnique de Paris, France. cyril.touze@ensta.fr (printed on a 2025 thesis proposal; an older address ends in ensta-paris.fr) & Reduced-order models of nonlinear vibrating structures; nonlinear normal modes; comparison with POD\\[4pt]
+Paolo Tiso & Institute for Mechanical Systems, ETH Z\"urich, Switzerland. Email: VERIFY on the ETH page & Galerkin reduced-order models for structural dynamics; static and modal-derivative basis vectors\\[4pt]
+Ludovic Renson & Associate Professor, Department of Mechanical Engineering, Imperial College London, UK. Email: VERIFY (college user name l.renson) & Nonlinear normal modes, nonlinear model reduction, experimental continuation\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 
 \medskip
-\noindent Affiliations were read from institutional or publication pages on 16 November 2026. No check of co-authorship or other conflicts was made; that is the author's to do. A fifth name was considered (S.~Bellizzi, smooth decomposition), but a current affiliation could not be confirmed.
+{\small\noindent Affiliations were read from institutional or publication pages on 16 November 2026. Co-authorship and other conflicts were not checked.}
 \end{document}
