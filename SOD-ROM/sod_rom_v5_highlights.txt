@@ -1,5 +1,5 @@
-A free decay teaches an SOD basis the modes and the concentrated internal forces
-Each added direction is the response to a force at that point at its SOD frequency
-A covariance identity with the force term kept gives the result and its corrections
-Ranked among the modes, that direction costs a mode at low order
-Modes marked by circular state planes go first; the gain from six modes is kept
+A free-decay SOD basis holds the modes plus the response to a point internal force
+A covariance identity relates each SOD direction to it, at its own SOD frequency
+On a dashpot beam the direction points at the dashpot among 60 degrees of freedom
+Ranked among the modes, that direction costs a mode at low ROM order
+Marking modes by state-plane rotation removes that loss at two to five modes
